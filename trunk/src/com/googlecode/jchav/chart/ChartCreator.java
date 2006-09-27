@@ -49,8 +49,8 @@ import com.googlecode.jchav.data.Measurement;
  * Note that this is not a timeseries chart, because we do not
  * know the interval between builds.
  * 
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class ChartCreator
 {
