@@ -1,0 +1,28 @@
+To run JChav you need the following libraries:
+
+1.  JFreeChart
+
+    Url: http://www.jfree.org/jfreechart/index.html
+    License: LGPL
+    Version: 1.0.2
+    JARs: jfreechart-1.0.2/lib/jfreechart-1.0.2.jar
+    
+2.  JCommon
+
+	Url:  http://www.jfree.org/jcommon/index.php
+	License: LGPL
+	Version: 1.0.6
+	JARs: jcommon-1.0.6/jcommon-1.0.6.jar
+	
+For development you need the following libraries:
+
+1.  Junit
+
+	Url: http://www.jfree.org/jcommon/index.php
+	License: Common Public License Version 1.0
+	Version: 4.1
+	JARs: junit-4.1.jar
+
+	
+
+    
