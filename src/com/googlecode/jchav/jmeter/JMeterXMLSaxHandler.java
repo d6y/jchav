@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -33,6 +34,10 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public class JMeterXMLSaxHandler extends DefaultHandler
 {
+    
+    /** Logger. */
+    private static Logger logger = Logger.getLogger(JMeterXMLSaxHandler.class);
+
     /** Local format definition.
      * Defaults to log format v2.1, but can be overridden by the constructor.
      */
@@ -102,12 +107,15 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                     // try conversion
                     try
                     {
+                        if(logger.isDebugEnabled())
+                        {
+                            logger.debug("Adding raw performance for "+labelName+" val "+timeSpent);
+                        }
                         currentRequest.addResult(Long.parseLong(timeSpent));
                     }
                     catch(NumberFormatException nfe)
                     {
-                        // TODO logging framework!
-                        System.err.println("Invalid time in xml "+nfe);
+                      logger.error("Invalid time in xml "+nfe);
                     }
                 }
             }
