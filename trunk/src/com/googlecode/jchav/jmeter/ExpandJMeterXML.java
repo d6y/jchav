@@ -85,6 +85,12 @@ public class ExpandJMeterXML extends DefaultHandler
             {
                 RequestHolder requestAverages=contentHandler.getRequestHolder((String)iter.next());
                 Measurement measurement=new MeasurementImpl(buildId,requestAverages.getAverage(),requestAverages.getMinimum(),requestAverages.getMaximum());
+            
+                if(logger.isDebugEnabled())
+                {
+                    logger.debug("Adding averages values as follows buildId="+buildId+" av="+requestAverages.getAverage()+" min="+requestAverages.getMinimum()+" max="+requestAverages.getMaximum());
+                }
+                
                 pageData.addMeasurement(requestAverages.getPageId(), measurement);
             }
             
