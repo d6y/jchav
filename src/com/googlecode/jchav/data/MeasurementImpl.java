@@ -35,6 +35,21 @@ public class MeasurementImpl implements Measurement
     /** The average time in milliseconds. */
     private long averageTime;
 
+    /**
+     * Helper constructor.
+     * @param buildId Id of build.
+     * @param averageTime average time.
+     * @param minimumTime minimum time.
+     * @param maximumtime maximum time.
+     */
+    public MeasurementImpl(String buildId, long averageTime, long minimumTime, long maximumtime)
+    {
+        this.buildId=buildId;
+        this.averageTime=averageTime;
+        this.minimumTime=minimumTime;
+        this.maximumTime=maximumtime;
+    }
+    
     /** (non-Javadoc)
      * @see com.googlecode.jchav.data.Measurement#getAverageTime()
      */
