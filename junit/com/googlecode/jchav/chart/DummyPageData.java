@@ -61,10 +61,10 @@ public class DummyPageData implements PageData
         
         data.put("Summary",  
                 new MeasurementListBuilder()
-                    .add("build 1.0", 50L, 100L, 150L)
-                    .add("build 1.1", 25L, 30L, 40L)
+                    .add("build 1.0", 50L, 104L, 150L)
+                    .add("build 1.1", 25L, 32L, 40L)
                     .add("build 1.2", 27L, 38L, 50L)
-                    .add("build 1.3", 26L, 40L, 60L)
+                    .add("build 1.3", 26L, 45L, 60L)
                     .toList() );
         
         data.put("Home",  

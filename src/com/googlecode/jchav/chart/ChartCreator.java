@@ -85,6 +85,8 @@ public class ChartCreator
         {
             dataset.addValue(m.getMinimumTime(), "min", m.getBuildId());
             dataset.addValue(m.getMaximumTime(), "max", m.getBuildId());
+            dataset.addValue(m.getAverageTime(), "mean", m.getBuildId());
+            
         }
         
         
