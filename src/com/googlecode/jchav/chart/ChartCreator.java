@@ -77,7 +77,8 @@ public class ChartCreator
     {
        
         final MinMaxCategoryRenderer minMaxRenderer = new MinMaxCategoryRenderer();
-        
+        minMaxRenderer.setObjectIcon( new FilledCircle());
+         
         
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
@@ -117,5 +118,10 @@ public class ChartCreator
         
      
     }
+    
+
+    
+    
+    
     
 }
