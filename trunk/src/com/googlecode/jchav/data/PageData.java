@@ -41,4 +41,11 @@ public interface PageData
      */
     Iterator getPageIds();
     
+    /** Add a measurement to the structure.
+     * 
+     * @param pageId the pageId to add for,
+     * @param measurement The measurement.
+     */
+    void addMeasurement(String pageId,Measurement measurement);
+    
 }
