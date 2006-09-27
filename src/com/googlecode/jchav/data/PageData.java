@@ -39,7 +39,7 @@ public interface PageData
     /** Get an iterator over the ordered set of page ids.
      * @return Iterator over the ordered set of page ids.
      */
-    Iterator getPageIds();
+    Iterator<String> getPageIds();
     
     /** Add a measurement to the structure.
      * 
