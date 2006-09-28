@@ -21,7 +21,7 @@ package com.googlecode.jchav.data;
  * @author $Author: pgoulbou $
  * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
  */
-public class MeasurementImpl implements Measurement
+public class MeasurementImpl implements Measurement,Comparable<Measurement>
 {
     /** The builds identifier. */
     private String buildId;
@@ -112,6 +112,14 @@ public class MeasurementImpl implements Measurement
     public final void setMinimumTime(long minimumTime)
     {
         this.minimumTime = minimumTime;
+    }
+
+    /** Comparitor is a simple string compare.
+     *@return 0 if same. 
+     */
+    public int compareTo(Measurement o)
+    {
+        return o.getBuildId().compareTo(getBuildId());
     }
     
 }

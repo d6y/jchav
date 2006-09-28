@@ -18,6 +18,7 @@ package com.googlecode.jchav.data;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.SortedSet;
 
 /**
  * Interface to the data source provided from JMeter detailing the performance characteristics of a given request.
@@ -32,7 +33,7 @@ public interface PageData
      * @param pageId The unique page name from the getPages iterator.
      * @return Ordered list of measurements. Ordered in X axis order (left to right).
      */
-    List <Measurement> getMeasurements(String pageId);
+    SortedSet <Measurement> getMeasurements(String pageId);
     
     
         
