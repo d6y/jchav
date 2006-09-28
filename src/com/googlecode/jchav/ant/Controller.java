@@ -38,7 +38,7 @@ public class Controller
 {
 
     private int width = 640;
-    private int height = 450;
+    private int height = 480;
     private double thumbnailScale = 0.5d;
     
    
