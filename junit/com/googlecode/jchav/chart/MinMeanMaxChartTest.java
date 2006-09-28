@@ -24,12 +24,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.googlecode.jchav.data.Measurement;
 
 /**
- * Test of creating a graph. 
+ * Test of creating a chart. 
  *
  * @author $LastChangedBy: dallaway $
  * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
@@ -37,12 +38,13 @@ import com.googlecode.jchav.data.Measurement;
 public class MinMeanMaxChartTest
 {
 
+    // The object under test:
+    private MinMeanMaxChart chart;
+    
     /**
-     * Test that creates a PNG graph from the Dummy data.
-     * 
-     * @throws IOException if the test fails unexpectedly.
+     * Set up common test data.
      */
-    @Test public void canCreateAChart() throws IOException
+    @Before public void setUp()
     {
         // A page name we know exists in the dummy data.
         final String pageId = "Summary"; 
@@ -54,19 +56,57 @@ public class MinMeanMaxChartTest
         // Sanity checks on the test data:
         assertNotNull(data);
         assertEquals(4, data.size());
+
+         chart = new MinMeanMaxChart(pageId, data);
+    }
+    
+    /**
+     * Test that we can create a PNG graph from the Dummy data.
+     * 
+     * @throws IOException if the test fails unexpectedly.
+     */
+    @Test public void canCreateAChart() throws IOException
+    {
         
-        final File file = new File("jchav-sumary.png");
+        final File file = new File("jchav-summary.png");
         final FileOutputStream out = new FileOutputStream(file);
+       
         //final ByteArrayOutputStream out = new ByteArrayOutputStream();
         
-        MinMeanMaxChart chart = new MinMeanMaxChart(pageId, data);
         chart.setHeight(400);
         chart.setWidth(600);
         chart.write(out);
         
+        out.close();
         
         System.out.println(file.getAbsolutePath());
         
     }
+    
+
+    /**
+     * Test of creating a thumbnail.
+     * 
+     * @throws IOException if the test fails unexpectedly.
+     */
+    @Test public void canCreateThumbnail() throws IOException
+    {
+
+        final File file = new File("jchav-summary-thumb.png");
+        final FileOutputStream out = new FileOutputStream(file);
+       
+        //final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        
+        chart.setHeight(400);
+        chart.setWidth(600);
+        chart.setThumbnailScale(0.5d);
+        chart.writeThumbnail(out);
+        
+        out.close();
+        
+        System.out.println(file.getAbsolutePath());
+        
+    }
+    
     
 }
