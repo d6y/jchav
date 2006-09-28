@@ -16,6 +16,9 @@
  */
 package com.googlecode.jchav.chart;
 
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -33,11 +36,12 @@ public abstract class Chart
 {
     private int width = 600;
     private int height = 400;
+    private double thumbnailScale = 0.5;
  
     protected JFreeChart chart;
     
     /**
-     * @param height the height to set.
+     * @param height the height of the full-size chart.
      */
     public void setHeight(int height)
     {
@@ -45,12 +49,23 @@ public abstract class Chart
     }
 
     /**
-     * @param width the width to set.
+     * @param width the width of the full-size chart.
      */
     public void setWidth(int width)
     {
         this.width = width;
     }
+
+    /**
+     * @param thumbnailScale the scale to use when creating thumbnails via <code>writeThumbnail</code>.
+     *  A scale of 0.5d would be half the size of the full-size (<code>width</code>x<code>height</code)
+     *  chart.
+     */
+    public void setThumbnailScale(double thumbnailScale)
+    {
+        this.thumbnailScale = thumbnailScale;
+    }
+    
     
     /**
      * Creates a PNG graphic for the given data.
@@ -65,6 +80,36 @@ public abstract class Chart
     {
         ChartUtilities.writeChartAsPNG(out, chart, width, height);
     }
+    
+    /**
+     * Creates a PNG graphic for the given data as a thumbnail image.
+     *
+     * @param out the stream to write the PNG to.  The caller is responsible
+     *  for closing the stream.
+     * 
+     * @throws IOException if there was a problem creating the chart.
+     */
+    public void writeThumbnail(final OutputStream out) 
+        throws IOException
+    {
+        final String mimeType = "image/png";
+        
+        // Set up the transfomration:
+        final AffineTransform xform = new AffineTransform();
+        xform.scale(thumbnailScale, thumbnailScale);
+        
+        // Thanks to the almanac for this one:
+        // http://javaalmanac.com/egs/java.awt.image/CreateTxImage.html?l=rel
+        final AffineTransformOp op = new AffineTransformOp(xform, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+
+        final BufferedImage fullsize = chart.createBufferedImage(width, height);
+        final BufferedImage thumbnail = op.filter(fullsize, null /*null means create the image for us*/);
+
+        ChartUtilities.writeBufferedImageAsPNG(out, thumbnail);
+        
+    }
+
+    
     
     
 }
