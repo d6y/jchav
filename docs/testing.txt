@@ -1,0 +1,8 @@
+Simple testing property in place for locating test data.
+
+When running tests you must have the System property set to the test data area
+
+eg
+jchav.test.data.dir="/Users/goul/Documents/workspace/jchav/testdata/"
+
+Ant build will set this automatically.
