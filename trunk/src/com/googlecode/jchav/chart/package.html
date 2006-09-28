@@ -9,6 +9,29 @@
 
 Provides a way to create graphs for JChav.
 <P>
+Typical usage example:
+
+<pre><tt>
+	// Create the chart based on some Measurement data:
+	Chart chart = chart = new MinMeanMaxChart(pageId, data);
+	
+	// Set the size for the full-sized image:
+	chart.setWidth(640);
+	chart.setHeigt(480);
+	
+	// Store it:
+	FileOutputStream out = new FileOutputSream(new File("someplace.png"));
+	chart.write(out);
+	out.close();
+	
+	// Write a thumbnail version, at 25% of the size:
+	chart.setThumbnailScale(0.25d);
+	FileOutputStream thumb = new FileOutputSream(new File("thumb.png"));
+	thumb.writeThumbnail(out);
+	thumb.close();
+	
+</tt></pre>
+
 
 </body>
 </html>
