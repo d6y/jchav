@@ -17,11 +17,8 @@
 package com.googlecode.jchav.chart;
 
 import java.awt.Color;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.List;
 
-import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
@@ -49,37 +46,26 @@ import com.googlecode.jchav.data.Measurement;
  * Note that this is not a timeseries chart, because we do not
  * know the interval between builds.
  * 
- * @author $LastChangedBy$
- * @version $LastChangedDate$ $LastChangedRevision$
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
  */
-public class ChartCreator
+public class MinMeanMaxChart extends Chart
 {
-    
-    /**
-     * All methods a static helpers, so no need to
-     * construct an instance.
-     */
-    private ChartCreator()
-    {
-    }
+
 
     /**
-     * Creates a PNG graphic for the given data.
+     * Construct a new chart to display the given data.
      * 
      * @param pageId The page id, used for the title of the chart.
      * @param data the data to plot.
-     * @param out the steam to write the PNG to.
-     * 
-     * @throws IOException if there was a problem creating the chart.
      */
-    public static void write(final String pageId, final List<Measurement> data, final OutputStream out) 
-        throws IOException
+    public MinMeanMaxChart(final String pageId, final List<Measurement> data)
     {
-       
+        // The renderer that does all the real work here:
         final MinMaxCategoryRenderer minMaxRenderer = new MinMaxCategoryRenderer();
         minMaxRenderer.setObjectIcon( new FilledCircle());
          
-        
+        // Munge the data into form JFreeChart can use:
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
         
         for(Measurement m : data)
@@ -87,17 +73,15 @@ public class ChartCreator
             dataset.addValue(m.getMinimumTime(), "min", m.getBuildId());
             dataset.addValue(m.getMaximumTime(), "max", m.getBuildId());
             dataset.addValue(m.getAverageTime(), "mean", m.getBuildId());
-            
         }
         
-        
+        // Create the plot area:
         final CategoryPlot plot = new CategoryPlot();
         plot.setDataset(dataset);
         plot.setRenderer(minMaxRenderer);
-        plot.setDomainAxis(new CategoryAxis("Build"));
+        plot.setDomainAxis(new CategoryAxis("Build")); // TO DO: i18n
         plot.setRangeAxis(new NumberAxis("RT"));
 
-           
         // Build labels running diagonally under the bars of the chart.
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);
 
@@ -106,19 +90,16 @@ public class ChartCreator
         plot.setDomainGridlinesVisible(false);
 
         
-        // Render the chart:
-        
-        final JFreeChart chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, /*show legend=*/false);
-       
+        // Render the chart:  the legend here would be the "min", "max", "mean"
+        // strings used when created int category data set.
+        chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, /*show legend=*/false);
         chart.setTitle(pageId);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setBorderVisible(false);
-        
-        ChartUtilities.writeChartAsPNG(out, chart, 600, 400);
-        
-     
+         
     }
-    
+
+
 
     
     

@@ -31,15 +31,14 @@ import com.googlecode.jchav.data.Measurement;
 /**
  * Test of creating a graph. 
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
  */
-public class ChartCreatorTest
+public class MinMeanMaxChartTest
 {
 
     /**
-     * Test that creates a PNG graph from
-     * the Dummy data.
+     * Test that creates a PNG graph from the Dummy data.
      * 
      * @throws IOException if the test fails unexpectedly.
      */
@@ -48,6 +47,7 @@ public class ChartCreatorTest
         // A page name we know exists in the dummy data.
         final String pageId = "Summary"; 
         
+        // Data for the page:
         final DummyPageData pageData = new DummyPageData();
         final List<Measurement> data = pageData.getMeasurements(pageId);
         
@@ -58,7 +58,12 @@ public class ChartCreatorTest
         final File file = new File("jchav-sumary.png");
         final FileOutputStream out = new FileOutputStream(file);
         //final ByteArrayOutputStream out = new ByteArrayOutputStream();
-        ChartCreator.write(pageId, data, out);
+        
+        MinMeanMaxChart chart = new MinMeanMaxChart(pageId, data);
+        chart.setHeight(400);
+        chart.setWidth(600);
+        chart.write(out);
+        
         
         System.out.println(file.getAbsolutePath());
         

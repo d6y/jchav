@@ -19,7 +19,7 @@ package com.googlecode.jchav.data;
 /**
  * Interface describing behaviour of a measurement object.
  * This object is used to store the actual values from a measured object.
- * @author $Author: pgoulbou $
+ * @author $LastChangedBy$
  * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
  */
 public interface Measurement
