@@ -16,25 +16,25 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.apache.log4j.Logger;
-import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.DefaultHandler;
 
 import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.MeasurementImpl;
 import com.googlecode.jchav.data.PageData;
+import com.googlecode.jchav.data.PageDataImpl;
 
 
 /**
@@ -42,24 +42,61 @@ import com.googlecode.jchav.data.PageData;
  * @author $Author: pgoulbou $
  * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
  */
-public class ExpandJMeterXML extends DefaultHandler
+public class ExpandJMeterXML
 {
     /** Logger. */
     private static Logger logger = Logger.getLogger(ExpandJMeterXML.class);
 
-    PageData pageData; // do this stuff.....
+    /** This stores all the averages per page per build. */
+    private PageData pageData=new PageDataImpl();
     
     
     
-    public void processAllfiles(String dir)
+    /**
+     * Read each resulting xml file in turn.
+     * For each file call processXMLFile to calculate its averages and add them to the build.
+     * @param dir Directory used to store all the jmeter files.
+     */
+    public void processAllfiles(File dir)
     {
         // for each file 
+        if(!dir.isDirectory())
+        {
+            logger.error("Passed file is not a directory.....ignoring.");
+            return;
+        }
         
-        // process the file
+        File [] files=dir.listFiles();
         
-        // get the set of averages for that run 
+        for(int l=0;l<files.length;l++)
+        {
+            File toProcess=files[l];
+            if(toProcess.isFile())
+            {
+                //process the file
+                try
+                {
+                    InputSource source=new InputSource(new FileReader(toProcess));
+                    processXMLFile(toProcess.getName(), source);
+                }
+                catch (FileNotFoundException e)
+                {
+                    logger.error("File "+toProcess.getName()+" could not be processed "+e.getMessage());
+                }
+                
+            }
+        }
+        
     }
     
+    /** Process a single xml file. 
+     * Operation as follows :
+     * a) Use the JMeterXMLSaxHandler to get all the average values per unique page.
+     * b) Add them to the core data structure by the buildid (filename).
+     * 
+     * @param buildId Unique id for the build.
+     * @param source The input source to process.
+     */
     public void processXMLFile(String buildId, InputSource source)
     {
         // future expansion point
@@ -79,18 +116,20 @@ public class ExpandJMeterXML extends DefaultHandler
 
             parser.parse(source);
             
-            Iterator iter=contentHandler.getLabels();
+            Iterator<String> iter=contentHandler.getLabels();
             
+            //for each page in this build
             while(iter.hasNext())
             {
-                RequestHolder requestAverages=contentHandler.getRequestHolder((String)iter.next());
+                RequestHolder requestAverages=contentHandler.getRequestHolder(iter.next());
                 Measurement measurement=new MeasurementImpl(buildId,requestAverages.getAverage(),requestAverages.getMinimum(),requestAverages.getMaximum());
             
                 if(logger.isDebugEnabled())
                 {
-                    logger.debug("Adding averages values as follows buildId="+buildId+" av="+requestAverages.getAverage()+" min="+requestAverages.getMinimum()+" max="+requestAverages.getMaximum());
+                    logger.debug("Adding averages values as follows pageId="+requestAverages.getPageId()+" buildId="+buildId+" av="+requestAverages.getAverage()+" min="+requestAverages.getMinimum()+" max="+requestAverages.getMaximum());
                 }
                 
+                // add the average for this page and build to the data set
                 pageData.addMeasurement(requestAverages.getPageId(), measurement);
             }
             
@@ -107,5 +146,14 @@ public class ExpandJMeterXML extends DefaultHandler
         {
             logger.error("Unable to read log input source."+e.getMessage());
         }
+    }
+    
+    /** Allow calling classes to access the page data produced.
+     * 
+     * @return the page data structure.
+     */
+    public PageData getPageData()
+    {
+        return pageData;
     }
 }

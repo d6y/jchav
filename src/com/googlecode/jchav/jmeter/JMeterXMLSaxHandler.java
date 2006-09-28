@@ -63,7 +63,7 @@ public class JMeterXMLSaxHandler extends DefaultHandler
      * 
      * @return iterator through the labels.
      */
-    public Iterator getLabels()
+    public Iterator<String> getLabels()
     {
         return requestMap.keySet().iterator();
         
@@ -89,11 +89,11 @@ public class JMeterXMLSaxHandler extends DefaultHandler
             
         
                 // look for our tag
-                if(localName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
+                if(qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
                 {
-                    String labelName=formatDefinitions.getLabelAttributeName();
+                    String labelName=attributes.getValue(formatDefinitions.getLabelAttributeName());
                     // check if we already have a request for this stuff
-                    currentRequest=requestMap.get(attributes.getValue(labelName));
+                    currentRequest=requestMap.get(labelName);
                     if(currentRequest==null)
                     {
                         currentRequest=new RequestHolder();
