@@ -17,7 +17,7 @@
 package com.googlecode.jchav.chart;
 
 import java.awt.Color;
-import java.util.List;
+import java.util.SortedSet;
 
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
@@ -59,7 +59,7 @@ public class MinMeanMaxChart extends Chart
      * @param pageId The page id, used for the title of the chart.
      * @param data the data to plot.
      */
-    public MinMeanMaxChart(final String pageId, final List<Measurement> data)
+    public MinMeanMaxChart(final String pageId, final SortedSet<Measurement> data)
     {
         // The renderer that does all the real work here:
         final MinMaxCategoryRenderer minMaxRenderer = new MinMaxCategoryRenderer();

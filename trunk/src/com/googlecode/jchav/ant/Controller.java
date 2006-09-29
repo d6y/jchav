@@ -19,7 +19,6 @@ package com.googlecode.jchav.ant;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Iterator;
 
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
@@ -65,16 +64,14 @@ public class Controller
         
         // Read the data:
         ExpandJMeterXML expander = new ExpandJMeterXML();
-        expander.processAllfiles(xmlDir.getAbsolutePath());
+        expander.processAllfiles(xmlDir);
        
         final PageData data = null; // TODO: get from someplace
 
         
         // Foreach page...
-        for (Iterator<String> i=data.getPageIds(); i.hasNext(); /*noop*/ ) 
+        for(String id: data.getPageIds()) 
         {
-            String id = i.next();
-            
             // Create the chart:
             Chart chart = new MinMeanMaxChart(id, data.getMeasurements(id));
             chart.setWidth(width);

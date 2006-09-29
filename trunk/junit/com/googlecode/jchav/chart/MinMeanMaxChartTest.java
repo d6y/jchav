@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
+import java.util.SortedSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -51,7 +51,7 @@ public class MinMeanMaxChartTest
         
         // Data for the page:
         final DummyPageData pageData = new DummyPageData();
-        final List<Measurement> data = pageData.getMeasurements(pageId);
+        final SortedSet<Measurement> data = pageData.getMeasurements(pageId);
         
         // Sanity checks on the test data:
         assertNotNull(data);

@@ -16,8 +16,8 @@
  */
 package com.googlecode.jchav.chart;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.MeasurementImpl;
@@ -34,7 +34,7 @@ import com.googlecode.jchav.data.MeasurementImpl;
 public class MeasurementListBuilder
 {
     
-    private final List<Measurement> data = new ArrayList<Measurement>();
+    private final SortedSet<Measurement> data = new TreeSet<Measurement>();
 
     /**
      * Append data to the list.
@@ -59,7 +59,7 @@ public class MeasurementListBuilder
      * @return this object as a list of <code>Measurement</code>
      *  objects.
      */
-    public List<Measurement> toList()
+    public SortedSet<Measurement> toList()
     {
         return data;
     }

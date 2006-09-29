@@ -16,9 +16,6 @@
  */
 package com.googlecode.jchav.data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
@@ -33,7 +30,7 @@ import java.util.TreeSet;
  */
 public class PageDataImpl implements PageData
 {
-    SortedMap<String, SortedSet> allMeasurements=new TreeMap<String, SortedSet>();
+    SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
 
     /** Get the ordered list of measurements for a given pageId.
      * 
@@ -58,9 +55,9 @@ public class PageDataImpl implements PageData
     /** Get an iterator over the ordered set of page ids.
      * @return Iterator over the ordered set of page ids.
      */
-    public Iterator<String> getPageIds()
+    public Iterable<String> getPageIds()
     {
-        return allMeasurements.keySet().iterator();
+        return allMeasurements.keySet();
     }
     
     /** Add a measurement to the structure.
@@ -70,7 +67,7 @@ public class PageDataImpl implements PageData
      */
     public void addMeasurement(String pageId,Measurement measurement)
     {
-        SortedSet measurements=allMeasurements.get(pageId);
+        SortedSet<Measurement> measurements=allMeasurements.get(pageId);
         if(measurements==null)
         {
             measurements=new TreeSet<Measurement>();
