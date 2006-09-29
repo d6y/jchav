@@ -70,9 +70,9 @@ public class MinMeanMaxChart extends Chart
         
         for(Measurement m : data)
         {
-            dataset.addValue(m.getMinimumTime(), "min", m.getBuildId());
-            dataset.addValue(m.getMaximumTime(), "max", m.getBuildId());
-            dataset.addValue(m.getAverageTime(), "mean", m.getBuildId());
+            dataset.addValue(m.getMinimumTime(), "min", m.getBuildId().getBuildName());
+            dataset.addValue(m.getMaximumTime(), "max", m.getBuildId().getBuildName());
+            dataset.addValue(m.getAverageTime(), "mean", m.getBuildId().getBuildName());
         }
         
         // Create the plot area:

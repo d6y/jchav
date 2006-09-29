@@ -19,6 +19,7 @@ package com.googlecode.jchav.chart;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import com.googlecode.jchav.data.BuildId;
 import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.MeasurementImpl;
 
@@ -46,7 +47,7 @@ public class MeasurementListBuilder
      * 
      * @return this.
      */
-    public MeasurementListBuilder add(final String buildId, final long min, final long mean, final long max)
+    public MeasurementListBuilder add(final BuildId buildId, final long min, final long mean, final long max)
     {
         final MeasurementImpl m = new MeasurementImpl(buildId, mean, min, max);
         

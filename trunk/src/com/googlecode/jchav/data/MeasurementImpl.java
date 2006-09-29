@@ -24,7 +24,7 @@ package com.googlecode.jchav.data;
 public class MeasurementImpl implements Measurement,Comparable<Measurement>
 {
     /** The builds identifier. */
-    private String buildId;
+    private BuildId buildId;
     
     /** The minimum request time in milliseconds. */
     private long minimumTime;
@@ -42,7 +42,7 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
      * @param minimumTime minimum time.
      * @param maximumtime maximum time.
      */
-    public MeasurementImpl(String buildId, long averageTime, long minimumTime, long maximumtime)
+    public MeasurementImpl(BuildId buildId, long averageTime, long minimumTime, long maximumtime)
     {
         this.buildId=buildId;
         this.averageTime=averageTime;
@@ -69,7 +69,7 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
     /** (non-Javadoc)
      * @see com.googlecode.jchav.data.Measurement#getBuildId()
      */
-    public final String getBuildId()
+    public final BuildId getBuildId()
     {
         return buildId;
     }
@@ -77,7 +77,7 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
     /** (non-Javadoc)
      * @see com.googlecode.jchav.data.Measurement#setBuildId(java.lang.String)
      */
-    public final void setBuildId(String buildId)
+    public final void setBuildId(BuildId buildId)
     {
         this.buildId = buildId;
     }
@@ -119,7 +119,7 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
      */
     public int compareTo(Measurement o)
     {
-        return o.getBuildId().compareTo(getBuildId());
+        return buildId.getBuildOrder()-o.getBuildId().getBuildOrder();
     }
     
 }

@@ -25,6 +25,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
+import com.googlecode.jchav.data.BuildIdImpl;
 import com.googlecode.jchav.data.PageData;
 
 
@@ -75,7 +76,7 @@ public class ExpandJMeterXMLTest
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
         
         InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"Good21Data.xml"));
-        jmeterExpander.processXMLFile("TestBuild", source);    
+        jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source);    
     }
     
     /**
@@ -89,7 +90,7 @@ public class ExpandJMeterXMLTest
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
         
         InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"BadParse21Data.xml"));
-        jmeterExpander.processXMLFile("TestBuild2", source);    
+        jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source);    
     }
     
     /** Test that when a directory full of files is generated that the builds are in order.

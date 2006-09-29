@@ -31,6 +31,8 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
+import com.googlecode.jchav.data.BuildId;
+import com.googlecode.jchav.data.BuildIdImpl;
 import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.MeasurementImpl;
 import com.googlecode.jchav.data.PageData;
@@ -77,7 +79,7 @@ public class ExpandJMeterXML
                 try
                 {
                     InputSource source=new InputSource(new FileReader(toProcess));
-                    processXMLFile(toProcess.getName(), source);
+                    processXMLFile(new BuildIdImpl(toProcess.getName(),l), source);
                 }
                 catch (FileNotFoundException e)
                 {
@@ -97,7 +99,7 @@ public class ExpandJMeterXML
      * @param buildId Unique id for the build.
      * @param source The input source to process.
      */
-    public void processXMLFile(String buildId, InputSource source)
+    public void processXMLFile(BuildId buildId, InputSource source)
     {
         // future expansion point
         // detect xml version here and pass alternate labels instance depending on version
@@ -132,6 +134,10 @@ public class ExpandJMeterXML
                 // add the average for this page and build to the data set
                 pageData.addMeasurement(requestAverages.getPageId(), measurement);
             }
+            
+            // add the overall averages as well
+            Measurement averageMeasurement=new MeasurementImpl(buildId,contentHandler.getSummaryRequestHolder().getAverage(),contentHandler.getSummaryRequestHolder().getMinimum(),contentHandler.getSummaryRequestHolder().getMaximum());
+            pageData.addMeasurement(JMeterXMLSaxHandler.SUMMARY_PAGE_ID, averageMeasurement);
             
         }
         catch (SAXException er)

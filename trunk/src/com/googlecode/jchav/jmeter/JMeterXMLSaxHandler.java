@@ -50,6 +50,13 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     /** Map of request objects and values. */
     private Map<String, RequestHolder> requestMap=new HashMap<String, RequestHolder>();
     
+    /** Holds the oveall request averages etc. */
+    private RequestHolder summaryRequestHolder;
+    
+    /** The identifier for the summary page id. */
+    public final static String SUMMARY_PAGE_ID="sumarypage";
+
+    
     /** Create a handler with a defined xml format.
      * 
      * @param formats The XML format definition.
@@ -79,7 +86,19 @@ public class JMeterXMLSaxHandler extends DefaultHandler
         return requestMap.get(name);
     }
     
+    /** (non-Javadoc)
+     * @see DefaultHandler#startDocument()
+     */
+    public void startDocument() throws SAXException
+    {
+        summaryRequestHolder=new RequestHolder();
+        summaryRequestHolder.setPageId(SUMMARY_PAGE_ID);
+    }
+  
     
+    /** (non-Javadoc)
+     * @see DefaultHandler#startElement()
+     */
     public void startElement(String namespaceUri,
                     String localName,
                     String qualifiedName,
@@ -111,7 +130,12 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                         {
                             logger.debug("Adding raw performance for "+labelName+" val "+timeSpent);
                         }
-                        currentRequest.addResult(Long.parseLong(timeSpent));
+                        // add to current page
+                        long requestTime=Long.parseLong(timeSpent);
+                        currentRequest.addResult(requestTime);
+                        
+                        // add to overall averages
+                        summaryRequestHolder.addResult(requestTime);
                     }
                     catch(NumberFormatException nfe)
                     {
@@ -119,4 +143,12 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                     }
                 }
             }
+
+    /** Get the overall page average values.
+     * @return Returns the summaryRequestHolder.
+     */
+    public final RequestHolder getSummaryRequestHolder()
+    {
+        return summaryRequestHolder;
+    }
 }
