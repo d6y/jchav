@@ -66,7 +66,7 @@ public class Controller
         ExpandJMeterXML expander = new ExpandJMeterXML();
         expander.processAllfiles(xmlDir);
        
-        final PageData data = null; // TODO: get from someplace
+        final PageData data = expander.getPageData();
 
         
         // Foreach page...
