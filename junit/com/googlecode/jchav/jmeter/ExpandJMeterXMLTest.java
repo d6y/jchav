@@ -103,19 +103,19 @@ public class ExpandJMeterXMLTest
         
         PageData pageData=jmeterExpander.getPageData();
         
-        Iterator<String> pageIds=pageData.getPageIds();
+        Iterable<String> pageIds=pageData.getPageIds();
         
         String oldKey=null;
-        while(pageIds.hasNext())
+        for(String page : pageIds)
         {
             if(oldKey==null)
             {
-                oldKey=pageIds.next();
+                oldKey=page;
             }
             else
             {
-                String newKey=pageIds.next();
-                System.out.println("pageId "+newKey);
+                String newKey=page;
+                System.out.println("pageId "+page);
                 oldKey=newKey;
             }
         }
