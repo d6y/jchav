@@ -19,7 +19,6 @@ package com.googlecode.jchav.jmeter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
 
 import org.junit.Before;
 import org.junit.Test;
