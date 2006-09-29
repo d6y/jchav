@@ -39,7 +39,22 @@ public class ControllerTest
     {
         Controller controller=new Controller();
         File processingDir=new File(System.getProperty("jchav.test.data.dir"));
-        controller.go(processingDir,processingDir);
-        
+        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"results");
+        controller.go(processingDir,resultsDir);       
     }
+    
+    
+    /**
+     * Test tsa data
+     */
+    @Test public void testTSAData() throws IOException
+    {
+        Controller controller=new Controller();
+        File processingDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea");
+        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea"+File.separator+"results");
+        controller.go(processingDir,resultsDir);       
+    }
+    
+    
+    
 }

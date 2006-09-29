@@ -16,6 +16,7 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -111,6 +112,9 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                 if(qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
                 {
                     String labelName=attributes.getValue(formatDefinitions.getLabelAttributeName());
+                    
+                    labelName=simplifyLabelName(labelName);
+                    
                     // check if we already have a request for this stuff
                     currentRequest=requestMap.get(labelName);
                     if(currentRequest==null)
@@ -143,6 +147,30 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                     }
                 }
             }
+
+    /** Process the label name down to something simple.
+     * i.e. remove any params passed to the request.
+     * This is a future expansion point to be specific abot what we are to remove.
+     * eg just JSessionId etc etc.
+     * 
+     * @param labelName pageId that potentially includes Get parameters.
+     * 
+     * @return truncated version of label name with no params.
+     */
+    public static String simplifyLabelName(String labelName)
+    {
+        // the xml file format moves params to be ;, so we cut on that value
+        int argStart=labelName.indexOf(";");
+        if(argStart>0)
+        {
+            return URLEncoder.encode(labelName.substring(0,argStart));
+        }
+        else
+        {
+            return URLEncoder.encode(labelName);
+        }
+        
+    }
 
     /** Get the overall page average values.
      * @return Returns the summaryRequestHolder.
