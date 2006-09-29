@@ -18,8 +18,8 @@ package com.googlecode.jchav.chart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
+import java.util.SortedSet;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -38,7 +38,7 @@ public class DummyPageData implements PageData
 {
 
     private final List<String> pageIdList;
-    private final HashMap<String, List<Measurement>> data;
+    private final HashMap<String, SortedSet<Measurement>> data;
     
     /**
      * Construct a fixed set of sample data. 
@@ -57,7 +57,7 @@ public class DummyPageData implements PageData
        
         // ...measurements for each of the pages...
         
-        data = new HashMap<String, List<Measurement>>();
+        data = new HashMap<String, SortedSet<Measurement>>();
         
         data.put("Summary",  
                 new MeasurementListBuilder()
@@ -104,7 +104,7 @@ public class DummyPageData implements PageData
     /**
      * {@inheritDoc}
      */
-    public List<Measurement> getMeasurements(final String pageId)
+    public SortedSet<Measurement> getMeasurements(final String pageId)
     {
         return this.data.get(pageId);
     }
@@ -112,9 +112,9 @@ public class DummyPageData implements PageData
     /**
      * {@inheritDoc}
      */
-    public Iterator<String> getPageIds()
+    public Iterable<String> getPageIds()
     {
-        return pageIdList.iterator();
+        return pageIdList;
     }
 
     /**

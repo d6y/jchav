@@ -16,8 +16,6 @@
  */
 package com.googlecode.jchav.data;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.SortedSet;
 
 /**
@@ -40,7 +38,7 @@ public interface PageData
     /** Get an iterator over the ordered set of page ids.
      * @return Iterator over the ordered set of page ids.
      */
-    Iterator<String> getPageIds();
+    Iterable<String> getPageIds();
     
     /** Add a measurement to the structure.
      * 
