@@ -22,7 +22,6 @@ import java.awt.Graphics;
 import javax.swing.Icon;
 
 
-
 /**
  * An icon to use for the mean on the chart.
  * 
