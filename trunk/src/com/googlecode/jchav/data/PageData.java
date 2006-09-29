@@ -25,6 +25,10 @@ import java.util.SortedSet;
  */
 public interface PageData
 {
+    
+
+    /** The identifier for the summary page id. */
+    public final static String SUMMARY_PAGE_ID="sumarypage";
 
     /** Get the ordered list of measurements for a given pageId.
      * 

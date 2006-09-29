@@ -25,6 +25,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.googlecode.jchav.data.PageData;
+
 /**
  * Sax processor to read the JMeter XML v2.1 files as specified in http://jakarta.apache.org/jmeter/usermanual/listeners.html.
  * See 14.6 XML Log Format 2.1
@@ -53,8 +55,6 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     /** Holds the oveall request averages etc. */
     private RequestHolder summaryRequestHolder;
     
-    /** The identifier for the summary page id. */
-    public final static String SUMMARY_PAGE_ID="sumarypage";
 
     
     /** Create a handler with a defined xml format.
@@ -92,7 +92,7 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     public void startDocument() throws SAXException
     {
         summaryRequestHolder=new RequestHolder();
-        summaryRequestHolder.setPageId(SUMMARY_PAGE_ID);
+        summaryRequestHolder.setPageId(PageData.SUMMARY_PAGE_ID);
     }
   
     

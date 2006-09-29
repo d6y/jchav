@@ -137,7 +137,7 @@ public class ExpandJMeterXML
             
             // add the overall averages as well
             Measurement averageMeasurement=new MeasurementImpl(buildId,contentHandler.getSummaryRequestHolder().getAverage(),contentHandler.getSummaryRequestHolder().getMinimum(),contentHandler.getSummaryRequestHolder().getMaximum());
-            pageData.addMeasurement(JMeterXMLSaxHandler.SUMMARY_PAGE_ID, averageMeasurement);
+            pageData.addMeasurement(PageData.SUMMARY_PAGE_ID, averageMeasurement);
             
         }
         catch (SAXException er)
