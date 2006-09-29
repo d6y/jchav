@@ -17,9 +17,12 @@
 package com.googlecode.jchav.jmeter;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -38,7 +41,6 @@ import com.googlecode.jchav.data.MeasurementImpl;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.data.PageDataImpl;
 
-
 /**
  * Process an XML file to generate the set of averages for a given request file.
  * @author $Author: pgoulbou $
@@ -50,10 +52,8 @@ public class ExpandJMeterXML
     private static Logger logger = Logger.getLogger(ExpandJMeterXML.class);
 
     /** This stores all the averages per page per build. */
-    private PageData pageData=new PageDataImpl();
-    
-    
-    
+    private PageData pageData = new PageDataImpl();
+
     /**
      * Read each resulting xml file in turn.
      * For each file call processXMLFile to calculate its averages and add them to the build.
@@ -62,35 +62,91 @@ public class ExpandJMeterXML
     public void processAllfiles(File dir)
     {
         // for each file 
-        if(!dir.isDirectory())
+        if (!dir.isDirectory())
         {
             logger.error("Passed file is not a directory.....ignoring.");
             return;
         }
-        
-        File [] files=dir.listFiles();
-        
-        for(int l=0;l<files.length;l++)
+
+        File[] files = getOrderedFiles(dir);
+
+        for (int l = 0; l < files.length; l++)
         {
-            File toProcess=files[l];
-            if(toProcess.isFile())
+            File toProcess = files[l];
+            if (toProcess.isFile())
             {
                 //process the file
                 try
                 {
-                    InputSource source=new InputSource(new FileReader(toProcess));
-                    processXMLFile(new BuildIdImpl(toProcess.getName(),l), source);
+                    InputSource source = new InputSource(new FileReader(toProcess));
+                    processXMLFile(new BuildIdImpl(toProcess.getName(), l), source);
                 }
                 catch (FileNotFoundException e)
                 {
-                    logger.error("File "+toProcess.getName()+" could not be processed "+e.getMessage());
+                    logger.error("File " + toProcess.getName() + " could not be processed " + e.getMessage());
                 }
-                
+
             }
         }
-        
+
     }
-    
+
+    /** Get all the files (not dirs) in a directory.
+     * 
+     * @param dir dir to list.
+     * @return array of files in modification date order.
+     */
+    private File[] getOrderedFiles(File dir)
+    {
+
+        //Build a simple comparitor as inner class
+        Comparator<File> byModificationDate = new Comparator<File>()
+        {
+            public int compare(File f1, File f2)
+            {
+                long diff = f1.lastModified() - f2.lastModified();
+                int returnValue;
+                if (diff < 0L)
+                {
+                    returnValue = -1;
+                }
+                else if (diff > 0L)
+                {
+                    returnValue = +1;
+                }
+                else
+                {
+                    assert diff == 0L;
+                    returnValue = 0;
+                }
+                return returnValue;
+            }
+        };
+
+        // file filter to reject dirs
+        FileFilter noDirFilter = new FileFilter()
+        {
+            public boolean accept(File f)
+            {
+                if (f.isDirectory())
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        };
+
+        // Filter out the dirs.
+        File[] nonDirs = dir.listFiles(noDirFilter);
+
+        //return them sorted
+        Arrays.sort(nonDirs, byModificationDate);
+        return nonDirs;
+    }
+
     /** Process a single xml file. 
      * Operation as follows :
      * a) Use the JMeterXMLSaxHandler to get all the average values per unique page.
@@ -110,50 +166,51 @@ public class ExpandJMeterXML
             SAXParserFactory factory = SAXParserFactory.newInstance();
 
             SAXParser saxParser = factory.newSAXParser();
-            
+
             XMLReader parser = saxParser.getXMLReader();
 
             // Register the content handler
             parser.setContentHandler(contentHandler);
 
             parser.parse(source);
-            
-            Iterator<String> iter=contentHandler.getLabels();
-            
+
+            Iterator<String> iter = contentHandler.getLabels();
+
             //for each page in this build
-            while(iter.hasNext())
+            while (iter.hasNext())
             {
-                RequestHolder requestAverages=contentHandler.getRequestHolder(iter.next());
-                Measurement measurement=new MeasurementImpl(buildId,requestAverages.getAverage(),requestAverages.getMinimum(),requestAverages.getMaximum());
-            
-                if(logger.isDebugEnabled())
+                RequestHolder requestAverages = contentHandler.getRequestHolder(iter.next());
+                Measurement measurement = new MeasurementImpl(buildId, requestAverages.getAverage(), requestAverages.getMinimum(), requestAverages.getMaximum());
+
+                if (logger.isDebugEnabled())
                 {
-                    logger.debug("Adding averages values as follows pageId="+requestAverages.getPageId()+" buildId="+buildId+" av="+requestAverages.getAverage()+" min="+requestAverages.getMinimum()+" max="+requestAverages.getMaximum());
+                    logger.debug("Adding averages values as follows pageId=" + requestAverages.getPageId() + " buildId=" + buildId + " av=" + requestAverages.getAverage() + " min=" + requestAverages.getMinimum() + " max="
+                                    + requestAverages.getMaximum());
                 }
-                
+
                 // add the average for this page and build to the data set
                 pageData.addMeasurement(requestAverages.getPageId(), measurement);
             }
-            
+
             // add the overall averages as well
-            Measurement averageMeasurement=new MeasurementImpl(buildId,contentHandler.getSummaryRequestHolder().getAverage(),contentHandler.getSummaryRequestHolder().getMinimum(),contentHandler.getSummaryRequestHolder().getMaximum());
+            Measurement averageMeasurement = new MeasurementImpl(buildId, contentHandler.getSummaryRequestHolder().getAverage(), contentHandler.getSummaryRequestHolder().getMinimum(), contentHandler.getSummaryRequestHolder().getMaximum());
             pageData.addMeasurement(PageData.SUMMARY_PAGE_ID, averageMeasurement);
-            
+
         }
         catch (SAXException er)
         {
-            logger.error("Unable parse log file "+er.getMessage());
+            logger.error("Unable parse log file " + er.getMessage());
         }
         catch (ParserConfigurationException er)
         {
-            logger.error("Unable to configure sax parser "+er.getMessage());
+            logger.error("Unable to configure sax parser " + er.getMessage());
         }
         catch (IOException e)
         {
-            logger.error("Unable to read log input source."+e.getMessage());
+            logger.error("Unable to read log input source." + e.getMessage());
         }
     }
-    
+
     /** Allow calling classes to access the page data produced.
      * 
      * @return the page data structure.
