@@ -21,9 +21,8 @@ import java.awt.Graphics;
 
 import javax.swing.Icon;
 
-
 /**
- * An icon to use for the mean on the chart.
+ * An icon to use for showing the mean,max and min on the chart.
  * 
  * This is a 8x8 icon.
  *
