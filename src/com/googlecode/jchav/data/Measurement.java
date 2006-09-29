@@ -38,12 +38,12 @@ public interface Measurement
     /**
      * @return Returns the buildId.
      */
-    String getBuildId();
+    BuildId getBuildId();
 
     /**
      * @param buildId The buildId to set.
      */
-    void setBuildId(String buildId);
+    void setBuildId(BuildId buildId);
 
     /**
      * @return Returns the maximumTime.
