@@ -47,7 +47,7 @@ import com.googlecode.jchav.data.Measurement;
  * know the interval between builds.
  * 
  * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public class MinMeanMaxChart extends Chart
 {

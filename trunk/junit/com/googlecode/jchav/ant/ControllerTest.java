@@ -25,15 +25,16 @@ import org.junit.Test;
 /**
  * Test the controller call.
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 
 public class ControllerTest
 {
 
     /**
-     * Test we can deal with a directory full of files.
+     * Test we can deal with a directory full of files.    
+     * @throws IOException on unexpected failure.
      */
     @Test public void testFullDirectoryController() throws IOException
     {
@@ -45,7 +46,8 @@ public class ControllerTest
     
     
     /**
-     * Test tsa data
+     * Test tsa data dir.
+     * @throws IOException on unexpected failure.
      */
     @Test public void testTSAData() throws IOException
     {

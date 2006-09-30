@@ -26,8 +26,8 @@ import javax.swing.Icon;
  * 
  * This is a 8x8 icon.
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class FilledCircle implements Icon
 {
@@ -37,7 +37,7 @@ public class FilledCircle implements Icon
      */
     public int getIconHeight()
     {
-       return 8;
+       return 8; 
     }
 
     /**

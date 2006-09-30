@@ -30,14 +30,20 @@ import org.jfree.chart.JFreeChart;
  * being written to disk.
  *
  * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public abstract class Chart
 {
+    /** Default image width. */
     private int width = 600;
+   
+    /** Default image height. */
     private int height = 400;
-    private double thumbnailScale = 0.5;
+    
+    /** Default image thumbnail ratio. */
+    private double thumbnailScale = 0.5d;
  
+    /** The chart itself. */
     protected JFreeChart chart;
     
     /**
@@ -92,7 +98,6 @@ public abstract class Chart
     public void writeThumbnail(final OutputStream out) 
         throws IOException
     {
-        final String mimeType = "image/png";
         
         // Set up the transfomration:
         final AffineTransform xform = new AffineTransform();

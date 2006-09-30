@@ -19,8 +19,8 @@ package com.googlecode.jchav.jmeter;
 /**
  * Data holder for a single request.
  * 
- * @author $Author: pgoulbou $
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public class RequestHolder
 {
@@ -39,7 +39,10 @@ public class RequestHolder
     /** Maximum value. */
     private long maximum=Long.MIN_VALUE;
     
-    /** Add a given result to the total. */
+    /** Add a given result to the total. 
+     * 
+     * @param time time to add.
+     */
     public void addResult(long time)
     {
         count++;

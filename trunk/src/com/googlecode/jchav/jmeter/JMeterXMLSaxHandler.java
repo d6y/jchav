@@ -32,8 +32,8 @@ import com.googlecode.jchav.data.PageData;
  * Sax processor to read the JMeter XML v2.1 files as specified in http://jakarta.apache.org/jmeter/usermanual/listeners.html.
  * See 14.6 XML Log Format 2.1
  * 
- * @author $Author: pgoulbou $
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public class JMeterXMLSaxHandler extends DefaultHandler
 {
@@ -87,8 +87,9 @@ public class JMeterXMLSaxHandler extends DefaultHandler
         return requestMap.get(name);
     }
     
-    /** (non-Javadoc)
-     * @see DefaultHandler#startDocument()
+    
+    /**
+     * {@inheritDoc}
      */
     public void startDocument() throws SAXException
     {
@@ -97,8 +98,8 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     }
   
     
-    /** (non-Javadoc)
-     * @see DefaultHandler#startElement()
+    /**
+     * {@inheritDoc}
      */
     public void startElement(String namespaceUri,
                     String localName,
