@@ -18,8 +18,8 @@ package com.googlecode.jchav.data;
 
 /** Concrete implementation of the measurement class.
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class MeasurementImpl implements Measurement,Comparable<Measurement>
 {

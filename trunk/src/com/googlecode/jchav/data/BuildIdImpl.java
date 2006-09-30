@@ -18,8 +18,8 @@ package com.googlecode.jchav.data;
 
 /**
  * Concrete implementation of the build id class.
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class BuildIdImpl implements BuildId
 {

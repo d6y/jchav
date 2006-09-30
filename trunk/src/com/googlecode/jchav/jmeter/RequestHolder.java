@@ -19,8 +19,8 @@ package com.googlecode.jchav.jmeter;
 /**
  * Data holder for a single request.
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class RequestHolder
 {

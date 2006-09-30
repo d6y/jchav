@@ -43,8 +43,8 @@ import com.googlecode.jchav.data.PageDataImpl;
 
 /**
  * Process an XML file to generate the set of averages for a given request file.
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class ExpandJMeterXML
 {

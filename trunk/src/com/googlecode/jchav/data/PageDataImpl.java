@@ -25,8 +25,8 @@ import java.util.TreeSet;
  * Concrete implementation of the PageData structure.
  * 
  * The structure is not designed to be thread safe, and almost certainly isnt.
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class PageDataImpl implements PageData
 {

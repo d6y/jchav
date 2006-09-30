@@ -32,8 +32,8 @@ import com.googlecode.jchav.data.PageData;
  * Sax processor to read the JMeter XML v2.1 files as specified in http://jakarta.apache.org/jmeter/usermanual/listeners.html.
  * See 14.6 XML Log Format 2.1
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class JMeterXMLSaxHandler extends DefaultHandler
 {

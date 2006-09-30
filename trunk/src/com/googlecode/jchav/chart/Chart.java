@@ -29,8 +29,8 @@ import org.jfree.chart.JFreeChart;
  * Base class for things charts generally want to do, such as
  * being written to disk.
  *
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public abstract class Chart
 {
