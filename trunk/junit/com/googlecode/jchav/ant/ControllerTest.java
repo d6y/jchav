@@ -57,6 +57,14 @@ public class ControllerTest
         controller.go(processingDir,resultsDir);       
     }
     
+    /**
+     * For v4 junit tests to run through ant we currently need the adapter.
+     * @return suite of tests.
+     */
+    public static junit.framework.Test suite() 
+    {
+        return new junit.framework.JUnit4TestAdapter(ControllerTest.class);
+    }
     
     
 }

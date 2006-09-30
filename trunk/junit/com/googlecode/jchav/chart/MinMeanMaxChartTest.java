@@ -27,6 +27,7 @@ import java.util.SortedSet;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.googlecode.jchav.ant.ControllerTest;
 import com.googlecode.jchav.data.Measurement;
 
 /**
@@ -40,6 +41,15 @@ public class MinMeanMaxChartTest
 
     /** The object under test. */
     private MinMeanMaxChart chart;
+    
+    /**
+     * For v4 junit tests to run through ant we currently need the adapter.
+     * @return suite of tests.
+     */
+    public static junit.framework.Test suite() 
+    {
+        return new junit.framework.JUnit4TestAdapter(MinMeanMaxChartTest.class);
+    }
     
     /**
      * Set up common test data.
