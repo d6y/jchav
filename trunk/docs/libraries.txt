@@ -24,5 +24,12 @@ For development you need the following libraries:
 	JARs: junit-4.1.jar
 
 	
-
-    
+2. Checkstyle
+	
+	Url: http://checkstyle.sourceforge.net/index.html
+	License: LGPL/Apache 2.0
+	Version: 4.1
+	JARs: checkstyle-all-4.1.jar
+	
+	
+	
