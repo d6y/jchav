@@ -21,8 +21,8 @@ package com.googlecode.jchav.jmeter;
  * Interface defining the names of tags in the JMeter files.
  * These tag names have changed between XML files v2.0 and v2.1.
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public interface XMLFormatDefinitions
 {

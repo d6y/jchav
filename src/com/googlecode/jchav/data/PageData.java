@@ -20,8 +20,8 @@ import java.util.SortedSet;
 
 /**
  * Interface to the data source provided from JMeter detailing the performance characteristics of a given request.
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public interface PageData
 {

@@ -24,8 +24,8 @@ package com.googlecode.jchav.jmeter;
  * &lt;httpSample t="1392" lt="351" ts="1144371014619" s="true" lb="HTTP Request" 
  * rc="200" rm="OK" tn="Listen 1-1" dt="text" de="iso-8859-1" by="12407"&gt;
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class JMeter21XMLLabels implements XMLFormatDefinitions
 {

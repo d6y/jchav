@@ -46,8 +46,8 @@ import com.googlecode.jchav.data.Measurement;
  * Note that this is not a timeseries chart, because we do not
  * know the interval between builds.
  * 
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate$ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class MinMeanMaxChart extends Chart
 {
