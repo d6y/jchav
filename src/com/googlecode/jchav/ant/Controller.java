@@ -30,8 +30,8 @@ import com.googlecode.jchav.jmeter.ExpandJMeterXML;
  * Provides the control and co-ordination of the JChav process to
  * produce a set of charts for a given set of data.
  *
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class Controller
 {
