@@ -60,7 +60,7 @@
 
 	<target name="compile-junit" depends="init,compile">
 		<!--  create the dirs for output -->
-		<javac debug="${debug.flag}" srcdir="${test.src.dir}" classpathref="fullclasspath" classpath="${build.classes.dir}" includes="**" destdir="${test.classes.dir}" />
+		<javac debug="${debug.flag}" srcdir="${test.src.dir}" classpathref="fullclasspath" classpath="${build.classes.dir}:./thirdparty/junit/junit-4.1.jar" includes="**" destdir="${test.classes.dir}" />
 
 	</target>
 
