@@ -15,7 +15,7 @@
 			</classpath>
 		 </taskdef>
 		
-		<jchav srcdir="../testdata/digwalk" destdir="../testdata/digwalk/results"/>
+		<jchav srcdir="../testdata/digwalk" destdir=""/>
 	</target>
 	
 </project>
