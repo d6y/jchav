@@ -37,36 +37,33 @@ import com.googlecode.jchav.data.PageData;
  */
 public class JMeterXMLSaxHandler extends DefaultHandler
 {
-    
+
     /** Logger. */
     private static Logger logger = Logger.getLogger(JMeterXMLSaxHandler.class);
 
     /** Local format definition.
      * Defaults to log format v2.1, but can be overridden by the constructor.
      */
-    private XMLFormatDefinitions formatDefinitions=new JMeter21XMLLabels();
-    
-    
+    private XMLFormatDefinitions formatDefinitions = new JMeter21XMLLabels();
+
     /** Current request being processed. */
     private RequestHolder currentRequest;
-    
+
     /** Map of request objects and values. */
-    private Map<String, RequestHolder> requestMap=new HashMap<String, RequestHolder>();
-    
+    private Map<String, RequestHolder> requestMap = new HashMap<String, RequestHolder>();
+
     /** Holds the oveall request averages etc. */
     private RequestHolder summaryRequestHolder;
-    
 
-    
     /** Create a handler with a defined xml format.
      * 
      * @param formats The XML format definition.
      */
     public JMeterXMLSaxHandler(XMLFormatDefinitions formats)
     {
-        this.formatDefinitions=formats;
+        this.formatDefinitions = formats;
     }
-    
+
     /** Get an iterator through the labels. 
      * 
      * @return iterator through the labels.
@@ -74,9 +71,9 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     public Iterator<String> getLabels()
     {
         return requestMap.keySet().iterator();
-        
+
     }
-    
+
     /** Get the request holder for a given label.
      * 
      * @param name label of result.
@@ -86,68 +83,61 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     {
         return requestMap.get(name);
     }
-    
-    
+
     /**
      * {@inheritDoc}
      */
     public void startDocument() throws SAXException
     {
-        summaryRequestHolder=new RequestHolder();
+        summaryRequestHolder = new RequestHolder();
         summaryRequestHolder.setPageId(PageData.SUMMARY_PAGE_ID);
     }
-  
-    
+
     /**
      * {@inheritDoc}
      */
-    public void startElement(String namespaceUri,
-                    String localName,
-                    String qualifiedName,
-                    Attributes attributes)
-            throws SAXException 
-            {    
-            
-        
-                // look for our tag
-                if(qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
-                {
-                    String labelName=attributes.getValue(formatDefinitions.getLabelAttributeName());
-                    
-                    labelName=simplifyLabelName(labelName);
-                    
-                    // check if we already have a request for this stuff
-                    currentRequest=requestMap.get(labelName);
-                    if(currentRequest==null)
-                    {
-                        currentRequest=new RequestHolder();
-                        currentRequest.setPageId(labelName);
-                        requestMap.put(labelName, currentRequest);
-                    }
-                    
-                    // add time spent
-                    String timeSpent=attributes.getValue(formatDefinitions.getElapsedTimeAttributeName());
-                    
-                    // try conversion
-                    try
-                    {
-                        if(logger.isDebugEnabled())
-                        {
-                            logger.debug("Adding raw performance for "+labelName+" val "+timeSpent);
-                        }
-                        // add to current page
-                        long requestTime=Long.parseLong(timeSpent);
-                        currentRequest.addResult(requestTime);
-                        
-                        // add to overall averages
-                        summaryRequestHolder.addResult(requestTime);
-                    }
-                    catch(NumberFormatException nfe)
-                    {
-                      logger.error("Invalid time in xml "+nfe);
-                    }
-                }
+    public void startElement(String namespaceUri, String localName, String qualifiedName, Attributes attributes) throws SAXException
+    {
+
+        // look for our tag
+        if (qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
+        {
+            String labelName = attributes.getValue(formatDefinitions.getLabelAttributeName());
+
+            labelName = simplifyLabelName(labelName);
+
+            // check if we already have a request for this stuff
+            currentRequest = requestMap.get(labelName);
+            if (currentRequest == null)
+            {
+                currentRequest = new RequestHolder();
+                currentRequest.setPageId(labelName);
+                requestMap.put(labelName, currentRequest);
             }
+
+            // add time spent
+            String timeSpent = attributes.getValue(formatDefinitions.getElapsedTimeAttributeName());
+
+            // try conversion
+            try
+            {
+                if (logger.isDebugEnabled())
+                {
+                    logger.debug("Adding raw performance for " + labelName + " val " + timeSpent);
+                }
+                // add to current page
+                long requestTime = Long.parseLong(timeSpent);
+                currentRequest.addResult(requestTime);
+
+                // add to overall averages
+                summaryRequestHolder.addResult(requestTime);
+            }
+            catch (NumberFormatException nfe)
+            {
+                logger.error("Invalid time in xml " + nfe);
+            }
+        }
+    }
 
     /** Process the label name down to something simple.
      * i.e. remove any params passed to the request.
@@ -160,17 +150,8 @@ public class JMeterXMLSaxHandler extends DefaultHandler
      */
     public static String simplifyLabelName(String labelName)
     {
-        // the xml file format moves params to be ;, so we cut on that value
-        int argStart=labelName.indexOf(";");
-        if(argStart>0)
-        {
-            return URLEncoder.encode(labelName.substring(0,argStart));
-        }
-        else
-        {
-            return URLEncoder.encode(labelName);
-        }
-        
+        return PageIdProcessorImpl.processPageId(labelName);
+
     }
 
     /** Get the overall page average values.

@@ -27,7 +27,6 @@ import java.util.SortedSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.googlecode.jchav.ant.ControllerTest;
 import com.googlecode.jchav.data.Measurement;
 
 /**

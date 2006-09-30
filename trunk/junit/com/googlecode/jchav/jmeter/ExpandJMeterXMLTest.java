@@ -24,7 +24,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
-import com.googlecode.jchav.chart.MinMeanMaxChartTest;
 import com.googlecode.jchav.data.BuildIdImpl;
 import com.googlecode.jchav.data.PageData;
 

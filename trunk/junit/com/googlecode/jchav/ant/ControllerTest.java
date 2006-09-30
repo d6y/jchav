@@ -57,6 +57,19 @@ public class ControllerTest
         controller.go(processingDir,resultsDir);       
     }
     
+    
+    /**
+     * Test digg data dir.
+     * @throws IOException on unexpected failure.
+     */
+    @Test public void testDiggData() throws IOException
+    {
+        Controller controller=new Controller();
+        File processingDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk");
+        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk"+File.separator+"results");
+        controller.go(processingDir,resultsDir);       
+    }
+    
     /**
      * For v4 junit tests to run through ant we currently need the adapter.
      * @return suite of tests.
