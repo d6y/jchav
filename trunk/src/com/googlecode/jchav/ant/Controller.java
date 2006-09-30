@@ -30,14 +30,17 @@ import com.googlecode.jchav.jmeter.ExpandJMeterXML;
  * Provides the control and co-ordination of the JChav process to
  * produce a set of charts for a given set of data.
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
  */
 public class Controller
 {
 
+    /** Default image width. */
     private int width = 640;
+    /** Default image height. */
     private int height = 480;
+    /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
     
    
@@ -90,6 +93,7 @@ public class Controller
      * Writes the chart both full-sized and thumbnail size to
      * the output directory.
      * 
+     * @param pageId id of current page.
      * @param chart the chart to write.
      * @param outDir the directory to write into.
      * 
