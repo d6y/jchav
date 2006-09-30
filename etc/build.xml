@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="jchav" default="default" basedir=".">
+
+	<target name="default" depends="run-checkstyle,build-jar"/>
+	
+	<target name="cruise-target" depends="cvsget,default" />
+	
+	<target name="init">
+		<echo>Loading properties from ${user.name}.properties</echo>
+		<property file="${user.name}.properties" />
+
+
+		<property name="build.src.dir" value="../src" />
+		<property name="build.docs.dir" value="../docs" />
+		<property name="build.classes.dir" value="../classes"/>
+		<property name="debug.flag" value="true" />
+
+		<property name="test.dir" value="../junit" />
+		<property name="junit.log.location" value="${test.dir}/logs" />
+		<property name="test.src.dir" value="${test.dir}" />
+		
+		<property name="test.classes.dir" value="${test.dir}/classes" />
+
+		<property name="target.jarfile" value="../jchav.jar" />
+
+		
+		<property name="findbugs.home" value="./findbugs" />
+		<property name="findbugs.output" value="${build.docs.dir}/findbugs" />
+
+		<mkdir dir="${build.classes.dir}" />
+		<mkdir dir="${test.classes.dir}" />
+
+
+		<path id="fullclasspath">
+			<fileset dir="../libs/">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+
+	</target>
+
+	<target name="compile" depends="init">
+		<!--  create the dirs for output -->
+		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />
+
+	</target>
+
+
+	<target name="compile-tests" depends="init">
+		<!--  create the dirs for output -->
+		<javac debug="${debug.flag}" srcdir="${test.src.dir}" classpathref="fullclasspath" classpath="${build.classes.dir}" includes="**" destdir="${test.classes.dir}" />
+
+	</target>
+
+			
+	<target name="build-jar" depends="clean,compile">
+		<jar destfile="${target.jarfile}">
+			<fileset dir="${build.classes.dir}" />
+			<fileset dir="${resources.dir}" />
+		</jar>
+	</target>
+
+	<target name="clean" depends="init">
+
+		<delete>
+			<fileset dir="${build.classes.dir}" />
+			<fileset dir="${test.classes.dir}" />
+		</delete>
+
+	</target>
+	
+	<target name="run-checkstyle" depends="init">
+		
+		<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask">
+			<classpath>
+		    	<pathelement location="./thirdparty/checkstyle/checkstyle-all-4.1.jar" />
+		    </classpath> 
+		</taskdef>
+		         					
+		<checkstyle config="./checkstyle.xml" failonviolation="true" classpathref="fullclasspath">
+			<formatter type="xml" toFile="checkstyle_results.xml"/>
+			<fileset dir="${build.src.dir}" />
+		</checkstyle>
+	</target>
+	 
+	
+	<target name="run-findbugs" depends="init">
+		<taskdef name="findbugs" classpath="${findbugs.home}/lib/findbugs-ant.jar" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
+		
+		<findbugs home="${findbugs.home}"
+		              output="html"
+		              outputFile="findbugsresults.html">
+		      <sourcePath path="${build.src.dir}" />
+		      <class location="${target.jarfile}" />
+		    </findbugs>
+		
+		</target>
+	
+	
+
+	<target name="generate-javadoc" depends="init">
+			<mkdir dir="${build.docs.dir}" />
+			<javadoc classpath="${javac.classpath}" 
+				additionalparam="-J-Djava.awt.headless=true"
+				classpathref="fullclasspath" 
+				packagenames="com.*" 
+				destdir="${build.docs.dir}" 
+				maxmemory="256M"
+				overview="${build.src.dir}/overview.html"
+				author="true"
+				version="true"
+				>
+				<sourcepath>
+					<pathelement path="${build.src.dir}" />
+				</sourcepath>
+				<bottom>
+					<![CDATA[<i>Copyright &#169; 2006 Ford Motor Company. All Rights Reserved.</i>]]></bottom>
+			<doclet name="ydoc.doclets.YStandard" path="${ydoclocation}/lib/ydoc.jar:${ydoclocation}/lib/class2svg.jar:${ydoclocation}/resources:${build.classes.dir}">
+				<param name="-generic" />
+				<param name="-umlautogen" />
+				<param name="-filterpath" value="${ydoclocation}/lib/ydoc.jar" />
+				<param name="-filter" value="ydoc.filters.ExcludeFilter" />
+				<param name="-tag" value="y.precondition" />
+				<param name="-tag" value="y.postcondition" />
+				<param name="-tag" value="y.complexity" />
+				<param name="-tag" value="param" />
+				<param name="-tag" value="return" />
+				<param name="-tag" value="see" />
+				<param name="-tag" value="y.uml" />
+			</doclet>
+		</javadoc>
+	</target>
+
+	<target depends="init" name="cvsget" description="Get the sourceout of cvs.">
+		<cvs dest="../.." cvsroot="/export/home/cvs/repos" command="checkout" package="odyssey-ids-publish-spa" />
+	</target>
+
+</project>
+
