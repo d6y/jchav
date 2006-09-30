@@ -24,6 +24,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
+import com.googlecode.jchav.chart.MinMeanMaxChartTest;
 import com.googlecode.jchav.data.BuildIdImpl;
 import com.googlecode.jchav.data.PageData;
 
@@ -45,6 +46,16 @@ public class ExpandJMeterXMLTest
     @Before public void setUp()
     {
         testDataDir=System.getProperty("jchav.test.data.dir");
+    }
+    
+    
+    /**
+     * For v4 junit tests to run through ant we currently need the adapter.
+     * @return suite of tests.
+     */
+    public static junit.framework.Test suite() 
+    {
+        return new junit.framework.JUnit4TestAdapter(ExpandJMeterXMLTest.class);
     }
     
     /**

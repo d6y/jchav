@@ -27,6 +27,16 @@ import org.junit.Test;
  */
 public class JMeterXMLSaxHandlerTest
 {
+    
+    /**
+     * For v4 junit tests to run through ant we currently need the adapter.
+     * @return suite of tests.
+     */
+    public static junit.framework.Test suite() 
+    {
+        return new junit.framework.JUnit4TestAdapter(JMeterXMLSaxHandlerTest.class);
+    }
+    
     /**
      * Test we can deal with a directory full of files.
      */
