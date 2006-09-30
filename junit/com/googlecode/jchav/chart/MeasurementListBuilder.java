@@ -29,12 +29,13 @@ import com.googlecode.jchav.data.MeasurementImpl;
  *
  * Not thread safe.
  * 
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class MeasurementListBuilder
 {
     
+    /** Test set of data. */
     private final SortedSet<Measurement> data = new TreeSet<Measurement>();
 
     /**

@@ -20,15 +20,15 @@ import java.util.SortedSet;
 
 /**
  * Interface to the data source provided from JMeter detailing the performance characteristics of a given request.
- * @author $Author: pgoulbou $
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public interface PageData
 {
     
 
     /** The identifier for the summary page id. */
-    public final static String SUMMARY_PAGE_ID="sumarypage";
+    public static final String SUMMARY_PAGE_ID="sumarypage";
 
     /** Get the ordered list of measurements for a given pageId.
      * 

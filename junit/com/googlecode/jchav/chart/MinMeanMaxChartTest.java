@@ -32,13 +32,13 @@ import com.googlecode.jchav.data.Measurement;
 /**
  * Test of creating a chart. 
  *
- * @author $LastChangedBy: dallaway $
- * @version $LastChangedDate: 2006-09-28 00:55:09 +0100 (Thu, 28 Sep 2006) $ $LastChangedRevision: 17 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class MinMeanMaxChartTest
 {
 
-    // The object under test:
+    /** The object under test. */
     private MinMeanMaxChart chart;
     
     /**

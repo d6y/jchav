@@ -24,40 +24,34 @@ package com.googlecode.jchav.jmeter;
  * &lt;httpSample t="1392" lt="351" ts="1144371014619" s="true" lb="HTTP Request" 
  * rc="200" rm="OK" tn="Listen 1-1" dt="text" de="iso-8859-1" by="12407"&gt;
  * 
- * @author $Author: pgoulbou $
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public class JMeter21XMLLabels implements XMLFormatDefinitions
 {
 
     /** Sample tag name. */
-    private static String SAMPLE_TAG_NAME="httpSample";
+    private static  final String SAMPLE_TAG_NAME="httpSample";
     
     /** Elapsed time attribute name. */
-    private static String ELAPSED_TIME_ATTRIBUTE_NAME="t";
+    private static final String ELAPSED_TIME_ATTRIBUTE_NAME="t";
     
     /** Label attribute name. */
-    private static String LABEL_ATTRIBUTE_NAME="lb";
+    private static final String LABEL_ATTRIBUTE_NAME="lb";
 
-    /** (non-Javadoc)
-     * @see com.googlecode.jchav.jmeter.XMLFormatDefinitions#getElapsedTimeAttributeName()
-     */
+    /** {@inheritDoc}*/
     public String getElapsedTimeAttributeName()
     {
        return ELAPSED_TIME_ATTRIBUTE_NAME;
     }
 
-    /** (non-Javadoc)
-     * @see com.googlecode.jchav.jmeter.XMLFormatDefinitions#getLabelAttributeName()
-     */
+    /** {@inheritDoc} */
     public String getLabelAttributeName()
     {
         return LABEL_ATTRIBUTE_NAME;
     }
 
-    /** (non-Javadoc)
-     * @see com.googlecode.jchav.jmeter.XMLFormatDefinitions#getSampleTagName()
-     */
+    /** {@inheritDoc}*/
     public String getSampleTagName()
     {
         return SAMPLE_TAG_NAME;

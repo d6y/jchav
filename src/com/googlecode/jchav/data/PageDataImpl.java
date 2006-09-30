@@ -25,12 +25,13 @@ import java.util.TreeSet;
  * Concrete implementation of the PageData structure.
  * 
  * The structure is not designed to be thread safe, and almost certainly isnt.
- * @author $Author: pgoulbou $
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
  */
 public class PageDataImpl implements PageData
 {
-    SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
+    /** Structure for all the read measurements. */
+    private SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
 
     /** Get the ordered list of measurements for a given pageId.
      * 

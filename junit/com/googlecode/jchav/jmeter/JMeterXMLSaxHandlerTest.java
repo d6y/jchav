@@ -22,8 +22,8 @@ import org.junit.Test;
 
 /**
  * Tests on the handler
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class JMeterXMLSaxHandlerTest
 {

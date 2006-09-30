@@ -32,13 +32,15 @@ import com.googlecode.jchav.data.PageData;
  * 
  * Not designed for thread safety.
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class DummyPageData implements PageData
 {
 
+    /** Page list. */
     private final List<String> pageIdList;
+    /** Page data. */
     private final HashMap<String, SortedSet<Measurement>> data;
     
     /**

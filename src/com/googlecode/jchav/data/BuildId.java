@@ -19,9 +19,9 @@ package com.googlecode.jchav.data;
 /**
  * Interface describing behaviour of the build Id object.
  * This object store the build id, and ordering information.
- * @author $LastChangedBy$
- * @version $Revision: 1.2 $ $Date: 2006/05/05 14:20:33 $
- */
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate$ $LastChangedRevision: 17 $
+  */
 public interface BuildId
 {
     

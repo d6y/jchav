@@ -31,11 +31,12 @@ import com.googlecode.jchav.data.PageData;
 
 /**
  * Tests to check the XML parsing capabilites.
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class ExpandJMeterXMLTest
 {
+    /** test dir location. */
     private String testDataDir;
     
     /**
@@ -67,7 +68,8 @@ public class ExpandJMeterXMLTest
     }
     
     /**
-     * Test we can handle a valid XML2.1 file.
+     * Test we can handle a valid XML2.1 file.    
+     * @throws IOException on unexpected failure.
      */
     @Test public void testGoodXML21Format() throws IOException
     {
@@ -81,6 +83,7 @@ public class ExpandJMeterXMLTest
     /**
      * Test we can handle an invalid XML2.1 file.
      * Test issues error and carries on - I guess this is what we need.
+     * @throws IOException on unexpected failure.
      * 
      */
     @Test public void testNoParseXML21Format() throws IOException
@@ -93,7 +96,6 @@ public class ExpandJMeterXMLTest
     }
     
     /** Test that when a directory full of files is generated that the builds are in order.
-     * 
      */
     @Test public void testBuildOrdering() 
     {
