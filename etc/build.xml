@@ -67,7 +67,7 @@
 	<target name="run-junit" depends="compile-junit">
 		<mkdir dir="${junit.log.location}"/>
 	
-		<junit fork="yes" printsummary="on" haltonfailure="yes" >
+		<junit fork="yes" printsummary="on"  haltonfailure="yes" >
 			<jvmarg value="-Djchav.test.data.dir=../testdata"/>
 			
 			<classpath location="${test.classes.dir}"/>
