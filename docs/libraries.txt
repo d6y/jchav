@@ -31,5 +31,10 @@ For development you need the following libraries:
 	Version: 4.1
 	JARs: checkstyle-all-4.1.jar
 	
-	
+3. Ant
+
+	Url: http://ant.apache.org/
+	License: Apache 2.0
+	Version: 1.6.5
+	JARs: ant.jar
 	

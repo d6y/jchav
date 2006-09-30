@@ -15,7 +15,7 @@
 		<property name="build.docs.dir" value="../docs" />
 		<property name="build.classes.dir" value="../classes"/>
 		<property name="debug.flag" value="true" />
-
+				
 		<property name="test.dir" value="../junit" />
 		<property name="junit.log.location" value="${test.dir}/logs" />
 		<property name="test.src.dir" value="${test.dir}" />
@@ -83,6 +83,7 @@
 			</batchtest>
 		</junit>
 	</target>
+
 
 			
 	<target name="build-jar" depends="clean,compile">
