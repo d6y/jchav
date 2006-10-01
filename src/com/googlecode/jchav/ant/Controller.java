@@ -19,6 +19,8 @@ package com.googlecode.jchav.ant;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
@@ -70,7 +72,6 @@ public class Controller
         expander.processAllfiles(xmlDir);
        
         final PageData data = expander.getPageData();
-
         
         // Foreach page...
         for(String id: data.getPageIds()) 
@@ -83,9 +84,12 @@ public class Controller
             
             writeChart(id, chart, outDir);
             
+            
+            
+            
         }
         
-        // writeSummary(); ??
+        writeSummary(data, outDir); //??
         
     }
 
@@ -98,7 +102,6 @@ public class Controller
      * @param outDir the directory to write into.
      * 
      * @throws IOException if there was a problem writing the charts.
-     * 
      */
     private void writeChart(final String pageId, final Chart chart, final File outDir) throws IOException
     {
@@ -132,6 +135,74 @@ public class Controller
         }
         
         
+    }
+    
+    
+    
+    
+    /**
+     * Write the summary index page.
+     * 
+     * 
+     * @param pageData The page dta.
+     * @param outDir The output directory.
+     */
+    private void writeSummary(final PageData pageData, final File outDir) throws IOException
+    {
+    	final File indexFile = new File(outDir, "index.html");
+
+    	Writer output = null;
+    	try
+    	{
+    		output = new OutputStreamWriter(new FileOutputStream(indexFile), "UTF-8");
+    		
+    		
+    		output.write("<html>\n");
+    		output.write("<head>\n");
+    		output.write("</head>\n");
+    		output.write("<body>\n");
+    		
+	        for(String id: pageData.getPageIds()) 
+	        {
+	        	// String thiumb img = "";
+	        	
+	        	output.write("<div class=\"summary\">\n" +
+								        			
+							"<h2>\n" +
+							id +
+							"</h2>\n" +
+							"<img src=\"thumb.png\" />\n" +
+							"</div>\n"
+
+	        			);
+	        	
+	        	
+	        }
+	        
+	        
+	        
+    		output.write("</body>\n");
+    		output.write("</html>\n");
+	        
+		
+    	}
+    	finally
+    	{
+    		output.close();
+    		output = null;
+    	}
+    	
+    	
+    	
+    	
+    	
+    	//; write the index page header
+    	
+    	// for each page
+    		// add entry (thumbed)
+    	
+    	// write footer
+    	
     }
     
 }
