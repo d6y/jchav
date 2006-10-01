@@ -2,7 +2,7 @@
 
 <project name="jchav" default="default" basedir=".">
 
-	<target name="default" depends="run-checkstyle,compile-junit,run-junit,build-jar"/>
+	<target name="default" depends="run-checkstyle,compile-junit,run-junit,build-jar,dist"/>
 	
 	<target name="cruise-target" depends="default" />
 	
@@ -13,6 +13,8 @@
 
 		<property name="build.src.dir" value="../src" />
 		<property name="build.docs.dir" value="../docs" />
+		<property name="build.dist.dir" value="../dist" />
+		<property name="build.libs.dir" value="../libs"/>
 		<property name="build.classes.dir" value="../classes"/>
 		<property name="debug.flag" value="true" />
 				
@@ -24,16 +26,12 @@
 
 		<property name="target.jarfile" value="../jchav.jar" />
 
-		
-		<property name="findbugs.home" value="./findbugs" />
-		<property name="findbugs.output" value="${build.docs.dir}/findbugs" />
-
 		<mkdir dir="${build.classes.dir}" />
 		<mkdir dir="${test.classes.dir}" />
 
 
 		<path id="fullclasspath">
-			<fileset dir="../libs/">
+			<fileset dir="${build.libs.dir}/">
 				<include name="**/*.jar"/>
 			</fileset>
 		</path>
@@ -51,6 +49,23 @@
 
 	</target>
 
+	<!-- produce a binary distribution directory. -->
+	<target name="dist" depends="init">
+		<mkdir dir="${build.dist.dir}"/>
+		<copy todir="${build.dist.dir}" file="${build.docs.dir}/libraries.txt"/>
+		<copy todir="${build.dist.dir}" file="${build.docs.dir}/LICENSE"/>
+		<copy todir="${build.dist.dir}" file="${target.jarfile}"/>
+		
+		<copy todir="${build.dist.dir}">
+			<fileset dir="${build.libs.dir}">
+				<include name="**/*.jar"/>
+				<exclude name="**/ant.jar"/>
+			</fileset>
+		</copy>
+		
+		
+	</target>
+	
 	<target name="compile" depends="init">
 		<!--  create the dirs for output -->
 		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />

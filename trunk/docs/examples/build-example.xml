@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="jchav-example" default="default" basedir=".">
+
+	<target name="default" depends="run-jmeter,run-jchav"/>
+
+	<target name="init">
+		
+		<!-- Allow properties to be overided by a username.properties file -->
+		<echo>Loading properties from ${user.name}.properties</echo>
+		<property file="${user.name}.properties" />
+
+		<!-- Produce a build id. If using a continuous build process inherit the buildid from that-->
+		<tstamp>
+			<format property="build.id" pattern="dMMhhmmss" locale="en"/>
+		</tstamp>
+
+		<!-- The location of the install of JMeter -->
+		<property name="jmeter.install.dir" value="/Users/goul/java/jakarta-jmeter-2.2" />
+
+		<!-- The location of the jmeter ant task jar -->
+		<property name="jmeter.ant.jar" value="/Users/goul/java/jakarta-jmeter-2.2/ant/ant-jmeter.jar" />
+
+		<!-- The directory containing the jchav jars -->
+		<property name="jchav.libs.dir" value="/Users/goul/Documents/workspace/jchav/dist" />
+
+
+		<!-- The JMeter test plan script we want to run -->
+		<property name="jmeter.testplan" value="digwalk.jmx" />
+
+		<!-- The location to store the per run files -->
+		<property name="jmeter.result.dir" value="./digjmeterresults" />
+
+		<!-- The resulting file location, make sure this is unique for each build -->
+		<property name="jmeter.result.file" value="${jmeter.result.dir}/digresult${build.id}.xml" />
+
+		<!-- The location to generate the html and charts to. -->
+		<property name="jchav.result.dir" value="./digjchavresults" />
+	
+
+	</target>
+			
+	<!-- Task to run the jmeter script -->
+	<target name="run-jmeter" depends="init">		
+	
+ 		<!-- This is the task definition/load for the jmeter ant task. -->
+		<taskdef
+                name="jmeter"
+                classpath="${jmeter.ant.jar}"
+                classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+
+		<!-- run the defined script -->
+		<jmeter
+			jmeterhome="${jmeter.install.dir}"
+			testplan="${jmeter.testplan}"
+			resultlog="${jmeter.result.file}"/>
+	</target>
+			
+	
+	<!-- Task to run the jcav generation -->
+	<target name="run-jchav" depends="init">		
+		 <taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask">
+			<classpath>
+				<fileset dir="${jchav.libs.dir}/">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+		 </taskdef>
+		
+		
+		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}"/>
+	</target>
+	
+</project>
+
