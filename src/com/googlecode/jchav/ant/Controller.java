@@ -23,6 +23,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 import com.googlecode.jchav.chart.Chart;
+import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.jmeter.ExpandJMeterXML;
@@ -109,10 +110,8 @@ public class Controller
         //       (a) it might contain chars the OS doesn't like; and
         //       (b) it might not be unique (although that's nuts).
         
-        final File fullFile = new File(outDir, pageId + ".png");
-        final File thumbFile = new File(outDir, pageId +"_thumb.png");
-        
-        FileOutputStream fullOut = new FileOutputStream(fullFile);
+    	final File fullFile = ChartNameUtil.buildChartImagePath(pageId, outDir);
+    	FileOutputStream fullOut = new FileOutputStream(fullFile);
         try
         {
             chart.write(fullOut);
@@ -123,6 +122,7 @@ public class Controller
             fullOut = null;
         }
         
+        final File thumbFile = ChartNameUtil.buildChartThumbnailPath(pageId, outDir);
         FileOutputStream thumbOut = new FileOutputStream(thumbFile);
         try
         {
@@ -171,7 +171,13 @@ public class Controller
 							"<h2>\n" +
 							id +
 							"</h2>\n" +
-							"<img src=\"thumb.png\" />\n" +
+							"<a href=\"" +
+							"file://" + ChartNameUtil.buildChartImagePath(id, outDir) +
+							"\" />\n" +
+							"<img src=\"" +
+							"file://" + ChartNameUtil.buildChartThumbnailPath(id, outDir) +
+							"\" />\n" +
+							"</a>" +
 							"</div>\n"
 
 	        			);
@@ -194,15 +200,7 @@ public class Controller
     	
     	
     	
-    	
-    	
-    	//; write the index page header
-    	
-    	// for each page
-    		// add entry (thumbed)
-    	
-    	// write footer
-    	
+
     }
     
 }
