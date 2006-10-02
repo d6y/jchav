@@ -35,16 +35,16 @@ public class JMeterXMLSaxHandlerTest
     public static junit.framework.Test suite() 
     {
         return new junit.framework.JUnit4TestAdapter(JMeterXMLSaxHandlerTest.class);
-    }
+    } 
     
     /**
      * Test we can deal with a directory full of files.
      */
     @Test public void testTruncation() 
     {
-        String labelName="http://secretserver/home/welcome.do;jsessionid=73D43D90900F22BF8A0D3DFB4E17E978.thtp21";
+        String labelName="Hello Mum";
         String newLabel=JMeterXMLSaxHandler.simplifyLabelName(labelName);
-        assertEquals(newLabel,"http://secretserver/home/welcome.do");
+        assertEquals(newLabel,"Hello+Mum");
 
     }
 }
