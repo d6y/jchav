@@ -2,7 +2,8 @@
 
 <project name="jchav-example" default="default" basedir=".">
 
-	<target name="default" depends="run-jmeter,run-jchav"/>
+	<target name="default" depends="run-jmeter,run-jchav"
+		description="Run Jmeter test plan and generate JChav reports" />
 
 	<target name="init">
 		
@@ -41,7 +42,8 @@
 	</target>
 			
 	<!-- Task to run the jmeter script -->
-	<target name="run-jmeter" depends="init">		
+	<target name="run-jmeter" depends="init"
+			description="Execute the JMeter test plan, recording the results to a file.">		
 	
  		<!-- This is the task definition/load for the jmeter ant task. -->
 		<taskdef
@@ -60,7 +62,9 @@
 			
 	
 	<!-- Task to run the jcav generation -->
-	<target name="run-jchav" depends="init">		
+	<target name="run-jchav" depends="init"
+			description="Produce JChav report from the JMeter results">
+		
 		 <taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask">
 			<classpath>
 				<fileset dir="${jchav.libs.dir}/">
