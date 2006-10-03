@@ -1,6 +1,3 @@
-The two PNGs in this file are used by the unit test:
+Example output using the dummy test data set up in:
 
 junit/com/googlecode/jchav/chart/MinMeanMaxChartTest.java
-
-The files are read and compared, byte for byte, with the
-charts produced by MinMeanMaxChart.
