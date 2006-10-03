@@ -12,6 +12,8 @@ p
 	padding: 0px;
 }
 
+
+
 .code
 {
 	font-family: 'Courier New', Courier, sans-serif;
@@ -21,15 +23,29 @@ p
 h1
 {
 	font-weight: bold; 
-	margin-top: 0pt;
-	margin-bottom: 0pt;
+	font-size: 14px;
+	margin-top: 10pt;
+	margin-bottom: 10pt;
 	padding: 0px;
+}
+
+#clue
+{
+	font-size: 14px;
+	line-height: 12pt;
+	font-style: italic;
+	margin: 5px;
+	margin-right: 15px;
+	padding-bottom: 10px;
+	line-height: 20px;
 }
 
 h2
 {
 	font-weight: bold; 
+	font-size: 12px;
 	margin-top: 0pt;
 	margin-bottom: 0pt;
 	padding: 0px;
+
 }
