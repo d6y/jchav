@@ -1,6 +1,14 @@
-This is initially written as plain unstyled html. I'll let someone who has a vague clue about fonts
-do the css :)
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
+<head>
+    <title>JChav</title>
+    <link rel="stylesheet" type="text/css" href="jchav.css" />
+</head>
+
+<body>
 
 <h2>Overview</h2>
 
@@ -17,7 +25,7 @@ The Jakarta <a href="http://jakarta.apache.org/jmeter/">JMeter</a> web pages des
 JChav produces the top level set of images based upon the labels that you put into the JMeter configuration file. 
 So where possible give your tasks meaningful names. This is especially important if you are using the http proxy tool built into JMeter to make test generation easy.
 JChav will do its best to turn URLs into something meaningful, but if you take the trouble to set the name on the task the resulting pages will be better.
-Make sure that the test plan you have created is running as you expect it to inside the JMeter workbench. When you are happy with this script save the script as a jmx file.</p>
+Make sure that the test plan you have created is running as you expect it to inside the JMeter workbench. When you are happy with this script save the script as a jmx file.
 </p>
 <p>
 We have included a small example called <a href="./digwalk.jmx">digwalk.jmx</a> which performs a series of simple calls to the <a href="http://digg.com">Digg</a> web site.
@@ -37,44 +45,49 @@ By default the task appends information to one file, but we want want file per r
 To do this simply create a unique build id for each build performed. If you are using a continuous integration tool such as <a href="http://www.cruisecontrol.net">CruiseControl</a> then use the build id for the build, otherwise use something like a timestamp.
 eg.
 </p>
-<p>
-	 &lt;tstamp&gt;<br/>
-            &lt;format property="build.id" pattern="dMMhhmmss" locale="en"/&gt;<br/>
-     &lt;/tstamp&gt;<br/>
-<br/>
-<br/>        
-	&lt;jmeter<br/>
-   		 jmeterhome="c:\jakarta-jmeter-1.8.1"<br/>
-    	 testplan="${basedir}/test/scripts/digwalk.jmx"<br/>
-    	 resultlog="${basedir}/test/results/digresult{$build.id}.xml"/&gt;<br/>
-</p>
+
+<pre>
+  &lt;tstamp&gt;
+    &lt;format property="build.id" pattern="dMMhhmmss" locale="en"/&gt;
+  &lt;/tstamp&gt;
+ 
+  &lt;jmeter
+    jmeterhome="c:\jakarta-jmeter-1.8.1"
+    testplan="${basedir}/test/scripts/digwalk.jmx"
+    resultlog="${basedir}/test/results/digresult{$build.id}.xml"/&gt;
+</pre>
+
 
 <p>
-Everytime we run the jmeter target we will create a file in the ${basedir}/test/results/ directory. This is the directory that we pass to the JChav task to produce our performance graphs.
+Everytime we run the jmeter target we will create a file in the <code>${basedir}/test/results/</code> directory. This is the directory that we pass to the JChav task to produce our performance graphs.
 </p>
 
 <h2>Adding JChav to the build</h2>
 
 <p>Initially you need to ensure that the jchav task is available for your ant build. The following taskdef will import the task :
 </p>
-<p>
- &lt;taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask"&gt;<br/>
-			&lt;classpath&gt;<br/>
-				&lt;fileset dir="${jchav.libs.dir}/"&gt;<br/>
-					&lt;include name="**/*.jar"/&gt;<br/>
-				&lt;/fileset&gt;<br/>
-			&lt;/classpath&gt;<br/>
-		 &lt;/taskdef&gt;<br/>
-</p>
+
+<pre>
+  &lt;taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask"&gt;
+    &lt;classpath&gt;
+      &lt;fileset dir="${jchav.libs.dir}/"&gt;
+        &lt;include name="**/*.jar"/&gt;
+      &lt;/fileset&gt;
+     &lt;/classpath&gt;
+  &lt;/taskdef&gt;
+</pre>
+
 <p>
 Once the task is available you simply need to add the task to the build. It requires two attributes. The first is <b>srcdir</b> which is the directory that contains all the logs from the JMeter runs.i.e. the directory you chose to write the JMeter output to from the above example.
 The second parameter is <b>destdir</b> which is the output directory for the images and html produced by the task.
 
 </p>
-<p>
 
-		&lt;jchav srcdir="${basedir}/test/results/" destdir="${basedir}/test/chavoutput/"/&gt;
+<pre>
+  &lt;jchav srcdir="${basedir}/test/results/" destdir="${basedir}/test/chavoutput/"/&gt;
+</pre>
 
-</p> 
-	
+</body>
+
+</html>
 		
