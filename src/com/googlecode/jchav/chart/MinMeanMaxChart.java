@@ -23,6 +23,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.CategoryLabelPositions;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
@@ -89,13 +90,19 @@ public class MinMeanMaxChart extends Chart
         plot.setRangeGridlinesVisible(true);
         plot.setDomainGridlinesVisible(false);
 
+        // the legend here would be the "min", "max", "mean" strings used when created int category data set.
+        boolean showLegend = true;
         
-        // Render the chart:  the legend here would be the "min", "max", "mean"
-        // strings used when created int category data set.
-        chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, /*show legend=*/false);
+        // Render the chart:  
+        chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, showLegend);
         chart.setTitle(pageId);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setBorderVisible(false);
+        
+        if (showLegend)
+        {
+            chart.getLegend().setBorder( BlockBorder.NONE );
+        }
          
     }
 
