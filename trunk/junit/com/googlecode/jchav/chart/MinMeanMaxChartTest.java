@@ -91,7 +91,7 @@ public class MinMeanMaxChartTest
      * 
      * @throws IOException if there was a problem reading the data.
      */
-    private void assertEquals(final String filename, final ByteArrayOutputStream actual)
+    private void assertFileAndBytesTheSame(final String filename, final ByteArrayOutputStream actual)
         throws IOException
     {
         File file = TestData.getTestDataFile("chartoutput", filename);
@@ -135,7 +135,7 @@ public class MinMeanMaxChartTest
         chart.write(out);
         out.close();
        
-        assertEquals("summary.png", out);  
+        assertFileAndBytesTheSame("summary.png", out);  
     }
     
 
@@ -151,7 +151,7 @@ public class MinMeanMaxChartTest
         chart.writeThumbnail(out);
         out.close();
        
-        assertEquals("summary_thumb.png", out);
+        assertFileAndBytesTheSame("summary_thumb.png", out);
     }
     
     /**
