@@ -50,10 +50,12 @@
                 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
 
 		<!-- run the defined script -->
-		<jmeter
+		<jmeter			
 			jmeterhome="${jmeter.install.dir}"
 			testplan="${jmeter.testplan}"
-			resultlog="${jmeter.result.file}"/>
+			resultlog="${jmeter.result.file}">
+			<property name="jmeter.save.saveservice.output_format" value="xml"/>
+		</jmeter>
 	</target>
 			
 	
