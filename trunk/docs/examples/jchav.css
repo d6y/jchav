@@ -1,0 +1,35 @@
+body
+{
+	font-size: 12px;
+	font-family: 'Lucida Grande', Geneva, Arial, Verdana, sans-serif; 
+	color: #000000; 
+}
+
+p
+{
+	margin-top: 0pt;
+	margin-bottom: 6pt;
+	padding: 0px;
+}
+
+.code
+{
+	font-family: 'Courier New', Courier, sans-serif;
+	font-size: 11px;
+}
+
+h1
+{
+	font-weight: bold; 
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	padding: 0px;
+}
+
+h2
+{
+	font-weight: bold; 
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	padding: 0px;
+}
