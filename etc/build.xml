@@ -51,6 +51,7 @@
 
 	<!-- produce a binary distribution directory. -->
 	<target name="dist" depends="init">
+		<delete dir="${build.dist.dir}"/>
 		<mkdir dir="${build.dist.dir}"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/libraries.txt"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/LICENSE"/>
@@ -62,8 +63,7 @@
 				<exclude name="**/ant.jar"/>
 			</fileset>
 		</copy>
-		
-		
+	
 	</target>
 	
 	<target name="compile" depends="init">
@@ -102,8 +102,9 @@
 
 
 			
-	<target name="build-jar" depends="clean,compile">
-		<jar destfile="${target.jarfile}">
+	<target name="build-jar" depends="compile">
+		<delete file="${target.jarfile}" />
+		<jar destfile="${target.jarfile}" >
 			<fileset dir="${build.classes.dir}" />
 		</jar>
 	</target>
@@ -114,7 +115,7 @@
 			<fileset dir="${build.classes.dir}" />
 			<fileset dir="${test.classes.dir}" />
 		</delete>
-
+			
 	</target>
 	
 	<target name="run-checkstyle" depends="init">
