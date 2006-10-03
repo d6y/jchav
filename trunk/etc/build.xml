@@ -94,6 +94,7 @@
 				<fileset dir="${test.classes.dir}">
 					<!-- This is our main pattern... -->
 					<include name="**/*Test.class" />
+					<exclude name="**/MinMeanMaxChartTest.class"/>
 				</fileset>
 			</batchtest>
 		</junit>
