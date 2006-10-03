@@ -106,9 +106,6 @@ public class Controller
      */
     private void writeChart(final String pageId, final Chart chart, final File outDir) throws IOException
     {
-        // TODO: pageId is maybe not a good candidate for a file name as
-        //       (a) it might contain chars the OS doesn't like; and
-        //       (b) it might not be unique (although that's nuts).
         
     	final File fullFile = ChartNameUtil.buildChartImagePath(pageId, outDir);
     	FileOutputStream fullOut = new FileOutputStream(fullFile);
@@ -172,10 +169,10 @@ public class Controller
 							id +
 							"</h2>\n" +
 							"<a href=\"" +
-							"file://" + ChartNameUtil.buildChartImagePath(id, outDir) +
+							 ChartNameUtil.buildChartImagePath(id, outDir).getName() +
 							"\" />\n" +
 							"<img src=\"" +
-							"file://" + ChartNameUtil.buildChartThumbnailPath(id, outDir) +
+							 ChartNameUtil.buildChartThumbnailPath(id, outDir).getName() +
 							"\" />\n" +
 							"</a>" +
 							"</div>\n"
