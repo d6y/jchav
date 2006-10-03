@@ -16,6 +16,9 @@
  */
 package com.googlecode.jchav.data;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
@@ -58,7 +61,27 @@ public class PageDataImpl implements PageData
      */
     public Iterable<String> getPageIds()
     {
-        return allMeasurements.keySet();
+        // We want the list to be sorted so that the Summary page is always first.
+        ArrayList<String> idList = new ArrayList<String>(allMeasurements.keySet());
+        Collections.sort(idList, 
+                new Comparator<String>() 
+                {
+                    public int compare(String left, String right)
+                    {
+                        if (PageData.SUMMARY_PAGE_ID.equals(left))
+                        {
+                            return -1;
+                        } 
+                        else if (PageData.SUMMARY_PAGE_ID.equals(right))
+                        {
+                            return 1;
+                        }
+                        return 0;
+                    }
+            
+                });
+        
+        return idList;
     }
     
     /** Add a measurement to the structure.
