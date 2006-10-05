@@ -28,12 +28,26 @@ import java.io.File;
 public final class ChartNameUtil
 {
 	
+	/**
+	 * Build the path for an image.
+	 * 
+	 * @param page The page name.
+	 * @param root The file root.
+	 * @return The File object representing the image path.
+	 */
 	public static File buildChartImagePath(final String page, final File root)
 	{
         return new File(root, page + ".png");
     }
 
 	
+	/**
+	 * Build the path for a thumbnail image.
+	 * 
+	 * @param page The page name.
+	 * @param root The file root.
+	 * @return The File object representing the image path.
+	 */
 	public static File buildChartThumbnailPath(final String page, final File root)
 	{
         return new File(root, page + "_thumb.png");
