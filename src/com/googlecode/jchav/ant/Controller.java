@@ -27,6 +27,8 @@ import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.jmeter.ExpandJMeterXML;
+import com.googlecode.jchav.report.ReportPageDetailWriter;
+import com.googlecode.jchav.report.ReportSummaryWriter;
 
 
 /**
@@ -143,6 +145,8 @@ public class Controller
      * 
      * @param pageData The page dta.
      * @param outDir The output directory.
+     * 
+     * @throws IOException If there is a problme writing the output.
      */
     private void writeSummary(final PageData pageData, final File outDir) throws IOException
     {
@@ -152,52 +156,35 @@ public class Controller
     	try
     	{
     		output = new OutputStreamWriter(new FileOutputStream(indexFile), "UTF-8");
-    		
-    		
-    		output.write("<html>\n");
-    		output.write("<head>\n");
-    		output.write("</head>\n");
-    		output.write("<body>\n");
+    		final ReportSummaryWriter summaryWriter = new ReportSummaryWriter(output, outDir);
     		
 	        for(String id: pageData.getPageIds()) 
 	        {
-	        	// String thiumb img = "";
-	        	
-	        	output.write("<div class=\"summary\">\n" +
-								        			
-							"<h2>\n" +
-							id +
-							"</h2>\n" +
-							"<a href=\"" +
-							 ChartNameUtil.buildChartImagePath(id, outDir).getName() +
-							"\" />\n" +
-							"<img src=\"" +
-							 ChartNameUtil.buildChartThumbnailPath(id, outDir).getName() +
-							"\" />\n" +
-							"</a>" +
-							"</div>\n"
+	        	summaryWriter.writeEntry(id);
 
-	        			);
-	        	
-	        	
+	        	Writer detailOutput = null;
+	        	try
+	        	{
+		        	final File detailPageFile = new File(outDir, id + ".html");
+		        	detailOutput = new OutputStreamWriter(new FileOutputStream(detailPageFile), "UTF-8");
+		        	
+		        	final ReportPageDetailWriter detailWriter = new ReportPageDetailWriter(detailOutput, outDir);
+		        	detailWriter.write(id, pageData.getMeasurements(id));
+		        	detailWriter.finish();
+	        	}
+	        	finally
+	        	{
+	        		detailOutput.close();
+	        	}
 	        }
 	        
-	        
-	        
-    		output.write("</body>\n");
-    		output.write("</html>\n");
-	        
-		
+	        summaryWriter.finish();
     	}
     	finally
     	{
     		output.close();
     		output = null;
     	}
-    	
-    	
-    	
-
     }
     
 }
