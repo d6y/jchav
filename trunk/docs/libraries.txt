@@ -37,4 +37,3 @@ For development you need the following libraries:
 	License: Apache 2.0
 	Version: 1.6.5
 	JARs: ant.jar
-	  
