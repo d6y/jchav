@@ -21,6 +21,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.URLDecoder;
 
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.ChartNameUtil;
@@ -80,7 +81,7 @@ public class Controller
         for(String id: data.getPageIds()) 
         {
             // Create the chart:
-            Chart chart = new MinMeanMaxChart(id, data.getMeasurements(id));
+            Chart chart = new MinMeanMaxChart(URLDecoder.decode(id, "UTF-8"), data.getMeasurements(id));
             chart.setWidth(width);
             chart.setHeight(height);
             chart.setThumbnailScale(thumbnailScale);
