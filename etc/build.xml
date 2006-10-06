@@ -15,6 +15,8 @@
 		<property name="build.docs.dir" value="../docs" />
 		<property name="build.dist.dir" value="../dist" />
 		<property name="build.libs.dir" value="../libs"/>
+		<property name="release.dir" value="../releases" />
+		
 		<property name="build.classes.dir" value="../classes"/>
 		<property name="debug.flag" value="true" />
 				
@@ -65,6 +67,22 @@
 		</copy>
 	
 	</target>
+	
+	<target name="release" depends="dist,generate-javadoc"
+			description="Create a release given a release lable, such as -Drelease=1_0_0">
+			
+		<property name="release.name" value="jchav-${release}" />
+		
+		<echo>This is release ${release.name}</echo>
+		<echo>Look ok? No? Did you do ant -Drelease=1_0_0 or similar?</echo>
+		
+		<zip destfile="${release.dir}/${release.name}.zip" >
+			<zipfileset dir="${build.dist.dir}" prefix="${release.name}"></zipfileset>
+			<zipfileset dir="${build.docs.dir}" prefix="${release.name}"></zipfileset>
+		</zip>	
+		
+	</target>
+	
 	
 	<target name="compile" depends="init">
 		<!--  create the dirs for output -->
