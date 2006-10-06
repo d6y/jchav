@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="5044" lt="1218" ts="1159780191993" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="4648" lt="1474" ts="1159780192405" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="7454" lt="977" ts="1159780191583" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="6966" lt="1064" ts="1159780192200" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2376" lt="904" ts="1159780197054" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="7675" lt="1446" ts="1159780191784" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2570" lt="1138" ts="1159780197046" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1045" lt="401" ts="1159780199459" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1410" lt="571" ts="1159780199166" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1247" lt="556" ts="1159780199430" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1644" lt="586" ts="1159780199037" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1449" lt="600" ts="1159780199618" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="742" lt="450" ts="1159780200678" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1245" lt="427" ts="1159780200577" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1411" lt="525" ts="1159780200689" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="763" lt="238" ts="1159780201421" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="717" lt="307" ts="1159780202185" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1072" lt="444" ts="1159780202101" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1393" lt="452" ts="1159780201822" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="676" lt="349" ts="1159780202902" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3118" lt="445" ts="1159780200504" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="3002" lt="461" ts="1159780201067" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1019" lt="249" ts="1159780203174" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="721" lt="232" ts="1159780203578" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1228" lt="336" ts="1159780203216" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="710" lt="259" ts="1159780204300" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1536" lt="524" ts="1159780203625" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1253" lt="312" ts="1159780204194" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1392" lt="392" ts="1159780204445" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="563" lt="280" ts="1159780205448" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1328" lt="263" ts="1159780205837" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3105" lt="250" ts="1159780204070" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1829" lt="338" ts="1159780206012" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="3347" lt="292" ts="1159780205161" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1058" lt="488" ts="1159780207842" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="3948" lt="271" ts="1159780205010" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2452" lt="515" ts="1159780207165" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="779" lt="310" ts="1159780208959" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1410" lt="451" ts="1159780208508" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1207" lt="544" ts="1159780208900" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="670" lt="251" ts="1159780209918" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="906" lt="301" ts="1159780209739" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="755" lt="357" ts="1159780210108" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1310" lt="308" ts="1159780209618" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3930" lt="796" ts="1159780207176" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="819" lt="376" ts="1159780210645" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="978" lt="257" ts="1159780210863" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="987" lt="298" ts="1159780211107" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1220" lt="389" ts="1159780210929" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="688" lt="331" ts="1159780211842" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="649" lt="234" ts="1159780212095" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1353" lt="427" ts="1159780211465" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1231" lt="387" ts="1159780212149" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="925" lt="418" ts="1159780212819" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3230" lt="287" ts="1159780210589" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1388" lt="527" ts="1159780212531" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1294" lt="295" ts="1159780212745" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="603" lt="283" ts="1159780214040" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="849" lt="511" ts="1159780213919" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1350" lt="261" ts="1159780213819" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1456" lt="489" ts="1159780213744" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="615" lt="232" ts="1159780214644" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2017" lt="330" ts="1159780213380" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1203" lt="461" ts="1159780214769" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="877" lt="231" ts="1159780215259" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1056" lt="255" ts="1159780215170" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1177" lt="315" ts="1159780215397" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1614" lt="247" ts="1159780215200" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1087" lt="281" ts="1159780215973" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="996" lt="342" ts="1159780216137" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1022" lt="234" ts="1159780216227" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="596" lt="288" ts="1159780217061" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1044" lt="328" ts="1159780216814" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="863" lt="542" ts="1159780217134" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1547" lt="484" ts="1159780216574" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="586" lt="309" ts="1159780217657" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1397" lt="245" ts="1159780217262" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1102" lt="432" ts="1159780218122" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1314" lt="448" ts="1159780217997" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1260" lt="238" ts="1159780218244" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="872" lt="301" ts="1159780218660" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="658" lt="231" ts="1159780219504" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="744" lt="415" ts="1159780219533" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1123" lt="505" ts="1159780219311" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2988" lt="303" ts="1159780217858" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="785" lt="390" ts="1159780220278" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="931" lt="238" ts="1159780220164" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1995" lt="564" ts="1159780219225" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1011" lt="458" ts="1159780221064" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1006" lt="249" ts="1159780221220" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2257" lt="315" ts="1159780220435" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="602" lt="316" ts="1159780222227" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2175" lt="259" ts="1159780220847" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2357" lt="247" ts="1159780221096" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1400" lt="326" ts="1159780222076" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="965" lt="551" ts="1159780222829" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1161" lt="277" ts="1159780223023" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="886" lt="336" ts="1159780223476" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="766" lt="275" ts="1159780223795" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="616" lt="240" ts="1159780224184" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1365" lt="261" ts="1159780223453" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="600" lt="275" ts="1159780224362" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="757" lt="299" ts="1159780224962" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="3061" lt="1633" ts="1159780222692" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1053" lt="254" ts="1159780224801" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1457" lt="430" ts="1159780224819" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="680" lt="239" ts="1159780225719" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2038" lt="278" ts="1159780224562" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1118" lt="251" ts="1159780225855" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1222" lt="402" ts="1159780226276" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1230" lt="245" ts="1159780226400" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2067" lt="287" ts="1159780225753" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1221" lt="257" ts="1159780226600" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1132" lt="338" ts="1159780226974" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1097" lt="480" ts="1159780227499" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1669" lt="535" ts="1159780228596" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2599" lt="544" ts="1159780228107" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3142" lt="781" ts="1159780227821" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3155" lt="742" ts="1159780227820" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1071" lt="239" ts="1159780230265" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="532" lt="254" ts="1159780230963" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3870" lt="835" ts="1159780227630" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1000" lt="315" ts="1159780230976" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="751" lt="336" ts="1159780231336" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1479" lt="419" ts="1159780230706" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1004" lt="250" ts="1159780231977" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1102" lt="284" ts="1159780232087" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1391" lt="455" ts="1159780232186" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2150" lt="353" ts="1159780231496" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2221" lt="324" ts="1159780231501" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1052" lt="246" ts="1159780233189" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1459" lt="264" ts="1159780232981" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1081" lt="258" ts="1159780233577" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="636" lt="253" ts="1159780234242" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1257" lt="364" ts="1159780233722" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1676" lt="493" ts="1159780233647" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="918" lt="271" ts="1159780234441" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="678" lt="306" ts="1159780234879" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1201" lt="420" ts="1159780234659" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1174" lt="526" ts="1159780234980" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="820" lt="316" ts="1159780235360" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="904" lt="466" ts="1159780235323" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="673" lt="439" ts="1159780236228" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1131" lt="407" ts="1159780236154" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1279" lt="469" ts="1159780236180" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="677" lt="251" ts="1159780236901" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1937" lt="325" ts="1159780235861" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2437" lt="308" ts="1159780235558" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="704" lt="421" ts="1159780237459" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="955" lt="435" ts="1159780237286" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="901" lt="246" ts="1159780237799" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="889" lt="453" ts="1159780238165" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1165" lt="257" ts="1159780237996" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1797" lt="406" ts="1159780237579" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1208" lt="261" ts="1159780238242" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="691" lt="252" ts="1159780239054" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1174" lt="242" ts="1159780238700" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1298" lt="349" ts="1159780239162" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="752" lt="360" ts="1159780239745" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1224" lt="280" ts="1159780239377" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1462" lt="331" ts="1159780239450" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="518" lt="260" ts="1159780240498" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="614" lt="254" ts="1159780240913" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1089" lt="482" ts="1159780240461" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1215" lt="316" ts="1159780240602" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1189" lt="321" ts="1159780241016" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="976" lt="499" ts="1159780241550" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="3293" lt="423" ts="1159780239874" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1143" lt="282" ts="1159780242206" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1298" lt="482" ts="1159780242526" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2387" lt="267" ts="1159780241528" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="680" lt="299" ts="1159780243350" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2531" lt="302" ts="1159780241818" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="744" lt="240" ts="1159780244030" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1438" lt="307" ts="1159780243825" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1473" lt="236" ts="1159780243916" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="828" lt="319" ts="1159780244774" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2256" lt="284" ts="1159780244349" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1762" lt="430" ts="1159780245263" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1687" lt="388" ts="1159780245390" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="4055" lt="297" ts="1159780243168" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1649" lt="530" ts="1159780245603" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="728" lt="286" ts="1159780247223" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1008" lt="295" ts="1159780247077" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1699" lt="452" ts="1159780246605" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="974" lt="328" ts="1159780248304" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2178" lt="588" ts="1159780247252" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="803" lt="393" ts="1159780249279" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3145" lt="328" ts="1159780247026" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="874" lt="552" ts="1159780250083" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1553" lt="658" ts="1159780249431" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="3070" lt="412" ts="1159780247951" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3312" lt="396" ts="1159780248086" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1406" lt="372" ts="1159780250173" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1075" lt="446" ts="1159780250985" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1276" lt="519" ts="1159780250959" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1165" lt="354" ts="1159780251398" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1111" lt="243" ts="1159780251579" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1020" lt="261" ts="1159780252061" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1352" lt="538" ts="1159780252236" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="964" lt="265" ts="1159780252691" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1543" lt="559" ts="1159780252564" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="694" lt="265" ts="1159780253588" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3263" lt="576" ts="1159780251022" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="920" lt="340" ts="1159780253655" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1631" lt="471" ts="1159780253081" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="903" lt="239" ts="1159780254575" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="844" lt="251" ts="1159780254713" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1766" lt="401" ts="1159780254282" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="741" lt="365" ts="1159780255478" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="791" lt="353" ts="1159780256048" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2654" lt="509" ts="1159780254286" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1220" lt="649" ts="1159780256220" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="3525" lt="563" ts="1159780254108" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="817" lt="473" ts="1159780257440" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1578" lt="567" ts="1159780256940" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3689" lt="439" ts="1159780255557" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1122" lt="464" ts="1159780258258" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2811" lt="385" ts="1159780256839" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1293" lt="263" ts="1159780258519" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="731" lt="311" ts="1159780259247" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="780" lt="353" ts="1159780259978" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="3701" lt="542" ts="1159780257633" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="829" lt="387" ts="1159780260759" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1494" lt="474" ts="1159780261588" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="3831" lt="409" ts="1159780259381" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="3742" lt="387" ts="1159780259812" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="3956" lt="439" ts="1159780259651" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3118" lt="407" ts="1159780261334" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1007" lt="242" ts="1159780263555" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1126" lt="258" ts="1159780264563" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1385" lt="291" ts="1159780264452" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2792" lt="339" ts="1159780263083" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2300" lt="275" ts="1159780263607" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2818" lt="407" ts="1159780263212" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="856" lt="266" ts="1159780266031" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1283" lt="276" ts="1159780265838" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1485" lt="405" ts="1159780265875" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2026" lt="235" ts="1159780265689" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1238" lt="324" ts="1159780266888" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="1445" lt="347" ts="1159780267122" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1484" lt="581" ts="1159780267360" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="727" lt="300" ts="1159780268568" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="3421" lt="267" ts="1159780265907" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1364" lt="323" ts="1159780268126" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="898" lt="508" ts="1159780268845" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="938" lt="226" ts="1159780269296" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="847" lt="355" ts="1159780269490" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2959" lt="346" ts="1159780267716" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="614" lt="288" ts="1159780270235" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1753" lt="420" ts="1159780269329" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="597" lt="262" ts="1159780270851" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="585" lt="284" ts="1159780271448" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1447" lt="356" ts="1159780270675" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1280" lt="394" ts="1159780271083" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="3105" lt="371" ts="1159780269743" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="827" lt="412" ts="1159780272364" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1383" lt="248" ts="1159780272122" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1506" lt="434" ts="1159780272033" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="3350" lt="379" ts="1159780270338" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="956" lt="416" ts="1159780273191" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="775" lt="365" ts="1159780273507" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1619" lt="523" ts="1159780272848" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1495" lt="530" ts="1159780273539" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="931" lt="491" ts="1159780274148" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1437" lt="319" ts="1159780273688" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="774" lt="461" ts="1159780275034" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1365" lt="329" ts="1159780274468" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1260" lt="342" ts="1159780275080" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="675" lt="287" ts="1159780275809" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="798" lt="347" ts="1159780276485" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1116" lt="371" ts="1159780276341" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1693" lt="237" ts="1159780275833" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="815" lt="335" ts="1159780277283" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="4083" lt="652" ts="1159780274283" s="true" lb="Search for Apple" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1132" lt="394" ts="1159780277457" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2272" lt="378" ts="1159780277526" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1515" lt="592" ts="1159780278367" s="true" lb="Search for Microsoft" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1310" lt="292" ts="1159780278589" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2059" lt="382" ts="1159780278098" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="836" lt="295" ts="1159780279798" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="755" lt="309" ts="1159780280158" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1422" lt="519" ts="1159780279882" s="true" lb="Search for Video" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1442" lt="265" ts="1159780279899" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="574" lt="251" ts="1159780280914" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="595" lt="267" ts="1159780281304" s="true" lb="View Gaming" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1302" lt="286" ts="1159780280634" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="964" lt="357" ts="1159780281342" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1356" lt="516" ts="1159780281936" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="1108" lt="246" ts="1159780282307" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="1539" lt="510" ts="1159780281899" s="true" lb="View All" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2350" lt="275" ts="1159780281488" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="546" lt="253" ts="1159780283415" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="885" lt="306" ts="1159780283438" s="true" lb="View Technology" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1003" lt="227" ts="1159780283838" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="1065" lt="228" ts="1159780284323" s="true" lb="View Science" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1030" lt="224" ts="1159780285388" s="true" lb="View Business" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1879" lt="255" ts="1159780286418" s="true" lb="View Sports" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1051" lt="308" ts="1159780288297" s="true" lb="View Videos" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="1299" lt="241" ts="1159780289349" s="true" lb="View Entertainment" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+
+</testResults>
