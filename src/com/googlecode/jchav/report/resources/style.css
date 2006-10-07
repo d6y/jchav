@@ -1,0 +1,43 @@
+
+body 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	margin: 0px;
+	color: #333333;
+}
+
+img 
+{
+	border: 0px;
+}
+
+h2
+{
+	margin-top: 0;
+	padding: 4px;
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #FFFFFF; 
+	background: #001144; 
+}	
+
+
+#DetailImage
+{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}	
+
+
+table.detail
+{
+	margin-left: auto;
+	margin-right: auto;
+	background: #FFFFFF;
+	border: 1px;
+	border-color: #000000;
+	border-style: solid;
+	
+}
