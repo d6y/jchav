@@ -81,7 +81,29 @@ public class ReportSummaryWriter
 	 */
 	public void writeEntry(final String pageId) throws IOException
 	{
-    	
+		if ("sumarypage".equals(pageId))
+		{
+	    	writer.write("<div class=\"summary\">\n" +
+        			
+					"<h2>" +
+					"Overall Summary" +
+					"</h2>\n" +
+					"<a href=\"" +
+					
+					URLEncoder.encode(pageId, "UTF-8") + ".html" + 
+
+					"\">\n" +
+					"<img class=\"centre\" src=\"" +
+					URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") +
+					"\" alt=\"Detailed View of "+ pageId + "\" />\n" +
+					"</a>\n" +
+					"</div>\n"
+
+    			);		
+			
+			return;
+		}
+		
     	writer.write("<div class=\"summary\">\n" +
 						        			
 					"<h2>" +
@@ -91,10 +113,10 @@ public class ReportSummaryWriter
 					
 					URLEncoder.encode(pageId, "UTF-8") + ".html" + 
 
-					"\" />\n" +
+					"\" >\n" +
 					"<img src=\"" +
 					URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") +
-					"\" />\n" +
+					"\" alt=\"Detailed View of "+ pageId + "\" />\n" +
 					"</a>\n" +
 					"</div>\n"
 
@@ -109,7 +131,7 @@ public class ReportSummaryWriter
 	 */
 	public void finish() throws IOException
 	{
-		writer.write("<img src=\"badge131x81.jpg\"/>");
+		writer.write("<img src=\"badge131x81.jpg\" alt=\"Pimped by jChav\" />");
 		writer.write("</body>\n");
 		writer.write("</html>\n");		
 	}
