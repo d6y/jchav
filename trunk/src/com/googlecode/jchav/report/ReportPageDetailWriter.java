@@ -62,6 +62,7 @@ public class ReportPageDetailWriter
 		writer.write("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
 		writer.write("<head>\n");
 		writer.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
+		writer.write("<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" media=\"all\" />");
 		writer.write("<title>Insert title here</title>");
 		writer.write("</head>\n");
 		writer.write("<body>\n");		
@@ -83,7 +84,7 @@ public class ReportPageDetailWriter
 				URLDecoder.decode(pageId, "UTF-8") +
 				"</h2>\n" +
 				 
-				"<img src=\"" +
+				"<img id=\"DetailImage\" src=\"" +
 				URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") +
 				"\" />\n" +
 				"</a>\n" +
@@ -92,7 +93,7 @@ public class ReportPageDetailWriter
 			);		
 
     	
-    	writer.write("<table>");
+    	writer.write("<table class=\"centre detail\">");
     	
 		writer.write("<tr>");
 		writer.write("<td>Id</td>");

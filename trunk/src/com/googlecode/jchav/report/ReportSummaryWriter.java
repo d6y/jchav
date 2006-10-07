@@ -23,6 +23,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 import com.googlecode.jchav.chart.ChartNameUtil;
+import com.googlecode.jchav.util.FileUtil;
 
 
 /**
@@ -55,12 +56,16 @@ public class ReportSummaryWriter
 		this.writer = writer;
 		this.rootDir = rootDir;
 		
+		// Copy over some files ...
+		FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/style.css"), new File(rootDir, "style.css"));
+		FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/badge131x81.jpg"), new File(rootDir, "badge131x81.jpg"));
 		
 		writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		writer.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 		writer.write("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
 		writer.write("<head>\n");
 		writer.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
+		writer.write("<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" media=\"all\" />");
 		writer.write("<title>Insert title here</title>");
 		writer.write("</head>\n");
 		writer.write("<body>\n");		
@@ -104,6 +109,7 @@ public class ReportSummaryWriter
 	 */
 	public void finish() throws IOException
 	{
+		writer.write("<img src=\"badge131x81.jpg\"/>");
 		writer.write("</body>\n");
 		writer.write("</html>\n");		
 	}
