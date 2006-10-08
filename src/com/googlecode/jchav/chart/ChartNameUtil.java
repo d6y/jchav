@@ -22,8 +22,8 @@ import java.io.File;
 /**
  * A utility class to consistently generate chart image names.
  *
- * @author $LastChangedBy: gareth.floodgate $
- * @version $LastChangedDate: 2006-10-01 23:03:11 +0100 (Sun, 01 Oct 2006) $ $LastChangedRevision: 56 $
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public final class ChartNameUtil
 {
