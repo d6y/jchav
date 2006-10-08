@@ -38,7 +38,7 @@ public class ControllerTest
      */
     @Test public void testFullDirectoryController() throws IOException
     {
-        Controller controller=new Controller();
+        Controller controller=new Controller(); 
         File processingDir=new File(System.getProperty("jchav.test.data.dir"));
         File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"results");
         controller.go(processingDir,resultsDir);       
