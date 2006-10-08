@@ -58,7 +58,7 @@ public class ReportSummaryWriter
 		
 		// Copy over some files ...
 		FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/style.css"), new File(rootDir, "style.css"));
-		FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/badge131x81.jpg"), new File(rootDir, "badge131x81.jpg"));
+		FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/badge104x47.jpg"), new File(rootDir, "badge104x47.jpg"));
 		
 		writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
 		writer.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
@@ -131,7 +131,7 @@ public class ReportSummaryWriter
 	 */
 	public void finish() throws IOException
 	{
-		writer.write("<img src=\"badge131x81.jpg\" alt=\"Pimped by jChav\" />");
+		writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
 		writer.write("</body>\n");
 		writer.write("</html>\n");		
 	}

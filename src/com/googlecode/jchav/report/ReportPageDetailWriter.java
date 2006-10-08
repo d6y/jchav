@@ -86,8 +86,7 @@ public class ReportPageDetailWriter
 				 
 				"<img id=\"DetailImage\" src=\"" +
 				URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") +
-				"\" />\n" +
-				"</a>\n" +
+				"\" alt=\"Detailed statistics chart for "+ pageId + "\" />\n" +
 				"</div>\n"
 
 			);		
@@ -137,6 +136,7 @@ public class ReportPageDetailWriter
 	 */
 	public void finish() throws IOException
 	{
+		writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
 		writer.write("</body>\n");
 		writer.write("</html>\n");		
 	}
