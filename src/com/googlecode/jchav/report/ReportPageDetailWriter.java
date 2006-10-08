@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Date;
 import java.util.SortedSet;
 
 import com.googlecode.jchav.chart.ChartNameUtil;
@@ -63,7 +64,7 @@ public class ReportPageDetailWriter
 		writer.write("<head>\n");
 		writer.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />");
 		writer.write("<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" media=\"all\" />");
-		writer.write("<title>Insert title here</title>");
+		writer.write("<title>Jchav detail report</title>");
 		writer.write("</head>\n");
 		writer.write("<body>\n");		
 	}
@@ -136,6 +137,7 @@ public class ReportPageDetailWriter
 	 */
 	public void finish() throws IOException
 	{
+		writer.write("<p>Report generated at: " + (new Date()).toString() + "</p>");
 		writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
 		writer.write("</body>\n");
 		writer.write("</html>\n");		
