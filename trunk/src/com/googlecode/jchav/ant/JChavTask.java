@@ -26,7 +26,7 @@ import org.apache.tools.ant.Task;
  * Provides the control and co-ordination of the JChav process to
  * produce a set of charts for a given set of data.
  *
- * @author $LastChangedBy$
+ * @author $LastChangedBy$ 
  * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class JChavTask extends Task
