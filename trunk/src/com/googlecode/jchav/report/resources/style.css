@@ -4,6 +4,7 @@ body
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 0.8em;
 	margin: 0px;
+	background: white;
 	color: #333333;
 }
 
@@ -18,8 +19,8 @@ h2
 	padding: 4px;
 	font-weight: bold;
 	font-size: 1.2em;
-	color: #FFFFFF; 
 	background: #001144; 
+	color: white; 
 }	
 
 
@@ -35,9 +36,9 @@ table.detail
 {
 	margin-left: auto;
 	margin-right: auto;
-	background: #FFFFFF;
 	border: 1px;
-	border-color: #000000;
+	border-color: black;
 	border-style: solid;
-	
+	background: white;
+	color: black;
 }
