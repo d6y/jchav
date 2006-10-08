@@ -2,7 +2,7 @@
 
 <project name="jchav" default="default" basedir=".">
 
-	<target name="default" depends="run-checkstyle,compile-junit,run-junit,build-jar,dist"/>
+	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist"/>
 	
 	<target name="cruise-target" depends="default" />
 	
@@ -88,6 +88,10 @@
 		<!--  create the dirs for output -->
 		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />
 
+		<!-- copy current resources into classpath -->
+		<copy  todir="${build.classes.dir}/com/googlecode/jchav/report/resources/">
+			<fileset dir="${build.src.dir}/com/googlecode/jchav/report/resources/"/>
+		</copy>
 	</target>
 
 
