@@ -107,6 +107,20 @@ public abstract class Chart
         // http://javaalmanac.com/egs/java.awt.image/CreateTxImage.html?l=rel
         final AffineTransformOp op = new AffineTransformOp(xform, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
 
+       
+        
+        // The thumbnail does not need so much chart chrome: you can't
+        // read the axis and the title is given in the HTML, so removing
+        // these elements means there's more space in the thumbnail for the data
+        boolean thumbChrome = false;
+        
+        if (false == thumbChrome)
+        {
+            chart.setTitle((String)null);
+            chart.clearSubtitles();
+            chart.removeLegend();         
+        }
+                
         final BufferedImage fullsize = chart.createBufferedImage(width, height);
         final BufferedImage thumbnail = op.filter(fullsize, null /*null means create the image for us*/);
 
