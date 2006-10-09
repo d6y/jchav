@@ -94,7 +94,7 @@ public class Controller
             
         }
         
-        writeSummary(data, outDir); //??
+        writeSummary(data, outDir,launchParams.getReportTitle()); //??
         
     }
 
@@ -147,10 +147,10 @@ public class Controller
      * 
      * @param pageData The page dta.
      * @param outDir The output directory.
-     * 
+     * @param reportTitle any given title.
      * @throws IOException If there is a problme writing the output.
      */
-    private void writeSummary(final PageData pageData, final File outDir) throws IOException
+    private void writeSummary(final PageData pageData, final File outDir, final String reportTitle) throws IOException
     {
     	final File indexFile = new File(outDir, "index.html");
 
@@ -158,7 +158,7 @@ public class Controller
     	try
     	{
     		output = new OutputStreamWriter(new FileOutputStream(indexFile), "UTF-8");
-    		final ReportSummaryWriter summaryWriter = new ReportSummaryWriter(output, outDir);
+    		final ReportSummaryWriter summaryWriter = new ReportSummaryWriter(output, outDir,reportTitle);
     		
 	        for(String id: pageData.getPageIds()) 
 	        {
@@ -170,7 +170,7 @@ public class Controller
 		        	final File detailPageFile = new File(outDir, id + ".html");
 		        	detailOutput = new OutputStreamWriter(new FileOutputStream(detailPageFile), "UTF-8");
 		        	
-		        	final ReportPageDetailWriter detailWriter = new ReportPageDetailWriter(detailOutput, outDir);
+		        	final ReportPageDetailWriter detailWriter = new ReportPageDetailWriter(detailOutput, outDir,reportTitle);
 		        	detailWriter.write(id, pageData.getMeasurements(id));
 		        	detailWriter.finish();
 	        	}
