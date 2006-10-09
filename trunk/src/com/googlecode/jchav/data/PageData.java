@@ -28,7 +28,7 @@ public interface PageData
     
 
     /** The identifier for the summary page id. */
-    public static final String SUMMARY_PAGE_ID="summarypage";
+    public static final String SUMMARY_PAGE_ID="Summary+Page";
 
     /** Get the ordered list of measurements for a given pageId.
      * 
