@@ -52,15 +52,16 @@ public class Controller
    
     
     /**
-     * 
-     * @param xmlDir the source of the reports.
-     * @param outDir the directory to write to.
+     * Launch the process.
+     * @param launchParams Set of parameters to run the controller with.
      * 
      * @throws IOException if there was a problem creating the charts.
      */
-    public void go(final File xmlDir, final File outDir) 
+    public void go(LaunchParams launchParams) 
         throws IOException
     {
+        File xmlDir=new File(launchParams.getSrcdir());
+        File outDir=new File(launchParams.getDestdir());
         
         if (outDir.exists() == false)
         {

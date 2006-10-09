@@ -31,33 +31,53 @@ import org.apache.tools.ant.Task;
  */
 public class JChavTask extends Task
 {
-    /** Source dir for files to process. */
+    /** Source dir for files to process. 
+     * NB all lowercase because of ANT conventions. */
     private String srcdir;
     
-    /** Target directory for resulting html/images. */
+    /** Target directory for resulting html/images. 
+     *  NB all lowercase because of ANT conventions. */
     private String destdir;
+  
+    /** Target directory for resulting html/images. 
+     *  NB all lowercase because of ANT conventions. */
+    private String reporttitle;
      
+ 
     /** 
      * Perform the task through the Controller object.
      */
     public void execute() 
     {
+        LaunchParams taskParams=new LaunchParams();
+        
         if(getSrcdir()==null)
         {
             throw new BuildException("srcdir not set.");
+        }
+        else
+        {
+            taskParams.setSrcdir(getSrcdir());
         }
         if(getDestdir()==null)
         {
             throw new BuildException("desdir not set.");
         }
+        else
+        {
+            taskParams.setDestdir(getDestdir());
+        }
         
-        System.err.println("sourceDir="+getSrcdir());
-        System.err.println("targetDir="+getDestdir());
+        if(getReporttitle()!=null)
+        {
+            taskParams.setReportTitle(getReporttitle());
+        }
         
+            
         Controller controller=new Controller();
         try
         {
-            controller.go(new File(getSrcdir()), new File(getDestdir()));
+            controller.go(taskParams);
         }
         catch (IOException e)
         {
@@ -67,7 +87,7 @@ public class JChavTask extends Task
     }
 
 
-    /**
+    /** 
      * @return Returns the destdir.
      */
     public final String getDestdir()
@@ -104,5 +124,25 @@ public class JChavTask extends Task
     {
         this.srcdir = srcdir;
     }
+
+
+    /**
+     * @return Returns the reporttitle.
+     */
+    public final String getReporttitle()
+    {
+        return reporttitle;
+    }
+
+
+    /**
+     * @param reporttitle The reporttitle to set.
+     */
+    public final void setReporttitle(String reporttitle)
+    {
+        this.reporttitle = reporttitle;
+    }
+
+
 
 }
