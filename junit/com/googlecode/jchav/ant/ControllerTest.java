@@ -39,9 +39,8 @@ public class ControllerTest
     @Test public void testFullDirectoryController() throws IOException
     {
         Controller controller=new Controller(); 
-        File processingDir=new File(System.getProperty("jchav.test.data.dir"));
-        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"results");
-        controller.go(processingDir,resultsDir);       
+        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir"),System.getProperty("jchav.test.data.dir")+File.separator+"results");
+        controller.go(params);       
     }
     
     
@@ -52,9 +51,8 @@ public class ControllerTest
     @Test public void testTSAData() throws IOException
     {
         Controller controller=new Controller();
-        File processingDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea");
-        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea"+File.separator+"results");
-        controller.go(processingDir,resultsDir);       
+        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea",System.getProperty("jchav.test.data.dir")+File.separator+"tsaea"+File.separator+"results","TSAEA report");
+        controller.go(params);       
     }
     
     
@@ -65,9 +63,9 @@ public class ControllerTest
     @Test public void testDiggData() throws IOException
     {
         Controller controller=new Controller();
-        File processingDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk");
-        File resultsDir=new File(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk"+File.separator+"results");
-        controller.go(processingDir,resultsDir);       
+        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk",
+                        System.getProperty("jchav.test.data.dir")+File.separator+"digwalk"+File.separator+"results","Dig walk");
+        controller.go(params);                
     }
     
     /**
