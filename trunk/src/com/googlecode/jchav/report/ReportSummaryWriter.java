@@ -25,6 +25,7 @@ import java.text.DateFormat;
 import java.util.Date;
 
 import com.googlecode.jchav.chart.ChartNameUtil;
+import com.googlecode.jchav.data.PageDataImpl;
 import com.googlecode.jchav.util.FileUtil;
 
 /**
@@ -94,7 +95,7 @@ public class ReportSummaryWriter
      */
     public void writeEntry(final String pageId) throws IOException
     {
-        if ("sumarypage".equals(pageId))
+        if (PageDataImpl.SUMMARY_PAGE_ID.equals(pageId))
         {
             writer.write("<div class=\"summary\">\n" +
 
