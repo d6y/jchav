@@ -97,7 +97,7 @@ public class ReportSummaryWriter
 
             URLEncoder.encode(pageId, "UTF-8") + ".html" +
 
-            "\">\n" + "<img class=\"centre\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + pageId + "\" />\n" + "</a>\n" + "</div>\n"
+            "\">\n" + "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + pageId + "\" />\n" + "</a>\n" + "</div>\n"
 
             );
 
@@ -110,7 +110,7 @@ public class ReportSummaryWriter
 
         URLEncoder.encode(pageId, "UTF-8") + ".html" +
 
-        "\" >\n" + "<img src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + pageId + "\" />\n" + "</a>\n" + "</div>\n"
+        "\" >\n" + "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + pageId + "\" />\n" + "</a>\n" + "</div>\n"
 
         );
     }

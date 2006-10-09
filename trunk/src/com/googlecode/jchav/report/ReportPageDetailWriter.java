@@ -89,7 +89,7 @@ public class ReportPageDetailWriter
 
         "<h2>" + URLDecoder.decode(pageId, "UTF-8") + "</h2>\n" +
 
-        "<img id=\"DetailImage\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed statistics chart for " + pageId + "\" />\n" + "</div>\n"
+        "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed statistics chart for " + pageId + "\" />\n" + "</div>\n"
 
         );
 
@@ -136,7 +136,7 @@ public class ReportPageDetailWriter
      */
     public void finish() throws IOException
     {
-        writer.write("<p>Report generated at: " + (new Date()).toString() + "</p>");
+        writer.write("<p id=\"GeneratedBy\">Report generated at: " + (new Date()).toString() + "</p>");
         writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
         writer.write("</body>\n");
         writer.write("</html>\n");
