@@ -104,7 +104,7 @@ public class ReportSummaryWriter
             return;
         }
 
-        writer.write("<div class=\"summary\">\n" +
+        writer.write("<div class=\"page\">\n" +
 
         "<h2>" + URLDecoder.decode(pageId, "UTF-8") + "</h2>\n" + "<a href=\"" +
 
@@ -122,7 +122,7 @@ public class ReportSummaryWriter
      */
     public void finish() throws IOException
     {
-        writer.write("<p>Report generated at: " + (new Date()).toString() + "</p>");
+        writer.write("<p id=\"GeneratedBy\">Report generated at: " + (new Date()).toString() + "</p>");
         writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
         writer.write("</body>\n");
         writer.write("</html>\n");
