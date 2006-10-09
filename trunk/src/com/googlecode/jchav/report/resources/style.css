@@ -23,6 +23,30 @@ h2
 	color: white; 
 }	
 
+p
+{
+	margin: 6px;
+}
+
+#GeneratedBy
+{
+	clear: both;
+	border-top: 1px dotted #999999;
+	padding-top: 4px;
+	margin-top: 4px;
+}
+
+div.page
+{
+	float: left;
+	overflow:hidden;
+	width: 32%;
+	border: 1px;
+	border-color: black;
+	border-style: solid;
+	margin: 4px;
+	padding: 3px;
+}
 
 #DetailImage
 {
