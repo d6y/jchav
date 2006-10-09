@@ -73,7 +73,7 @@ For details see:
 			</classpath>
 		 </taskdef>
 		
-		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}"/>
+		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" reporttitle="Digg Example Walk"/>
 	
 	</target>
 	
