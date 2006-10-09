@@ -21,13 +21,14 @@ import java.io.IOException;
 import java.io.Writer;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.DateFormat;
 import java.util.Date;
 
 import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.util.FileUtil;
 
 /**
- * TODO
+ * Writes the summary (front page) of the JChav report.
  * 
  * @author $LastChangedBy: dallaway $
  * @version $LastChangedDate: 2006-10-03 19:21:47 +0100 (Tue, 03 Oct 2006) $ $LastChangedRevision: 72 $
@@ -40,9 +41,12 @@ public class ReportSummaryWriter
 
     /** The root folder files are written to. */
     private File rootDir;
-
+    
+    /** Timestamp for the report. */
+    private final String timestamp;
+    
     /**
-     * Create a page detail writer.
+     * Create a page summary writer.
      * 
      * @param writer The writer to write output to.
      * @param rootDir The root folder files are written to.
@@ -54,6 +58,7 @@ public class ReportSummaryWriter
     {
         this.writer = writer;
         this.rootDir = rootDir;
+        this.timestamp = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.LONG).format(new Date());
 
         // Copy over some files ...
         FileUtil.copy(this.getClass().getClassLoader().getResourceAsStream("com/googlecode/jchav/report/resources/style.css"), new File(rootDir, "style.css"));
@@ -77,7 +82,7 @@ public class ReportSummaryWriter
         }
         writer.write("</head>\n");
         writer.write("<body>\n");
-        writer.write("<h2>Report generated at: " + (new Date()).toString() + "</h2>\n");
+        writer.write("<h2>Report generated at: " + timestamp + "</h2>\n");
     }
 
     /**
@@ -122,8 +127,8 @@ public class ReportSummaryWriter
      */
     public void finish() throws IOException
     {
-        writer.write("<p id=\"GeneratedBy\">Report generated at: " + (new Date()).toString() + "</p>");
-        writer.write("<a href=\"http://jchav.blogspot.com/\"><img src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
+        writer.write("<p id=\"GeneratedBy\">Report generated at: " + timestamp + "</p>");
+        writer.write("<a href=\"http://jchav.blogspot.com/\"><img width=\"104\" height=\"47\" src=\"badge104x47.jpg\" alt=\"Pimped by jChav\" /></a>");
         writer.write("</body>\n");
         writer.write("</html>\n");
     }
