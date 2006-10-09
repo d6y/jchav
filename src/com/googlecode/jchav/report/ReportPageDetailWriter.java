@@ -85,7 +85,7 @@ public class ReportPageDetailWriter
      */
     public void write(final String pageId, final SortedSet<Measurement> measurements) throws IOException
     {
-        writer.write("<div class=\"summary\">\n" +
+        writer.write("<div class=\"detail\">\n" +
 
         "<h2>" + URLDecoder.decode(pageId, "UTF-8") + "</h2>\n" +
 
