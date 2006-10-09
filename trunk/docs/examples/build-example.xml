@@ -16,11 +16,18 @@ For details see:
 		description="Run Jmeter test plan and generate JChav reports" />
 
 	<target name="init">
+
+
 		
 		<!-- Allow properties to be overided by a username.properties file -->
 		<echo>Loading properties from ${user.name}.properties</echo>
 		<property file="${user.name}.properties" />
-
+		
+		<echo>Loading properties from build.properties</echo>
+		<property file="build.properties" />
+		
+		
+		
 		<tstamp description="Produce a build id. If using a continuous build process inherit the build. id from that">
 			<format property="build.id" pattern="dMMhhmmss" locale="en"/>
 		</tstamp>
