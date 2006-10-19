@@ -19,8 +19,8 @@ package com.googlecode.jchav.data;
 /**
  * Container for the largest and smallest values in the dataset. 
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class MinMax
 {
@@ -49,7 +49,10 @@ public class MinMax
     /**
      * Utility for finding the largest and smallest value across
      * the whole dataset.
+     * 
      * @param data the data to process.
+     * 
+     * @return the min and max values found in the <code>data</code>.
      */
     public static MinMax from(final PageData data)
     {
