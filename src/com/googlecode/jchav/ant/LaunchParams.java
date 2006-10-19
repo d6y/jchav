@@ -33,7 +33,10 @@ public class LaunchParams
   
     /** Target directory for resulting html/images. */
     private String reportTitle;
-
+    
+    /** Should the y-axis be the same for all charts? */
+    private boolean uniformYAxis = true;    
+    
     /** Simple constuctor.
      */
     public LaunchParams()
@@ -110,6 +113,22 @@ public class LaunchParams
     public final void setSrcdir(String srcdir)
     {
         this.srcdir = srcdir;
+    }
+
+    /**
+     * @return true if all charts should have the same y-axis.
+     */
+    public boolean isUniformYAxis()
+    {
+        return uniformYAxis;
+    }
+
+    /**
+     * @param uniformYAxis true if the charts should all have the same y axis.
+     */
+    public void setUniformYAxis(boolean uniformYAxis)
+    {
+        this.uniformYAxis = uniformYAxis;
     }
      
  

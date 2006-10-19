@@ -16,6 +16,8 @@
  */
 package com.googlecode.jchav.chart;
 
+import java.awt.BasicStroke;
+import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -24,6 +26,7 @@ import java.io.OutputStream;
 
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 
 /**
  * Base class for things charts generally want to do, such as
@@ -43,6 +46,7 @@ public abstract class Chart
     /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
  
+    
     /** The chart itself. */
     protected JFreeChart chart;
     
@@ -107,8 +111,6 @@ public abstract class Chart
         // http://javaalmanac.com/egs/java.awt.image/CreateTxImage.html?l=rel
         final AffineTransformOp op = new AffineTransformOp(xform, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
 
-       
-        
         // The thumbnail does not need so much chart chrome: you can't
         // read the axis and the title is given in the HTML, so removing
         // these elements means there's more space in the thumbnail for the data
@@ -119,6 +121,22 @@ public abstract class Chart
             chart.setTitle((String)null);
             chart.clearSubtitles();
             chart.removeLegend();         
+            
+            // Removing the axis completly looks just weird, so we just
+            // remove the labels:
+            
+            chart.getCategoryPlot().getRangeAxis().setLabel(null);
+            chart.getCategoryPlot().getRangeAxis().setTickLabelsVisible(false);
+            chart.getCategoryPlot().getRangeAxis().setAxisLineVisible(true);
+            
+            //  To show up at a small scale, we need a good sized axis stroke:
+            Stroke stroke = new BasicStroke(2f);
+            chart.getCategoryPlot().getRangeAxis().setAxisLineStroke(stroke);
+            
+            chart.getCategoryPlot().getDomainAxis().setLabel(null);
+            chart.getCategoryPlot().getDomainAxis().setTickLabelsVisible(false);
+            chart.getCategoryPlot().getDomainAxis().setAxisLineVisible(true);
+            chart.getCategoryPlot().getDomainAxis().setAxisLineStroke(stroke);
         }
                 
         final BufferedImage fullsize = chart.createBufferedImage(width, height);
@@ -128,6 +146,30 @@ public abstract class Chart
         
     }
 
+    /**
+     * @param value the upper bound on the y-axis.
+     */
+    public void setMaxY(Long value)
+    {
+        // Force the range on the chart, if set, plus 10% to allow
+        // a bit of white space at the top of the chart so the marker point
+        // isn't off the chart:
+        chart.getCategoryPlot().getRangeAxis().setUpperBound(value.doubleValue() * 1.1);
+    }
+    
+    
+
+    /**
+     * @param value the lower bound on the y-axis.
+     */
+    public void setMinY(Long value)
+    {
+        chart.getCategoryPlot().getRangeAxis().setLowerBound(value.doubleValue());
+    }
+
+   
+
+    
     
     
     

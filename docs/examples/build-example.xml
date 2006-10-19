@@ -80,7 +80,9 @@ For details see:
 			</classpath>
 		 </taskdef>
 		
-		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" reporttitle="Digg Example Walk"/>
+		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" 
+			reporttitle="Digg Example Walk"
+			uniformyaxis="true" />
 	
 	</target>
 	
