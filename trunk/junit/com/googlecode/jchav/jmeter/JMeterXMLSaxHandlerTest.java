@@ -47,4 +47,5 @@ public class JMeterXMLSaxHandlerTest
         assertEquals(newLabel,"Hello+Mum");
 
     }
+
 }
