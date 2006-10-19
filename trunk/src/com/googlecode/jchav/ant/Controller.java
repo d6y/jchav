@@ -26,6 +26,7 @@ import java.net.URLDecoder;
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
+import com.googlecode.jchav.data.MinMax;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.jmeter.ExpandJMeterXML;
 import com.googlecode.jchav.report.ReportPageDetailWriter;
@@ -78,6 +79,14 @@ public class Controller
        
         final PageData data = expander.getPageData();
         
+        // If the user has opted to have uniform y-aixs for all charts,
+        // we need to compute the min and max for all the data:
+        MinMax yRange = null;
+        if (launchParams.isUniformYAxis())
+        {
+            yRange = MinMax.from(data);
+        }
+                
         // Foreach page...
         for(String id: data.getPageIds()) 
         {
@@ -86,11 +95,16 @@ public class Controller
             chart.setWidth(width);
             chart.setHeight(height);
             chart.setThumbnailScale(thumbnailScale);
+
+            if (launchParams.isUniformYAxis())
+            {
+                // Make the Y-Axis the same for all charts:
+                chart.setMaxY(yRange.getMax());
+                chart.setMinY(yRange.getMin());
+            }
             
             writeChart(id, chart, outDir);
-            
-            
-            
+             
             
         }
         

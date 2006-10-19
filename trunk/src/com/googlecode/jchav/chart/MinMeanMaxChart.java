@@ -26,6 +26,7 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -71,9 +72,10 @@ public class MinMeanMaxChart extends Chart
         
         for(Measurement m : data)
         {
-            dataset.addValue(m.getMinimumTime(), "min", m.getBuildId().getBuildName());
+            // This ordering gives max=red, min=green, mean=blue
             dataset.addValue(m.getMaximumTime(), "max", m.getBuildId().getBuildName());
             dataset.addValue(m.getAverageTime(), "mean", m.getBuildId().getBuildName());
+            dataset.addValue(m.getMinimumTime(), "min", m.getBuildId().getBuildName());
         }
         
         // Create the plot area:
@@ -81,7 +83,7 @@ public class MinMeanMaxChart extends Chart
         plot.setDataset(dataset);
         plot.setRenderer(minMaxRenderer);
         plot.setDomainAxis(new CategoryAxis("Build")); // TO DO: i18n
-        plot.setRangeAxis(new NumberAxis("RT"));
+        plot.setRangeAxis(new NumberAxis("RT"));        
 
         // Build labels running diagonally under the bars of the chart.
         plot.getDomainAxis().setCategoryLabelPositions(CategoryLabelPositions.UP_45);

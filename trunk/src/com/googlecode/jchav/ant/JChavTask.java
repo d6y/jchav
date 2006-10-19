@@ -16,7 +16,6 @@
  */
 package com.googlecode.jchav.ant;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.apache.tools.ant.BuildException;
@@ -43,6 +42,10 @@ public class JChavTask extends Task
      *  NB all lowercase because of ANT conventions. */
     private String reporttitle;
      
+    /** Do we want all the charts to have the same y-axis (computed
+     * from the min and max we observe)? 
+     *  NB all lowercase because of ANT conventions. */
+    private String uniformyaxis;
  
     /** 
      * Perform the task through the Controller object.
@@ -71,6 +74,11 @@ public class JChavTask extends Task
         if(getReporttitle()!=null)
         {
             taskParams.setReportTitle(getReporttitle());
+        }
+        
+        if ( getUniformyaxis() != null )
+        {
+            taskParams.setUniformYAxis("true".equalsIgnoreCase(getUniformyaxis()));
         }
         
             
@@ -141,6 +149,24 @@ public class JChavTask extends Task
     public final void setReporttitle(String reporttitle)
     {
         this.reporttitle = reporttitle;
+    }
+
+
+    /**
+     * @return true if the charts should all have the same y axis.
+     */
+    public String getUniformyaxis()
+    {
+        return uniformyaxis;
+    }
+
+
+    /**
+     * @param uniformyaxis true if the charts should all have the same y axis.
+     */
+    public void setUniformyaxis(String uniformyaxis)
+    {
+        this.uniformyaxis = uniformyaxis;
     }
 
 
