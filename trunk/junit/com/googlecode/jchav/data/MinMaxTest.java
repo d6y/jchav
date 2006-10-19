@@ -21,7 +21,6 @@ import org.junit.Test;
 
 import com.googlecode.jchav.chart.DummyPageData;
 
-
 /**
  * Test of the min and max finding code. 
  *
