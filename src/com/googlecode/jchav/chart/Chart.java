@@ -26,7 +26,6 @@ import java.io.OutputStream;
 
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
 
 /**
  * Base class for things charts generally want to do, such as
@@ -46,9 +45,8 @@ public abstract class Chart
     /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
  
-    
     /** The chart itself. */
-    protected JFreeChart chart;
+    private JFreeChart chart;
     
     /**
      * @param height the height of the full-size chart.
@@ -165,6 +163,22 @@ public abstract class Chart
     public void setMinY(Long value)
     {
         chart.getCategoryPlot().getRangeAxis().setLowerBound(value.doubleValue());
+    }
+
+    /**
+     * @return returns the chart.
+     */
+    public JFreeChart getChart()
+    {
+        return chart;
+    }
+
+    /**
+     * @param chart the chart to set.
+     */
+    public void setChart(JFreeChart chart)
+    {
+        this.chart = chart;
     }
 
    

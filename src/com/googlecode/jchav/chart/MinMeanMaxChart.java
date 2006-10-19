@@ -26,7 +26,6 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BoxAndWhiskerRenderer;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -96,7 +95,7 @@ public class MinMeanMaxChart extends Chart
         boolean showLegend = true;
         
         // Render the chart:  
-        chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, showLegend);
+        JFreeChart chart = new JFreeChart(pageId, JFreeChart.DEFAULT_TITLE_FONT, plot, showLegend);
         chart.setTitle(pageId);
         chart.setBackgroundPaint(Color.WHITE);
         chart.setBorderVisible(false);
@@ -105,6 +104,8 @@ public class MinMeanMaxChart extends Chart
         {
             chart.getLegend().setBorder( BlockBorder.NONE );
         }
+        
+        this.setChart(chart);
          
     }
 
