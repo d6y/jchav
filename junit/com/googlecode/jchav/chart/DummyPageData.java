@@ -16,7 +16,6 @@
  */
 package com.googlecode.jchav.chart;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
