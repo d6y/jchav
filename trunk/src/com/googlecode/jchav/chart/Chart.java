@@ -123,13 +123,16 @@ public abstract class Chart
             // Removing the axis completly looks just weird, so we just
             // remove the labels:
             
+            
             chart.getCategoryPlot().getRangeAxis().setLabel(null);
-            chart.getCategoryPlot().getRangeAxis().setTickLabelsVisible(false);
+            chart.getCategoryPlot().getRangeAxis().setTickLabelsVisible(true);
+            chart.getCategoryPlot().getRangeAxis().setTickMarksVisible(true);
             chart.getCategoryPlot().getRangeAxis().setAxisLineVisible(true);
             
             //  To show up at a small scale, we need a good sized axis stroke:
             Stroke stroke = new BasicStroke(2f);
             chart.getCategoryPlot().getRangeAxis().setAxisLineStroke(stroke);
+            chart.getCategoryPlot().getRangeAxis().setTickMarkStroke(stroke);
             
             chart.getCategoryPlot().getDomainAxis().setLabel(null);
             chart.getCategoryPlot().getDomainAxis().setTickLabelsVisible(false);
