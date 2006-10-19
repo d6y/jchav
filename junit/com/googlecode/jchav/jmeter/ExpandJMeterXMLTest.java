@@ -16,15 +16,20 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.SortedSet;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.InputSource;
 
 import com.googlecode.jchav.data.BuildIdImpl;
+import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.PageData;
 
 
@@ -131,6 +136,36 @@ public class ExpandJMeterXMLTest
                 oldKey=newKey;
             }
         }
+        
+    }
+    
+
+    /** We had a bug where a series of ascending or descending times caused max to never move from -MIN_NOS.
+      * @throws IOException on unexpected failure.
+     */
+    @Test public void testDescendingData()  throws IOException
+    {
+        ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
+        
+        InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"IncData.xml"));
+        jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source);    
+
+        PageData data=jmeterExpander.getPageData();
+        
+        SortedSet<Measurement> measurements=data.getMeasurements("DTC+Observed+CSV+Generated");
+        
+        for(Measurement measurement : measurements)
+        {
+
+            if(measurement.getMaximumTime()==Long.MIN_VALUE)
+            {
+                fail("Max value not updated.");
+            }
+            
+        }
+        
+        
+        
         
     }
     

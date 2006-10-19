@@ -51,7 +51,7 @@ public class RequestHolder
         {
             minimum=time;
         }
-        else if(time>maximum)
+        if(time>maximum)
         {
             maximum=time;
         }

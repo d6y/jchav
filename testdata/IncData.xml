@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="1701" lt="1701" ts="1160584824735" s="true" lb="WSL Login" rc="200" rm="DYNAMIC_PAGE" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="13" lt="13" ts="1160584826583" s="true" lb="root" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="134" lt="17" ts="1160584826598" s="true" lb="index page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="51" lt="14" ts="1160584826734" s="true" lb="Report List" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="283" lt="168" ts="1160584826789" s="true" lb="Management Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="8971" lt="8954" ts="1160584827076" s="true" lb="Management Report Weekly Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="66" lt="33" ts="1160584836062" s="true" lb="Rising Concerns Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3400" lt="2982" ts="1160584836131" s="true" lb="Rising Concerns Defective Parts Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="154" lt="113" ts="1160584839821" s="true" lb="Sessions Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1819" lt="1548" ts="1160584839982" s="true" lb="Sessions Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="140" lt="106" ts="1160584842087" s="true" lb="Symptoms Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="588" lt="508" ts="1160584842234" s="true" lb="Symptoms Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="149" lt="119" ts="1160584842846" s="true" lb="DTC Observed Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1892" lt="1764" ts="1160584843000" s="true" lb="DTC Observed CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="148" lt="105" ts="1160584845391" s="true" lb="Diagnostic Candidates Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="399" lt="381" ts="1160584845551" s="true" lb="Diagnostic Candidates CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="155" lt="102" ts="1160584845960" s="true" lb="Diagnosed Component intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="205" lt="204" ts="1160584846123" s="true" lb="Diagnosed Component csv generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="101" lt="52" ts="1160584846331" s="true" lb="Symptom Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="450" lt="449" ts="1160584846436" s="true" lb="Symptom Usage CSV Report" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="102" lt="54" ts="1160584846889" s="true" lb="Pinpoint Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="330" lt="330" ts="1160584846995" s="true" lb="Pinpoint CSV Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="653" lt="653" ts="1160584847330" s="true" lb="WSL Login" rc="200" rm="DYNAMIC_PAGE" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="5" lt="5" ts="1160584847986" s="true" lb="root" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="20" lt="10" ts="1160584847992" s="true" lb="index page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="48" lt="9" ts="1160584848043" s="true" lb="Report List" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="85" lt="40" ts="1160584848094" s="true" lb="Management Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1182" lt="1175" ts="1160584848182" s="true" lb="Management Report Weekly Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="77" lt="31" ts="1160584849369" s="true" lb="Rising Concerns Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3156" lt="2877" ts="1160584849449" s="true" lb="Rising Concerns Defective Parts Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="148" lt="110" ts="1160584852641" s="true" lb="Sessions Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1932" lt="1422" ts="1160584852794" s="true" lb="Sessions Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="147" lt="98" ts="1160584854786" s="true" lb="Symptoms Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="810" lt="538" ts="1160584854938" s="true" lb="Symptoms Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="654" lt="158" ts="1160584855770" s="true" lb="DTC Observed Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1795" lt="1679" ts="1160584856429" s="true" lb="DTC Observed CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="120" lt="95" ts="1160584858253" s="true" lb="Diagnostic Candidates Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="337" lt="327" ts="1160584858380" s="true" lb="Diagnostic Candidates CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="160" lt="101" ts="1160584858725" s="true" lb="Diagnosed Component intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="198" lt="198" ts="1160584858892" s="true" lb="Diagnosed Component csv generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="114" lt="56" ts="1160584859094" s="true" lb="Symptom Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="462" lt="462" ts="1160584859212" s="true" lb="Symptom Usage CSV Report" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="110" lt="54" ts="1160584859678" s="true" lb="Pinpoint Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="319" lt="319" ts="1160584859792" s="true" lb="Pinpoint CSV Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="464" lt="464" ts="1160584860118" s="true" lb="WSL Login" rc="200" rm="DYNAMIC_PAGE" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="4" lt="4" ts="1160584860588" s="true" lb="root" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="19" lt="9" ts="1160584860592" s="true" lb="index page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="57" lt="7" ts="1160584860614" s="true" lb="Report List" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="244" lt="43" ts="1160584860673" s="true" lb="Management Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="895" lt="891" ts="1160584860921" s="true" lb="Management Report Weekly Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="73" lt="25" ts="1160584861821" s="true" lb="Rising Concerns Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3298" lt="3094" ts="1160584861897" s="true" lb="Rising Concerns Defective Parts Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="134" lt="106" ts="1160584865230" s="true" lb="Sessions Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1959" lt="1469" ts="1160584865369" s="true" lb="Sessions Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="125" lt="98" ts="1160584867389" s="true" lb="Symptoms Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="738" lt="493" ts="1160584867519" s="true" lb="Symptoms Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="121" lt="90" ts="1160584868280" s="true" lb="DTC Observed Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1744" lt="1600" ts="1160584868406" s="true" lb="DTC Observed CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="147" lt="114" ts="1160584870180" s="true" lb="Diagnostic Candidates Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="340" lt="329" ts="1160584870342" s="true" lb="Diagnostic Candidates CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="155" lt="101" ts="1160584870694" s="true" lb="Diagnosed Component intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="203" lt="203" ts="1160584870858" s="true" lb="Diagnosed Component csv generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="96" lt="47" ts="1160584871067" s="true" lb="Symptom Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="400" lt="400" ts="1160584871167" s="true" lb="Symptom Usage CSV Report" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="104" lt="53" ts="1160584871570" s="true" lb="Pinpoint Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="278" lt="278" ts="1160584871677" s="true" lb="Pinpoint CSV Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="461" lt="461" ts="1160584871961" s="true" lb="WSL Login" rc="200" rm="DYNAMIC_PAGE" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="5" lt="5" ts="1160584872430" s="true" lb="root" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="28" lt="9" ts="1160584872435" s="true" lb="index page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="52" lt="7" ts="1160584872464" s="true" lb="Report List" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="100" lt="43" ts="1160584872519" s="true" lb="Management Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="829" lt="823" ts="1160584872622" s="true" lb="Management Report Weekly Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="78" lt="34" ts="1160584873455" s="true" lb="Rising Concerns Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3151" lt="2974" ts="1160584873536" s="true" lb="Rising Concerns Defective Parts Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="130" lt="100" ts="1160584876722" s="true" lb="Sessions Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1996" lt="1455" ts="1160584876857" s="true" lb="Sessions Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="138" lt="97" ts="1160584879125" s="true" lb="Symptoms Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="559" lt="491" ts="1160584879268" s="true" lb="Symptoms Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="133" lt="117" ts="1160584879848" s="true" lb="DTC Observed Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1729" lt="1603" ts="1160584879986" s="true" lb="DTC Observed CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="112" lt="87" ts="1160584881743" s="true" lb="Diagnostic Candidates Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="390" lt="381" ts="1160584881862" s="true" lb="Diagnostic Candidates CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="146" lt="91" ts="1160584882264" s="true" lb="Diagnosed Component intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="184" lt="184" ts="1160584882417" s="true" lb="Diagnosed Component csv generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="98" lt="50" ts="1160584882603" s="true" lb="Symptom Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="378" lt="378" ts="1160584882706" s="true" lb="Symptom Usage CSV Report" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="95" lt="49" ts="1160584883087" s="true" lb="Pinpoint Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="300" lt="300" ts="1160584883186" s="true" lb="Pinpoint CSV Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="649" lt="649" ts="1160584883489" s="true" lb="WSL Login" rc="200" rm="DYNAMIC_PAGE" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="7" lt="7" ts="1160584884140" s="true" lb="root" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="18" lt="5" ts="1160584884149" s="true" lb="index page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="49" lt="7" ts="1160584884167" s="true" lb="Report List" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="70" lt="41" ts="1160584884218" s="true" lb="Management Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="829" lt="824" ts="1160584884291" s="true" lb="Management Report Weekly Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="73" lt="26" ts="1160584885125" s="true" lb="Rising Concerns Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="3084" lt="2905" ts="1160584885201" s="true" lb="Rising Concerns Defective Parts Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="116" lt="91" ts="1160584888532" s="true" lb="Sessions Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1744" lt="1455" ts="1160584888654" s="true" lb="Sessions Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="126" lt="101" ts="1160584890664" s="true" lb="Symptoms Report Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="565" lt="487" ts="1160584890797" s="true" lb="Symptoms Report CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="162" lt="108" ts="1160584891381" s="true" lb="DTC Observed Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="1718" lt="1577" ts="1160584891548" s="true" lb="DTC Observed CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="131" lt="105" ts="1160584893504" s="true" lb="Diagnostic Candidates Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="343" lt="327" ts="1160584893643" s="true" lb="Diagnostic Candidates CSV Generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="160" lt="104" ts="1160584893995" s="true" lb="Diagnosed Component intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="217" lt="217" ts="1160584894163" s="true" lb="Diagnosed Component csv generated" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="63" lt="46" ts="1160584894383" s="true" lb="Symptom Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="430" lt="430" ts="1160584894449" s="true" lb="Symptom Usage CSV Report" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="64" lt="47" ts="1160584894882" s="true" lb="Pinpoint Usage Intro" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+<httpSample t="292" lt="292" ts="1160584894950" s="true" lb="Pinpoint CSV Generate" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <assertionResult>
+    <failure>false</failure>
+    <error>false</error>
+  </assertionResult>
+</httpSample>
+
+</testResults>
