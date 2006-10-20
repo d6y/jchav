@@ -53,7 +53,7 @@
 
 	<!-- produce a binary distribution directory. -->
 	<target name="dist" depends="init">
-		<delete dir="${build.dist.dir}"/>
+		
 		<mkdir dir="${build.dist.dir}"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/libraries.txt"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/LICENSE"/>
@@ -69,7 +69,7 @@
 	</target>
 	
 	<target name="release" depends="dist,generate-javadoc"
-			description="Create a release given a release lable, such as -Drelease=1_0_0">
+			description="Create a release given a release lable, such as -Drelease=1.0.0">
 			
 		<property name="release.name" value="jchav-${release}" />
 		
@@ -81,9 +81,18 @@
 			<zipfileset dir="${build.docs.dir}" prefix="${release.name}"></zipfileset>
 		</zip>	
 		
+		<checksum algorithm="MD5" file="${release.dir}/${release.name}.zip" fileext=".md5"/>
+	
+		
+		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+		<mkdir dir="${maven.release.dir}"/>
+			
+		<!-- Publish the JChav JAR into the directory it's expected to be in for Maven -->
+		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release}.jar" fileext=".sha1" />
+		
 	</target>
-	
-	
+		
 	<target name="compile" depends="init">
 		<!--  create the dirs for output -->
 		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />
