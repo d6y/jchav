@@ -16,7 +16,10 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+
+import org.apache.log4j.Logger;
 
 /**
  * Implementation of a page processor.
@@ -26,6 +29,9 @@ import java.net.URLEncoder;
  */
 public class PageIdProcessorImpl 
 {
+    /** For debugging. */
+    private static Logger log = Logger.getLogger(PageIdProcessorImpl.class);
+    
    /** 
     * Process a pageid.
     * @param initialPageId the initial page name. this may be a URI etc.
@@ -34,15 +40,23 @@ public class PageIdProcessorImpl
     public static String processPageId(String initialPageId)
     {
 
-        // the xml file format moves params to be ;, so we cut on that value
-        int argStart=initialPageId.indexOf(";");
-        if(argStart>0)
+        try
         {
-            return URLEncoder.encode(initialPageId.substring(0,argStart));
+            // the xml file format moves params to be ;, so we cut on that value
+            int argStart=initialPageId.indexOf(";");
+            if(argStart>0)
+            {
+                return URLEncoder.encode(initialPageId.substring(0,argStart), "UTF-8");
+            }
+            else
+            {
+                return URLEncoder.encode(initialPageId, "UTF-8");
+            }
         }
-        else
+        catch (UnsupportedEncodingException e)
         {
-            return URLEncoder.encode(initialPageId);
+            log.error("Unable to encode page name", e);
+            return initialPageId;
         }
         
         // deal with any parameters passed.
