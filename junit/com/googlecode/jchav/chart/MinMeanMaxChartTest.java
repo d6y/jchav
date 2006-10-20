@@ -78,12 +78,14 @@ public class MinMeanMaxChartTest
         MinMeanMaxChartTest test = new MinMeanMaxChartTest();
         test.setUp();
 
+        test.chart.add(new ChangeAlertDecorator(1,2));
+        
         File outDir = TestData.getTestDataFile("chartoutput");
 
         final FileOutputStream fullsize = new FileOutputStream(new File(outDir, "summary.png"));
         test.chart.write(fullsize);
         fullsize.close();
-
+       
         final FileOutputStream thumb = new FileOutputStream(new File(outDir, "summary_thumb.png"));
         test.chart.writeThumbnail(thumb);
         thumb.close();

@@ -17,12 +17,14 @@
 package com.googlecode.jchav.chart;
 
 import java.awt.BasicStroke;
+import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -48,12 +50,36 @@ public abstract class Chart
     /** The chart itself. */
     private JFreeChart chart;
     
+    /** Optional list of decorations to apply to a thumbnail. */
+    private ArrayList<Decorator> thumbnailDecorators = new ArrayList<Decorator>();
+    
+    public void add(Decorator decorator)
+    {
+        this.thumbnailDecorators.add(decorator);
+    }
+    
     /**
      * @param height the height of the full-size chart.
      */
     public void setHeight(int height)
     {
         this.height = height;
+    }
+
+    /**
+     * @return returns the height.
+     */
+    public int getHeight()
+    {
+        return height;
+    }
+
+    /**
+     * @return returns the width.
+     */
+    public int getWidth()
+    {
+        return width;
     }
 
     /**
@@ -141,6 +167,13 @@ public abstract class Chart
         }
                 
         final BufferedImage fullsize = chart.createBufferedImage(width, height);
+        
+        Graphics2D g = fullsize.createGraphics();
+        for(Decorator decorator : thumbnailDecorators )
+        {
+            decorator.decorate(g, this);
+        }
+                
         final BufferedImage thumbnail = op.filter(fullsize, null /*null means create the image for us*/);
 
         ChartUtilities.writeBufferedImageAsPNG(out, thumbnail);
