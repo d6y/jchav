@@ -31,7 +31,23 @@ import org.junit.Test;
 public class ChangeAlertDecoratorTest
 {
 
-
+    /**
+     * Test corner cases.
+     *
+     */
+    @Test public void testForDivideByZero()
+    {
+        
+        ChangeAlertDecorator change1 = new ChangeAlertDecorator(1L,0L);
+        assertEquals(255, change1.toColor().getAlpha());
+        assertEquals(255, change1.toColor().getGreen()); // From anything to zero is brilliant.
+        
+        ChangeAlertDecorator change2 = new ChangeAlertDecorator(0L,1L);
+        assertEquals(255, change2.toColor().getAlpha());
+        assertEquals(255, change2.toColor().getRed()); // From zero to anything is very bad.
+        
+        
+    }
     /**
      * Make sure we can draw red for a bad test result.
      *
@@ -45,9 +61,7 @@ public class ChangeAlertDecoratorTest
         
         // it's bad, so it's red. 
         assertEquals(255 , color.getRed());
-        assertEquals(128 , color.getAlpha());
-
-       
+        assertEquals(128 , color.getAlpha());       
     }
     
     /**
