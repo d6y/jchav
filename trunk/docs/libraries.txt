@@ -37,3 +37,10 @@ For development you need the following libraries:
 	License: Apache 2.0
 	Version: 1.6.5
 	JARs: ant.jar
+	
+4. Maven
+
+	Url: http://maven.apache.org/
+	License: Apache 2.0
+	Version: 2.0.4
+	JARs: maven-plugin-api-2.0.4.jar
