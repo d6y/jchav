@@ -53,6 +53,11 @@ public abstract class Chart
     /** Optional list of decorations to apply to a thumbnail. */
     private ArrayList<Decorator> thumbnailDecorators = new ArrayList<Decorator>();
     
+    /**
+     * Add a decorator, which will be applied to thumbnails.
+     * 
+     * @param decorator the decorator to run.
+     */
     public void add(Decorator decorator)
     {
         this.thumbnailDecorators.add(decorator);
@@ -148,8 +153,7 @@ public abstract class Chart
             
             // Removing the axis completly looks just weird, so we just
             // remove the labels:
-            
-            
+           
             chart.getCategoryPlot().getRangeAxis().setLabel(null);
             chart.getCategoryPlot().getRangeAxis().setTickLabelsVisible(true);
             chart.getCategoryPlot().getRangeAxis().setTickMarksVisible(true);
