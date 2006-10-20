@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+ANT Build for JChav project.  Run from the etc/ folder.
+-->
 <project name="jchav" default="default" basedir=".">
 
 	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist"/>
@@ -12,10 +15,12 @@
 
 
 		<property name="build.src.dir" value="../src" />
+		<property name="contrib.src.dir" value="../contrib" />
 		<property name="build.docs.dir" value="../docs" />
 		<property name="build.dist.dir" value="../dist" />
 		<property name="build.libs.dir" value="../libs"/>
 		<property name="release.dir" value="../releases" />
+		<property name="etc.dir" value="." />
 		
 		<property name="build.classes.dir" value="../classes"/>
 		<property name="debug.flag" value="true" />
@@ -49,6 +54,22 @@
 			<pathelement location="${test.classes.dir}" />
 		</path>
 
+		<path id="javadoc.classpath">
+			<fileset dir="./thirdparty/junit/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="../libs/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="./thirdparty/maven/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<pathelement location="${build.classes.dir}" />
+			<pathelement location="${test.classes.dir}" />
+		</path>
+
+		
+		
 	</target>
 
 	<!-- produce a binary distribution directory. -->
@@ -65,6 +86,12 @@
 				<exclude name="**/ant.jar"/>
 			</fileset>
 		</copy>
+		
+		<!-- Include maven-style packaging in the dist -->
+		<property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+		<mkdir dir="${maven.dist.dir}"/>
+		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release}.jar" fileext=".sha1" />
 	
 	</target>
 	
@@ -74,16 +101,20 @@
 		<property name="release.name" value="jchav-${release}" />
 		
 		<echo>This is release ${release.name}</echo>
-		<echo>Look ok? No? Did you do ant -Drelease=1_0_0 or similar?</echo>
+		<echo>Look ok? No? Did you do ant -Drelease=1.0.0 or similar?</echo>
 		
 		<zip destfile="${release.dir}/${release.name}.zip" >
 			<zipfileset dir="${build.dist.dir}" prefix="${release.name}"></zipfileset>
-			<zipfileset dir="${build.docs.dir}" prefix="${release.name}"></zipfileset>
+			<zipfileset dir="${build.docs.dir}" prefix="${release.name}/docs"></zipfileset>
+			<zipfileset dir="${contrib.src.dir}" prefix="${release.name}/contrib"></zipfileset>
+			<zipfileset dir="${etc.dir}" prefix="${release.name}/etc">
+				<include name="build.xml" />
+				<include name="*pom*" />							
+			</zipfileset>					
 		</zip>	
 		
 		<checksum algorithm="MD5" file="${release.dir}/${release.name}.zip" fileext=".md5"/>
 	
-		
 		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
 		<mkdir dir="${maven.release.dir}"/>
 			
@@ -160,15 +191,16 @@
 		<checkstyle config="./checkstyle.xml" failonviolation="true" classpathref="fullclasspath">
 			<formatter type="xml" toFile="checkstyle_results.xml"/>
 			<fileset dir="${build.src.dir}" />
+			<fileset dir="${contrib.src.dir}" />
 		</checkstyle>
 	</target>
 	 
 
 	<target name="generate-javadoc" depends="init">
 			<mkdir dir="${build.docs.dir}/javadoc" />
-			<javadoc classpath="${javac.classpath}" 
+			<javadoc
 				additionalparam="-J-Djava.awt.headless=true"
-				classpathref="fullclasspath" 
+				classpathref="javadoc.classpath" 
 				packagenames="com.*" 
 				destdir="${build.docs.dir}/javadoc" 
 				maxmemory="256M"
@@ -177,6 +209,7 @@
 				>
 				<sourcepath>
 					<pathelement path="${build.src.dir}" />
+					<pathelement path="${contrib.src.dir}" />
 				</sourcepath>
 		</javadoc>
 	</target>
