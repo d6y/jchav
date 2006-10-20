@@ -37,6 +37,9 @@ import com.googlecode.jchav.ant.LaunchParams;
  * <li> <a href="http://maven.apache.org/guides/plugin/guide-java-plugin-development.html">Maven Java Plugin Guide</a></li>.
  * </ul>
  * 
+ * @author $LastChangedBy$
+ * @version $LastChangedDate$ $LastChangedRevision$
+ * 
  * @goal jchav
  */
 public class JChavMojo extends AbstractMojo
