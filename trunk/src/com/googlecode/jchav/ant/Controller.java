@@ -22,10 +22,14 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.URLDecoder;
+import java.util.SortedSet;
 
+import com.googlecode.jchav.chart.ChangeAlertDecorator;
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.chart.MinMeanMaxChart;
+import com.googlecode.jchav.data.Measurement;
+import com.googlecode.jchav.data.MeasurementImpl;
 import com.googlecode.jchav.data.MinMax;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.jmeter.ExpandJMeterXML;
@@ -50,7 +54,8 @@ public class Controller
     /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
     
-   
+    /** Paint a warning indicator on thumbnails? */
+    private boolean showChangeWarning = true;
     
     /**
      * Launch the process.
@@ -101,6 +106,19 @@ public class Controller
                 // Make the Y-Axis the same for all charts:
                 chart.setMaxY(yRange.getMax());
                 chart.setMinY(yRange.getMin());
+            }
+            
+            if (showChangeWarning)
+            {
+                SortedSet<Measurement> measurements = data.getMeasurements(id);
+                int n = measurements.size();
+                if (n > 1)
+                {
+                    MeasurementImpl[] m = new MeasurementImpl[n];
+                    m = measurements.toArray(m);
+                    ChangeAlertDecorator deco = new ChangeAlertDecorator(m[n-2].getAverageTime(), m[n-1].getAverageTime());
+                    chart.add(deco);
+                }
             }
             
             writeChart(id, chart, outDir);
