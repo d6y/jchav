@@ -49,6 +49,13 @@ For details see:
 
 		<property description="The location to generate the html and charts to. " 
 			name="jchav.result.dir" value="./digjchavresults" />
+		
+		
+		<echo>
+This example assumes JChav libraries exist in ${jchav.libs.dir}
+If they don't first run "ant build-jar" from the etc/ folder to create the libs
+		</echo>
+				
 	
 	</target>
 			
@@ -72,6 +79,8 @@ For details see:
 	<target name="run-jchav" depends="init"
 			description="Produce JChav report from the JMeter results">
 		
+		<mkdir dir="${jchav.libs.dir}/"/>
+		
 		 <taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask">
 			<classpath>
 				<fileset dir="${jchav.libs.dir}/">
@@ -82,7 +91,9 @@ For details see:
 		
 		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" 
 			reporttitle="Digg Example Walk"
-			uniformyaxis="true" />
+			uniformyaxis="true"  />
+		
+		<echo>Now open digjchavresults/index.html</echo>
 	
 	</target>
 	
