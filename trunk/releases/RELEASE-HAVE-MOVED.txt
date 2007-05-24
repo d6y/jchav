@@ -1,0 +1,11 @@
+Google Code now has a separate downloads area, so look there for releases 1.1.0 and beyond
+
+The URL is:
+
+http://code.google.com/p/jchav/downloads/list
+
+And you'll find the latest version featured on the home page:
+
+http://code.google.com/p/jchav/
+
+Thank you!
