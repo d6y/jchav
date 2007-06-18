@@ -65,4 +65,14 @@ public interface Measurement
      */
     void setMinimumTime(long minimumTime);
 
+    /**
+     * @return flag showing if measurement completed OK.
+     */
+    boolean isPageOK();
+
+    /**
+     * @param pageOK flag to show if page was successful or not.
+     */
+     void setPageOK(boolean pageOK);
+
 }

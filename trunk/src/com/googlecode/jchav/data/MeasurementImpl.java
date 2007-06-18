@@ -35,6 +35,11 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
     /** The average time in milliseconds. */
     private long averageTime;
 
+
+
+    /** Flag showing if page processed OK. */
+    private boolean pageOK;
+
     /**
      * Helper constructor.
      * @param buildId Id of build.
@@ -106,6 +111,18 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
     public int compareTo(Measurement o)
     {
         return buildId.getBuildOrder()-o.getBuildId().getBuildOrder();
+    }
+
+    /**{@inheritDoc}*/
+    public boolean isPageOK()
+    {
+        return pageOK;
+    }
+
+    /**{@inheritDoc}*/
+    public void setPageOK(boolean pageOK)
+    {
+        this.pageOK = pageOK;
     }
     
 }

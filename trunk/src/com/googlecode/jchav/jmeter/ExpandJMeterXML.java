@@ -49,7 +49,7 @@ import com.googlecode.jchav.data.PageDataImpl;
 public class ExpandJMeterXML
 {
     /** Logger. */
-    private static Logger logger = Logger.getLogger(ExpandJMeterXML.class);
+    private static final Logger logger = Logger.getLogger(ExpandJMeterXML.class);
 
     /** This stores all the averages per page per build. */
     private PageData pageData = new PageDataImpl();

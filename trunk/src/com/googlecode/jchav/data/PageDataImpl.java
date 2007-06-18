@@ -34,7 +34,7 @@ import java.util.TreeSet;
 public class PageDataImpl implements PageData
 {
     /** Structure for all the read measurements. */
-    private SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
+    private final SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
 
     /** Get the ordered list of measurements for a given pageId.
      * 
