@@ -114,6 +114,25 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                 requestMap.put(labelName, currentRequest);
             }
 
+            // add return code/is Good
+            String returnCode=attributes.getValue(formatDefinitions.getReturnCodeName());
+            try
+            {
+                if(returnCode!=null)
+                {
+                    int retVal=Integer.parseInt(returnCode);
+                    currentRequest.setReturnCode(retVal);
+                }
+                else
+                {
+                    logger.error("Error on reading return code flag "+returnCode);
+                }
+            }
+            catch(NumberFormatException ne)
+            {
+                logger .error("Read non numeric as return code for a page >"+returnCode+"<");                
+            }
+            
             // add time spent
             String timeSpent = attributes.getValue(formatDefinitions.getElapsedTimeAttributeName());
 

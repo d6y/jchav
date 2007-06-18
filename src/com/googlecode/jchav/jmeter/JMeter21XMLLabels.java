@@ -39,6 +39,15 @@ public class JMeter21XMLLabels implements XMLFormatDefinitions
     /** Label attribute name. */
     private static final String LABEL_ATTRIBUTE_NAME="lb";
 
+    /** Return code id. */
+    private static final String RETURN_CODE_NAME="rc";
+
+    /** {@inheritDoc}*/
+    public String getReturnCodeName()
+    {
+       return RETURN_CODE_NAME;
+    }
+
     /** {@inheritDoc}*/
     public String getElapsedTimeAttributeName()
     {

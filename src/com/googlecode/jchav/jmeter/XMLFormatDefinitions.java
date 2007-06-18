@@ -44,6 +44,12 @@ public interface XMLFormatDefinitions
      * @return the pageid/test name attribute.
      */
     String getLabelAttributeName();
-    
-    
+
+
+    /** Get the name for the return code value.
+     *
+     * @return the attribute name for the return code flag
+     */
+    public String getReturnCodeName();
+
 }
