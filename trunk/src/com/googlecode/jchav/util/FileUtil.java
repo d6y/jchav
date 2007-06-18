@@ -50,7 +50,7 @@ public class FileUtil
 			output = new FileOutputStream(outputFile);
 			
 			final byte[] buffer = new byte[8192];
-			int count = -1;
+			int count;
 			while ((count = inputStream.read(buffer)) > -1)
 			{
 				output.write(buffer, 0, count);
