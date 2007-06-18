@@ -60,7 +60,10 @@ public class FileUtil
 		}
 		finally
 		{
-			output.close();
+			if(output!=null)
+            {
+                output.close();
+            }
 		}
 	}
 	
