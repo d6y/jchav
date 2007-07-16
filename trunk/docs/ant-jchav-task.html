@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>JCHav Ant task documentation</title>
+	<style>
+		pre
+		{
+		    width: 98%;
+		    border: 1px solid #CCCCCC;
+		    background-color: #f5f5f5;
+		    padding: 10px;
+		}
+		h2
+		{
+			color: white;
+		    background-color: #525D76;
+		    padding: 2px;
+		}
+		h3 
+		{
+			color: white;
+  			background-color: #525D76;
+		    padding: 2px;
+		}
+		h4 
+		{
+			color: white;
+			background-color: #828DA6;
+		    padding: 2px;
+		}		
+		.darkGrey
+		{	
+			background-color: #DDD;
+		}
+		.lightGrey
+		{	
+			background-color: #F1F1F1;
+		}
+	</style>
+
+</head>
+
+<body>
+
+<h1>JChav</h1>
+
+<h2>Description</h2>
+
+<p>
+The JChav ant task allows for charts to be generated as part of an automated ant build.
+</p>
+
+<h2>Parameters</h2>
+
+<p>
+The parameters on the JChav task are used to specify the input, and output folders to  
+execute the task against. It is also possible to specify the global page titles, and 
+whether or not to manage axes.
+</p>
+
+<table width="100%" cellpadding="3" cellspacing="0">
+	<tr class="darkGrey">
+		<th width="15%">Attribute</th>
+		<th>Description</th>
+		<th width="15%">Required</th>
+	</tr>
+	<tr class="lightGrey">
+		<td valign="top" align="right">srcDir</td>
+		<td>
+		The folder that contains the jmeter results that are to be charted.
+		</td>
+		<td valign="top">Yes</td>
+	</tr>
+	<tr class="lightGrey">
+		<td valign="top" align="right">destDir</td>
+		<td>
+		The folder that JChav results should be written to.
+		</td>
+		<td valign="top">Yes</td>
+	</tr>
+	<tr class="lightGrey">
+		<td valign="top" align="right">reporttitle</td>
+		<td>
+		The global title that should appear in the main report.
+		</td>
+		<td valign="top">No</td>
+	</tr>
+	<tr class="lightGrey">
+		<td valign="top" align="right">uniformyaxis</td>
+		<td>
+		Should the Y-axis be rendered uniformly.
+		</td>
+		<td valign="top">No, default is false</td>
+	</tr>
+</table>
+
+<h2>Examples</h2>
+
+<pre>
+&lt;!-- Run the charting task over the jmeter results in srcdir. -->
+&lt;jchav srcdir="${jmeter.result.dir}" 
+       destdir="${jchav.result.dir}"  
+       reporttitle="Digg Example Walk"
+       uniformyaxis="true"  />
+</pre>
+
+<p>TODO ? - use filesets instead of srcdir</p>
+<pre>
+&lt;!-- Run the charting task over the jmeter results in srcdir. -->
+&lt;jchav destdir="${jchav.result.dir}"  
+       reporttitle="Digg Example Walk"
+       uniformyaxis="true">
+     &lt;fileset dir="${jmeter.result.dir}" includes="**/*" />
+&lt;/jchav>       
+</pre>
+
+</body>
+
+</html>
