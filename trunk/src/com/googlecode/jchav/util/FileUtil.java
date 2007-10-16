@@ -16,11 +16,14 @@
  */
 package com.googlecode.jchav.util;
 
+import org.apache.log4j.Logger;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Writer;
 
 
 /**
@@ -32,8 +35,9 @@ import java.io.OutputStream;
 public class FileUtil
 {
 
-	
-	/**
+    private static Logger log= Logger.getLogger(FileUtil.class);
+
+    /**
 	 * Copy an input stream to an output file.
 	 * 
 	 * @param inputStream a non-null input stream.
@@ -68,5 +72,27 @@ public class FileUtil
             }
 		}
 	}
+
+
+    /**
+     * Helper to close a writer that could be null.
+     * @param w possibly null writer.
+     */
+    public static void closeQuietly(final Writer w)
+    {
+        if (w != null)
+        {
+            try
+            {
+                w.close();
+            }
+            catch (IOException e)
+            {
+                log.error("Error when closing writer", e);
+            }
+        }
+    }
+
+
 	
 }
