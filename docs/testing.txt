@@ -17,8 +17,12 @@ IntelliJ IDEA users
    field.
 
  * When setting up a run of the unit tests (e.g., by right-clicking on the junit
-   folder and selecting Run "All Tests"), ensure that the VM arguments are set
-   up to turn on assertions and to set the jchav.test.data.dir property.  E.g.,:
-   -Djchav.test.data.dir=path/to/jchav/testdata -ea
+   folder and selecting Run "All Tests", and selecting JUnit), ensure that the
+   VM arguments are set up to turn on assertions and set the
+   jchav.test.data.dir property. E.g.: -Djchav.test.data.dir=testdata -ea
 
+ * The tests need src/ to be on the classpath when running tests in order to
+   to be able to copy css and jpg files.  If you find ControllerTest failing
+   because of a FileCopy problem, set the module to output test and production
+   code to the same directory, and then force a project rebuild.
    
