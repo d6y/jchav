@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-ANT Build for JChav project.  Run from the etc/ folder.
+ANT Build for JChav project.   Run from the etc/ folder.
 -->
 <project name="jchav" default="default" basedir=".">
 
-	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist"/>
+	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist,maven-dist"/>
 	
 	<target name="cruise-target" depends="default" />
 	
@@ -86,16 +86,21 @@ ANT Build for JChav project.  Run from the etc/ folder.
 				<exclude name="**/ant.jar"/>
 			</fileset>
 		</copy>
-		
-		<!-- Include maven-style packaging in the dist -->
-		<property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+
+    </target>
+
+
+    <target name="maven-dist"
+            description="Include maven-style packaging in the dist"
+            if="release"
+            >
+        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
 		<mkdir dir="${maven.dist.dir}"/>
 		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release}.jar" />
 		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release}.jar" fileext=".sha1" />
-	
-	</target>
-	
-	<target name="release" depends="dist,generate-javadoc"
+    </target>
+
+    <target name="release" depends="dist,generate-javadoc"
 			description="Create a release given a release lable, such as -Drelease=1.0.0">
 			
 		<property name="release.name" value="jchav-${release}" />
