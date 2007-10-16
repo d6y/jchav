@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,15 +16,15 @@
  */
 package com.googlecode.jchav;
 
-import java.io.File;
-
 import org.apache.log4j.Logger;
+
+import java.io.File;
 
 /**
  * Helper for locating test data in the project.
  *
- * @author $Author$
- * @version $Revision$ $Date$
+ * @author $LastChangedBy: dallaway $
+ * @version $LastChangedDate: 2006-10-03 19:21:47 +0100 (Tue, 03 Oct 2006) $ $LastChangedRevision: 72 $
  */
 public class TestData
 {
@@ -44,6 +44,8 @@ public class TestData
         {
             // Try to guess the location:
             result = new File("./testdata");
+            log.warn("Guessing testdata location as: "+result +" - if that's" +
+                    " wrong see docs/testing.txt and then set -Djchav.test.data.dir");
         }
         else
         {
