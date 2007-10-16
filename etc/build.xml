@@ -143,13 +143,15 @@ ANT Build for JChav project.  Run from the etc/ folder.
 
 	<target name="run-junit" depends="compile-junit">
 		<mkdir dir="${junit.log.location}"/>
-	
-		<junit fork="yes" printsummary="on"  haltonfailure="yes" >
+
+        <echo>Unit test output: ${junit.log.location}</echo>
+
+        <junit fork="yes" printsummary="on"  haltonfailure="yes" >
 			<jvmarg value="-Djchav.test.data.dir=../testdata"/>
 			
 			<classpath location="${test.classes.dir}"/>
 			<classpath location="${build.classes.dir}" />
-			<classpath refid="fullclasspath"/>
+			<classpath refid="test.classpath"/>
 			
 			<formatter type="xml" />
 			<batchtest  todir="${junit.log.location}" haltonfailure="yes">
