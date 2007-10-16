@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,6 +16,10 @@
  */
 package com.googlecode.jchav.report;
 
+import com.googlecode.jchav.chart.ChartNameUtil;
+import com.googlecode.jchav.data.PageDataImpl;
+import com.googlecode.jchav.util.FileUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
@@ -23,10 +27,6 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
-
-import com.googlecode.jchav.chart.ChartNameUtil;
-import com.googlecode.jchav.data.PageDataImpl;
-import com.googlecode.jchav.util.FileUtil;
 
 /**
  * Writes the summary (front page) of the JChav report.
