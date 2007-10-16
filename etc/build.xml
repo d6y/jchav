@@ -161,9 +161,13 @@ ANT Build for JChav project.   Run from the etc/ folder.
 			<formatter type="xml" />
 			<batchtest  todir="${junit.log.location}" haltonfailure="yes">
 				<fileset dir="${test.classes.dir}">
-					<!-- This is our main pattern... -->
+
+                    <!-- This is our main pattern... -->
 					<include name="**/*Test.class" />
+
+                    <!-- This is not a unit test, but a main() to help produce a chart for visual inspection: -->
 					<exclude name="**/MinMeanMaxChartTest.class"/>
+
 				</fileset>
 			</batchtest>
 		</junit>
