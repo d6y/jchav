@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@
  */
 package com.googlecode.jchav.ant;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
-
-import org.junit.Test;
 
 
 /**
