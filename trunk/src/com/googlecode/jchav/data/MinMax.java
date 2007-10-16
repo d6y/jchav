@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -38,8 +38,8 @@ public class MinMax
     {
         super();
         
-        assert min <= max : "Min larger than max.  Check parameter order in constructor";
-        
+        assert min <= max : "Min ("+min+") larger than max ("+max+").  Check parameter order in constructor.";
+
         this.min = min;
         this.max = max;
     }
@@ -62,6 +62,7 @@ public class MinMax
         
         long min = Long.MAX_VALUE;
         long max = Long.MIN_VALUE;
+        
         for(String pageId : data.getPageIds())
         {
             for(Measurement m : data.getMeasurements(pageId))
