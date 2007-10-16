@@ -16,21 +16,18 @@
  */
 package com.googlecode.jchav.jmeter;
 
-import static org.junit.Assert.assertEquals;
+import com.googlecode.jchav.data.BuildIdImpl;
+import com.googlecode.jchav.data.Measurement;
+import com.googlecode.jchav.data.PageData;
 import static org.junit.Assert.fail;
+import org.junit.Before;
+import org.junit.Test;
+import org.xml.sax.InputSource;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.SortedSet;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.xml.sax.InputSource;
-
-import com.googlecode.jchav.data.BuildIdImpl;
-import com.googlecode.jchav.data.Measurement;
-import com.googlecode.jchav.data.PageData;
 
 
 
