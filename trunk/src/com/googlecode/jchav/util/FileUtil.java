@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -34,17 +34,19 @@ public class FileUtil
 
 	
 	/**
-	 * Copy an inputstream to an output file.
+	 * Copy an input stream to an output file.
 	 * 
-	 * @param inputStream The input stream.
-	 * @param outputFile The file to write the input to.
+	 * @param inputStream a non-null input stream.
+	 * @param outputFile the file to write the input to.
 	 * 
 	 * @throws IOException If there is a problem with the copy.
 	 */
 	public static void copy(final InputStream inputStream, final File outputFile) throws IOException
 	{
-		
-		OutputStream output = null;
+		assert inputStream != null;
+        assert outputFile != null;
+        
+        OutputStream output = null;
 		try
 		{
 			output = new FileOutputStream(outputFile);
