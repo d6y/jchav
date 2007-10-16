@@ -1,8 +1,24 @@
-Simple testing property in place for locating test data.
+jchav.test.data.dir is a simple testing property in place for locating test data.
 
-When running tests you must have the System property set to the test data area
+When running tests you must have the System property set to the test data area, e.g.:
 
-eg
-jchav.test.data.dir="/Users/goul/Documents/workspace/jchav/testdata/"
+    -Djchav.test.data.dir=path/to/jchav/testdata -ea
 
-Ant build will set this automatically.
+The Ant build in the etc fiolder will set this automatically.
+
+
+
+== Notes on running unit tests from IDEs ===============================================
+
+
+IntelliJ IDEA users
+
+ * In Preferences/Compiler ensure that ?*.css is included in the "Resource Patterns"
+   field.
+
+ * When setting up a run of the unit tests (e.g., by right-clicking on the junit
+   folder and selecting Run "All Tests"), ensure that the VM arguments are set
+   up to turn on assertions and to set the jchav.test.data.dir property.  E.g.,:
+   -Djchav.test.data.dir=path/to/jchav/testdata -ea
+
+   
