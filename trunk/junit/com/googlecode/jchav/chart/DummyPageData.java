@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,16 +16,15 @@
  */
 package com.googlecode.jchav.chart;
 
+import com.googlecode.jchav.data.BuildIdImpl;
+import com.googlecode.jchav.data.Measurement;
+import com.googlecode.jchav.data.PageData;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.SortedSet;
-
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
-import com.googlecode.jchav.data.BuildIdImpl;
-import com.googlecode.jchav.data.Measurement;
-import com.googlecode.jchav.data.PageData;
 
 /**
  * Sample page data for use in testing.
@@ -40,6 +39,7 @@ public class DummyPageData implements PageData
 
     /** Page list. */
     private final List<String> pageIdList;
+
     /** Page data. */
     private final HashMap<String, SortedSet<Measurement>> data;
     
@@ -110,6 +110,14 @@ public class DummyPageData implements PageData
     public SortedSet<Measurement> getMeasurements(final String pageId)
     {
         return this.data.get(pageId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public boolean isEmpty()
+    {
+        return false; 
     }
 
     /**

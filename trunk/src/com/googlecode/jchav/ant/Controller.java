@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -16,14 +16,6 @@
  */
 package com.googlecode.jchav.ant;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.net.URLDecoder;
-import java.util.SortedSet;
-
 import com.googlecode.jchav.chart.ChangeAlertDecorator;
 import com.googlecode.jchav.chart.Chart;
 import com.googlecode.jchav.chart.ChartNameUtil;
@@ -35,6 +27,15 @@ import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.jmeter.ExpandJMeterXML;
 import com.googlecode.jchav.report.ReportPageDetailWriter;
 import com.googlecode.jchav.report.ReportSummaryWriter;
+import com.googlecode.jchav.util.FileUtil;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.net.URLDecoder;
+import java.util.SortedSet;
 
 
 /**
@@ -49,8 +50,10 @@ public class Controller
 
     /** Default image width. */
     private int width = 640;
+
     /** Default image height. */
     private int height = 480;
+
     /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
     
@@ -83,6 +86,12 @@ public class Controller
         expander.processAllfiles(xmlDir);
        
         final PageData data = expander.getPageData();
+
+        if (data.isEmpty())
+        {
+            return; // nothing to do.
+        }
+
         
         // If the user has opted to have uniform y-aixs for all charts,
         // we need to compute the min and max for all the data:
@@ -114,7 +123,7 @@ public class Controller
                 int n = measurements.size();
                 if (n > 1)
                 {
-                    MeasurementImpl[] m = new MeasurementImpl[n];
+                    Measurement[] m = new MeasurementImpl[n];
                     m = measurements.toArray(m);
                     ChangeAlertDecorator deco = new ChangeAlertDecorator(m[n-2].getAverageTime(), m[n-1].getAverageTime());
                     chart.add(deco);
@@ -152,7 +161,6 @@ public class Controller
         finally
         {
             fullOut.close();
-            fullOut = null;
         }
         
         final File thumbFile = ChartNameUtil.buildChartThumbnailPath(pageId, outDir);
@@ -164,7 +172,6 @@ public class Controller
         finally
         {
             thumbOut.close();
-            thumbOut = null;
         }
         
         
@@ -208,7 +215,7 @@ public class Controller
 	        	}
 	        	finally
 	        	{
-	        		detailOutput.close();
+                    FileUtil.closeQuietly(detailOutput);
 	        	}
 	        }
 	        
@@ -216,8 +223,7 @@ public class Controller
     	}
     	finally
     	{
-    		output.close();
-    		output = null;
+            FileUtil.closeQuietly(output);
     	}
     }
     

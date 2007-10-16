@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -36,8 +36,13 @@ public interface PageData
      * @return Ordered list of measurements. Ordered in X axis order (left to right).
      */
     SortedSet <Measurement> getMeasurements(String pageId);
-    
-    
+
+
+    /** Test to decide if any data has been found.
+     *
+     * @return true if data has been added; false otherwise. 
+     */
+    boolean isEmpty();
         
     /** Get an iterator over the ordered set of page ids.
      * @return Iterator over the ordered set of page ids.

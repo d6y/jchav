@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -27,21 +27,30 @@ import java.util.TreeSet;
 /**
  * Concrete implementation of the PageData structure.
  * 
- * The structure is not designed to be thread safe, and almost certainly isnt.
+ * The structure is not designed to be thread safe, and almost certainly isn't.
+ *
  * @author $LastChangedBy$
  * @version $LastChangedDate$ $LastChangedRevision$
  */
 public class PageDataImpl implements PageData
 {
-    /** Structure for all the read measurements. */
+    /** Structure for all the read measurements, keyed by page. */
     private final SortedMap<String, SortedSet<Measurement>> allMeasurements=new TreeMap<String, SortedSet<Measurement>>();
+
+    /**
+     * {@inheritDoc}
+     */
+    public boolean isEmpty()
+    {
+       return allMeasurements.size() == 0;
+    }
 
     /** Get the ordered list of measurements for a given pageId.
      * 
      * @param pageId The unique page name from the getPages iterator.
      * @return Ordered list of measurements. Ordered in X axis order (left to right).
      */
-    public SortedSet <Measurement> getMeasurements(String pageId)
+    public SortedSet <Measurement> getMeasurements(final String pageId)
     {
         SortedSet<Measurement> measurements=allMeasurements.get(pageId);
         if(measurements==null) //ensure we do return a list, even if its empty.
