@@ -92,18 +92,19 @@ ANT Build for JChav project.   IMPORTANT: Run from the etc/ folder.
 
     <target name="maven-dist"
             description="Include maven-style packaging in the dist"
-            if="release.name"
+            if="release"
             >
-        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release.name}"/>
+        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
 		<mkdir dir="${maven.dist.dir}"/>
-		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release.name}.jar" />
-		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release.name}.jar" fileext=".sha1" />
+		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release}.jar" fileext=".sha1" />
     </target>
 
     <target name="release" depends="dist,generate-javadoc"
-			description="Create a release given a release label, such as -Drelease.name=1.0.0">
+			if="release"
+			description="Create a release given a release label, such as -Drelease=1.0.0">
 
-		<property name="release.name" value="jchav-${release.name}" />
+		<property name="release.name" value="jchav-${release}" />
 
 		<echo>This is release ${release.name}</echo>
 		<echo>Look ok? No? Did you do ant -Drelease.name=1.0.0 (or whatever number you want)?</echo>
@@ -120,12 +121,12 @@ ANT Build for JChav project.   IMPORTANT: Run from the etc/ folder.
 
 		<checksum algorithm="MD5" file="${release.dir}/${release.name}.zip" fileext=".md5"/>
 
-		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release.name}"/>
+		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
 		<mkdir dir="${maven.release.dir}"/>
 
 		<!-- Publish the JChav JAR into the directory it's expected to be in for Maven -->
-		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release.name}.jar" />
-		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release.name}.jar" fileext=".sha1" />
+		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release}.jar" fileext=".sha1" />
 
 	</target>
 
