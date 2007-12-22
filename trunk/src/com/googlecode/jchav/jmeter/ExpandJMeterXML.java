@@ -47,7 +47,7 @@ import java.util.Iterator;
 public class ExpandJMeterXML
 {
     /** Logger. */
-    private static final Logger logger = Logger.getLogger(ExpandJMeterXML.class);
+    private static Logger logger = Logger.getLogger(ExpandJMeterXML.class);
 
     /** This stores all the averages per page per build. */
     private PageData pageData = new PageDataImpl();
@@ -126,14 +126,7 @@ public class ExpandJMeterXML
         {
             public boolean accept(File f)
             {
-                if (f.isDirectory())
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+				return !f.isDirectory();
             }
         };
 

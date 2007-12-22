@@ -27,7 +27,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.MinMaxCategoryRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.SortedSet;
 
 

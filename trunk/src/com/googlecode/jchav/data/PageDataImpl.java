@@ -108,7 +108,8 @@ public class PageDataImpl implements PageData
 
     /** Add a measurement to the structure.
      *
-     * @param pageId the pageId to add for,
+     * @param pageId the pageId to add for.
+	 * @param pageTitle the human readable page title.
      * @param measurement The measurement.
      */
     public void addMeasurement(String pageId, String pageTitle, Measurement measurement)
