@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -11,26 +11,25 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
- * 
+ *  limitations under the License.
+ *
  */
 package com.googlecode.jchav.jmeter;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
+import com.googlecode.jchav.data.PageData;
 import org.apache.log4j.Logger;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.googlecode.jchav.data.PageData;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Sax processor to read the JMeter XML v2.1 files as specified in http://jakarta.apache.org/jmeter/usermanual/listeners.html.
  * See 14.6 XML Log Format 2.1
- * 
+ *
  * @author $LastChangedBy$
  * @version $LastChangedDate$ $LastChangedRevision$
  */
@@ -55,7 +54,7 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     private RequestHolder summaryRequestHolder;
 
     /** Create a handler with a defined xml format.
-     * 
+     *
      * @param formats The XML format definition.
      */
     public JMeterXMLSaxHandler(XMLFormatDefinitions formats)
@@ -63,8 +62,8 @@ public class JMeterXMLSaxHandler extends DefaultHandler
         this.formatDefinitions = formats;
     }
 
-    /** Get an iterator through the labels. 
-     * 
+    /** Get an iterator through the labels.
+     *
      * @return iterator through the labels.
      */
     public Iterator<String> getLabels()
@@ -74,7 +73,7 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     }
 
     /** Get the request holder for a given label.
-     * 
+     *
      * @param name label of result.
      * @return The request holder for this.
      */
@@ -103,15 +102,19 @@ public class JMeterXMLSaxHandler extends DefaultHandler
         {
             String labelName = attributes.getValue(formatDefinitions.getLabelAttributeName());
 
-            labelName = simplifyLabelName(labelName);
+			String simpleLabel = simplifyLabelName(labelName);
 
-            // check if we already have a request for this stuff
+			labelName = PageIdProcessorImpl.processPageId(simpleLabel);
+			String pageTitle = PageIdProcessorImpl.humanReadableTitle(simpleLabel);
+
+			// check if we already have a request for this stuff
             currentRequest = requestMap.get(labelName);
             if (currentRequest == null)
             {
                 currentRequest = new RequestHolder();
                 currentRequest.setPageId(labelName);
-                requestMap.put(labelName, currentRequest);
+				currentRequest.setPageTitle(pageTitle);
+				requestMap.put(labelName, currentRequest);
             }
 
             // add return code/is Good
@@ -130,9 +133,9 @@ public class JMeterXMLSaxHandler extends DefaultHandler
             }
             catch(NumberFormatException ne)
             {
-                logger .error("Read non numeric as return code for a page >"+returnCode+"<");                
+                logger .error("Read non numeric as return code for a page >"+returnCode+"<");
             }
-            
+
             // add time spent
             String timeSpent = attributes.getValue(formatDefinitions.getElapsedTimeAttributeName());
 
@@ -159,20 +162,36 @@ public class JMeterXMLSaxHandler extends DefaultHandler
 
     /** Process the label name down to something simple.
      * i.e. remove any params passed to the request.
-     * This is a future expansion point to be specific abot what we are to remove.
+     * This is a future expansion point to be specific about what we are to remove.
      * eg just JSessionId etc etc.
-     * 
+     *
      * @param labelName pageId that potentially includes Get parameters.
-     * 
+     *
      * @return truncated version of label name with no params.
      */
     public static String simplifyLabelName(String labelName)
     {
-        return PageIdProcessorImpl.processPageId(labelName);
 
-    }
+            int argStart=labelName.indexOf(";");
+            if(argStart>0)
+            {
+                return labelName.substring(0,argStart);
+            }
+            else
+            {
+                return labelName;
+            }
 
-    /** Get the overall page average values.
+
+
+        // deal with any parameters passed.
+
+
+        // process the strings into something readable and safe for the disk
+	}
+
+
+	/** Get the overall page average values.
      * @return Returns the summaryRequestHolder.
      */
     public final RequestHolder getSummaryRequestHolder()

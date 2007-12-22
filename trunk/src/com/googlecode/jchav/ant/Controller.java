@@ -11,8 +11,8 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
- * 
+ *  limitations under the License.
+ *
  */
 package com.googlecode.jchav.ant;
 
@@ -34,7 +34,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.net.URLDecoder;
 import java.util.SortedSet;
 
 
@@ -56,22 +55,22 @@ public class Controller
 
     /** Default image thumbnail ratio. */
     private double thumbnailScale = 0.5d;
-    
+
     /** Paint a warning indicator on thumbnails? */
     private boolean showChangeWarning = true;
-    
+
     /**
      * Launch the process.
      * @param launchParams Set of parameters to run the controller with.
-     * 
+     *
      * @throws IOException if there was a problem creating the charts.
      */
-    public void go(LaunchParams launchParams) 
+    public void go(LaunchParams launchParams)
         throws IOException
     {
         File xmlDir=new File(launchParams.getSrcdir());
         File outDir=new File(launchParams.getDestdir());
-        
+
         if (outDir.exists() == false)
         {
             if (false == outDir.mkdirs())
@@ -79,12 +78,12 @@ public class Controller
                 throw new IOException("Failed to create directory: "+outDir.getAbsolutePath());
             }
         }
-        
-        
+
+
         // Read the data:
         ExpandJMeterXML expander = new ExpandJMeterXML();
         expander.processAllfiles(xmlDir);
-       
+
         final PageData data = expander.getPageData();
 
         if (data.isEmpty())
@@ -92,7 +91,7 @@ public class Controller
             return; // nothing to do.
         }
 
-        
+
         // If the user has opted to have uniform y-aixs for all charts,
         // we need to compute the min and max for all the data:
         MinMax yRange = null;
@@ -100,12 +99,12 @@ public class Controller
         {
             yRange = MinMax.from(data);
         }
-                
+
         // Foreach page...
-        for(String id: data.getPageIds()) 
+        for(String id: data.getPageIds())
         {
             // Create the chart:
-            Chart chart = new MinMeanMaxChart(URLDecoder.decode(id, "UTF-8"), data.getMeasurements(id));
+            Chart chart = new MinMeanMaxChart(data.getPageTitle(id), data.getMeasurements(id));
             chart.setWidth(width);
             chart.setHeight(height);
             chart.setThumbnailScale(thumbnailScale);
@@ -116,7 +115,7 @@ public class Controller
                 chart.setMaxY(yRange.getMax());
                 chart.setMinY(yRange.getMin());
             }
-            
+
             if (showChangeWarning)
             {
                 SortedSet<Measurement> measurements = data.getMeasurements(id);
@@ -129,29 +128,29 @@ public class Controller
                     chart.add(deco);
                 }
             }
-            
+
             writeChart(id, chart, outDir);
-             
-            
+
+
         }
-        
-        writeSummary(data, outDir,launchParams.getReportTitle()); //??
-        
+
+        writeSummary(data, outDir, launchParams.getReportTitle());
+
     }
 
     /**
      * Writes the chart both full-sized and thumbnail size to
      * the output directory.
-     * 
+     *
      * @param pageId id of current page.
      * @param chart the chart to write.
      * @param outDir the directory to write into.
-     * 
+     *
      * @throws IOException if there was a problem writing the charts.
      */
     private void writeChart(final String pageId, final Chart chart, final File outDir) throws IOException
     {
-        
+
     	final File fullFile = ChartNameUtil.buildChartImagePath(pageId, outDir);
     	FileOutputStream fullOut = new FileOutputStream(fullFile);
         try
@@ -162,7 +161,7 @@ public class Controller
         {
             fullOut.close();
         }
-        
+
         final File thumbFile = ChartNameUtil.buildChartThumbnailPath(pageId, outDir);
         FileOutputStream thumbOut = new FileOutputStream(thumbFile);
         try
@@ -173,17 +172,17 @@ public class Controller
         {
             thumbOut.close();
         }
-        
-        
+
+
     }
-    
-    
-    
-    
+
+
+
+
     /**
      * Write the summary index page.
-     * 
-     * 
+     *
+     *
      * @param pageData The page dta.
      * @param outDir The output directory.
      * @param reportTitle any given title.
@@ -198,19 +197,19 @@ public class Controller
     	{
     		output = new OutputStreamWriter(new FileOutputStream(indexFile), "UTF-8");
     		final ReportSummaryWriter summaryWriter = new ReportSummaryWriter(output, outDir,reportTitle);
-    		
-	        for(String id: pageData.getPageIds()) 
+
+	        for(String id: pageData.getPageIds())
 	        {
-	        	summaryWriter.writeEntry(id);
+	        	summaryWriter.writeEntry(id, pageData.getPageTitle(id));
 
 	        	Writer detailOutput = null;
 	        	try
 	        	{
 		        	final File detailPageFile = new File(outDir, id + ".html");
 		        	detailOutput = new OutputStreamWriter(new FileOutputStream(detailPageFile), "UTF-8");
-		        	
-		        	final ReportPageDetailWriter detailWriter = new ReportPageDetailWriter(detailOutput, outDir,reportTitle);
-		        	detailWriter.write(id, pageData.getMeasurements(id));
+
+		        	final ReportPageDetailWriter detailWriter = new ReportPageDetailWriter(detailOutput, outDir, reportTitle);
+		        	detailWriter.write(id, pageData.getPageTitle(id), pageData.getMeasurements(id));
 		        	detailWriter.finish();
 	        	}
 	        	finally
@@ -218,7 +217,7 @@ public class Controller
                     FileUtil.closeQuietly(detailOutput);
 	        	}
 	        }
-	        
+
 	        summaryWriter.finish();
     	}
     	finally
@@ -226,5 +225,5 @@ public class Controller
             FileUtil.closeQuietly(output);
     	}
     }
-    
+
 }

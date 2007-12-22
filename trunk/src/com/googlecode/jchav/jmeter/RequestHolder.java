@@ -11,7 +11,7 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
+ *  limitations under the License.
  *
  */
 package com.googlecode.jchav.jmeter;
@@ -29,7 +29,12 @@ public class RequestHolder
      */
     private String pageId;
 
-    /**
+	/**
+	 * The human-readable title.
+	 */
+	private String pageTitle;
+
+	/**
      * Number of requests.
      */
     private int count = 0;
@@ -61,7 +66,7 @@ public class RequestHolder
      *
      * @param time time to add.
      */
-    public void addResult(long time)
+    public void addResult(final long time)
     {
         count++;
         sum = sum + time;
@@ -125,7 +130,7 @@ public class RequestHolder
     /**
      * @param pageId The pageId to set.
      */
-    public final void setPageId(String pageId)
+    public final void setPageId(final String pageId)
     {
         this.pageId = pageId;
     }
@@ -139,11 +144,31 @@ public class RequestHolder
         return returnCode;
     }
 
-    /** Set the return code.
+	/**
+	 * Fetch the title to be showen to the user.
+	 *
+	 * @return the human-readable title of the page.
+	 */
+	public String getPageTitle()
+	{
+		return pageTitle;
+	}
+
+	/**
+	 * Set the title to show to users.
+	 *
+	 * @param pageTitle the human-readable title of the page.
+	 */
+	public void setPageTitle(String pageTitle)
+	{
+		this.pageTitle = pageTitle;
+	}
+
+	/** Set the return code.
      *
      * @param returnCode The code.
      */
-    public void setReturnCode(int returnCode)
+    public void setReturnCode(final int returnCode)
     {
         this.returnCode = returnCode;
     }
