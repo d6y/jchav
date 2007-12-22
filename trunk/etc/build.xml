@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-ANT Build for JChav project.   Run from the etc/ folder.
+ANT Build for JChav project.   IMPORTANT: Run from the etc/ folder.
 -->
 <project name="jchav" default="default" basedir=".">
 
 	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist,maven-dist"/>
-	
+
 	<target name="cruise-target" depends="default" />
-	
+
 	<target name="init">
 		<echo>Loading properties from ${user.name}.properties</echo>
 		<property file="${user.name}.properties" />
@@ -21,14 +21,14 @@ ANT Build for JChav project.   Run from the etc/ folder.
 		<property name="build.libs.dir" value="../libs"/>
 		<property name="release.dir" value="../releases" />
 		<property name="etc.dir" value="." />
-		
+
 		<property name="build.classes.dir" value="../classes"/>
 		<property name="debug.flag" value="true" />
-				
+
 		<property name="test.dir" value="../junit" />
 		<property name="junit.log.location" value="${test.dir}/logs" />
 		<property name="test.src.dir" value="${test.dir}" />
-		
+
 		<property name="test.classes.dir" value="${test.dir}/classes" />
 
 		<property name="target.jarfile" value="../jchav.jar" />
@@ -42,7 +42,7 @@ ANT Build for JChav project.   Run from the etc/ folder.
 				<include name="**/*.jar"/>
 			</fileset>
 		</path>
-		
+
 		<path id="test.classpath">
 			<fileset dir="./thirdparty/junit/">
 				<include name="**/*.jar"/>
@@ -68,18 +68,18 @@ ANT Build for JChav project.   Run from the etc/ folder.
 			<pathelement location="${test.classes.dir}" />
 		</path>
 
-		
-		
+
+
 	</target>
 
 	<!-- produce a binary distribution directory. -->
 	<target name="dist" depends="init">
-		
+
 		<mkdir dir="${build.dist.dir}"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/libraries.txt"/>
 		<copy todir="${build.dist.dir}" file="${build.docs.dir}/LICENSE"/>
 		<copy todir="${build.dist.dir}" file="${target.jarfile}"/>
-		
+
 		<copy todir="${build.dist.dir}">
 			<fileset dir="${build.libs.dir}">
 				<include name="**/*.jar"/>
@@ -92,43 +92,43 @@ ANT Build for JChav project.   Run from the etc/ folder.
 
     <target name="maven-dist"
             description="Include maven-style packaging in the dist"
-            if="release"
+            if="release.name"
             >
-        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release.name}"/>
 		<mkdir dir="${maven.dist.dir}"/>
-		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release}.jar" />
-		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release}.jar" fileext=".sha1" />
+		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release.name}.jar" />
+		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release.name}.jar" fileext=".sha1" />
     </target>
 
     <target name="release" depends="dist,generate-javadoc"
-			description="Create a release given a release lable, such as -Drelease=1.0.0">
-			
-		<property name="release.name" value="jchav-${release}" />
-		
+			description="Create a release given a release label, such as -Drelease.name=1.0.0">
+
+		<property name="release.name" value="jchav-${release.name}" />
+
 		<echo>This is release ${release.name}</echo>
-		<echo>Look ok? No? Did you do ant -Drelease=1.0.0 or similar?</echo>
-		
+		<echo>Look ok? No? Did you do ant -Drelease.name=1.0.0 (or whatever number you want)?</echo>
+
 		<zip destfile="${release.dir}/${release.name}.zip" >
-			<zipfileset dir="${build.dist.dir}" prefix="${release.name}"></zipfileset>
-			<zipfileset dir="${build.docs.dir}" prefix="${release.name}/docs"></zipfileset>
-			<zipfileset dir="${contrib.src.dir}" prefix="${release.name}/contrib"></zipfileset>
+			<zipfileset dir="${build.dist.dir}" prefix="${release.name}"/>
+			<zipfileset dir="${build.docs.dir}" prefix="${release.name}/docs"/>
+			<zipfileset dir="${contrib.src.dir}" prefix="${release.name}/contrib"/>
 			<zipfileset dir="${etc.dir}" prefix="${release.name}/etc">
 				<include name="build.xml" />
-				<include name="*pom*" />							
-			</zipfileset>					
-		</zip>	
-		
+				<include name="*pom*" />
+			</zipfileset>
+		</zip>
+
 		<checksum algorithm="MD5" file="${release.dir}/${release.name}.zip" fileext=".md5"/>
-	
-		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+
+		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release.name}"/>
 		<mkdir dir="${maven.release.dir}"/>
-			
+
 		<!-- Publish the JChav JAR into the directory it's expected to be in for Maven -->
-		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release}.jar" />
-		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release}.jar" fileext=".sha1" />
-		
+		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release.name}.jar" />
+		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release.name}.jar" fileext=".sha1" />
+
 	</target>
-		
+
 	<target name="compile" depends="init">
 		<!--  create the dirs for output -->
 		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />
@@ -153,11 +153,11 @@ ANT Build for JChav project.   Run from the etc/ folder.
 
         <junit fork="yes" printsummary="on"  haltonfailure="yes" >
 			<jvmarg value="-Djchav.test.data.dir=../testdata"/>
-			
+
 			<classpath location="${test.classes.dir}"/>
 			<classpath location="${build.classes.dir}" />
 			<classpath refid="test.classpath"/>
-			
+
 			<formatter type="xml" />
 			<batchtest  todir="${junit.log.location}" haltonfailure="yes">
 				<fileset dir="${test.classes.dir}">
@@ -174,7 +174,7 @@ ANT Build for JChav project.   Run from the etc/ folder.
 	</target>
 
 
-			
+
 	<target name="build-jar" depends="compile">
 		<delete file="${target.jarfile}" />
 		<jar destfile="${target.jarfile}" >
@@ -188,32 +188,32 @@ ANT Build for JChav project.   Run from the etc/ folder.
 			<fileset dir="${build.classes.dir}" />
 			<fileset dir="${test.classes.dir}" />
 		</delete>
-			
+
 	</target>
-	
+
 	<target name="run-checkstyle" depends="init">
-		
+
 		<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask">
 			<classpath>
 		    	<pathelement location="./thirdparty/checkstyle/checkstyle-all-4.1.jar" />
-		    </classpath> 
+		    </classpath>
 		</taskdef>
-		         					
+
 		<checkstyle config="./checkstyle.xml" failonviolation="true" classpathref="fullclasspath">
 			<formatter type="xml" toFile="checkstyle_results.xml"/>
 			<fileset dir="${build.src.dir}" />
 			<fileset dir="${contrib.src.dir}" />
 		</checkstyle>
 	</target>
-	 
+
 
 	<target name="generate-javadoc" depends="init">
 			<mkdir dir="${build.docs.dir}/javadoc" />
 			<javadoc
 				additionalparam="-J-Djava.awt.headless=true"
-				classpathref="javadoc.classpath" 
-				packagenames="com.*" 
-				destdir="${build.docs.dir}/javadoc" 
+				classpathref="javadoc.classpath"
+				packagenames="com.*"
+				destdir="${build.docs.dir}/javadoc"
 				maxmemory="256M"
 				author="true"
 				version="true"
@@ -224,6 +224,6 @@ ANT Build for JChav project.   Run from the etc/ folder.
 				</sourcepath>
 		</javadoc>
 	</target>
-	
+
 </project>
 
