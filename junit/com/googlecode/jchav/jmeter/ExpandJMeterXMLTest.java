@@ -107,6 +107,21 @@ public class ExpandJMeterXMLTest
         jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source);    
     }
     
+    
+    /**
+     * Test we can handle a valid JMeter2.3.1 file.    
+     * @throws IOException on unexpected failure.
+     */
+    @Test public void testGoodJMeter231Format() throws IOException
+    {
+    
+        ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
+        
+        InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"Good231Data.xml"));
+        jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source);    
+    }
+    
+    
     /** Test that when a directory full of files is generated that the builds are in order.
      */
     @Test public void testBuildOrdering() 
