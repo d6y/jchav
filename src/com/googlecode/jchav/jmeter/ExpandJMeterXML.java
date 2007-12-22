@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -11,11 +11,25 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
- * 
+ *  limitations under the License.
+ *
  */
 package com.googlecode.jchav.jmeter;
 
+import com.googlecode.jchav.data.BuildId;
+import com.googlecode.jchav.data.BuildIdImpl;
+import com.googlecode.jchav.data.Measurement;
+import com.googlecode.jchav.data.MeasurementImpl;
+import com.googlecode.jchav.data.PageData;
+import com.googlecode.jchav.data.PageDataImpl;
+import org.apache.log4j.Logger;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileNotFoundException;
@@ -24,22 +38,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.apache.log4j.Logger;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-
-import com.googlecode.jchav.data.BuildId;
-import com.googlecode.jchav.data.BuildIdImpl;
-import com.googlecode.jchav.data.Measurement;
-import com.googlecode.jchav.data.MeasurementImpl;
-import com.googlecode.jchav.data.PageData;
-import com.googlecode.jchav.data.PageDataImpl;
 
 /**
  * Process an XML file to generate the set of averages for a given request file.
@@ -61,7 +59,7 @@ public class ExpandJMeterXML
      */
     public void processAllfiles(File dir)
     {
-        // for each file 
+        // for each file
         if (!dir.isDirectory())
         {
             logger.error("Passed file is not a directory.....ignoring.");
@@ -92,7 +90,7 @@ public class ExpandJMeterXML
     }
 
     /** Get all the files (not dirs) in a directory.
-     * 
+     *
      * @param dir dir to list.
      * @return array of files in modification date order.
      */
@@ -147,11 +145,11 @@ public class ExpandJMeterXML
         return nonDirs;
     }
 
-    /** Process a single xml file. 
+    /** Process a single xml file.
      * Operation as follows :
      * a) Use the JMeterXMLSaxHandler to get all the average values per unique page.
      * b) Add them to the core data structure by the buildid (filename).
-     * 
+     *
      * @param buildId Unique id for the build.
      * @param source The input source to process.
      */
@@ -189,12 +187,12 @@ public class ExpandJMeterXML
                 }
 
                 // add the average for this page and build to the data set
-                pageData.addMeasurement(requestAverages.getPageId(), measurement);
+                pageData.addMeasurement(requestAverages.getPageId(), requestAverages.getPageTitle(), measurement);
             }
 
             // add the overall averages as well
             Measurement averageMeasurement = new MeasurementImpl(buildId, contentHandler.getSummaryRequestHolder().getAverage(), contentHandler.getSummaryRequestHolder().getMinimum(), contentHandler.getSummaryRequestHolder().getMaximum());
-            pageData.addMeasurement(PageData.SUMMARY_PAGE_ID, averageMeasurement);
+            pageData.addMeasurement(PageData.SUMMARY_PAGE_ID, PageData.SUMMARY_PAGE_ID, averageMeasurement);
 
         }
         catch (SAXException er)
@@ -212,7 +210,7 @@ public class ExpandJMeterXML
     }
 
     /** Allow calling classes to access the page data produced.
-     * 
+     *
      * @return the page data structure.
      */
     public PageData getPageData()

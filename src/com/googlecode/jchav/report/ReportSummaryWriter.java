@@ -11,8 +11,8 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
- * 
+ *  limitations under the License.
+ *
  */
 package com.googlecode.jchav.report;
 
@@ -23,14 +23,13 @@ import com.googlecode.jchav.util.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
 
 /**
  * Writes the summary (front page) of the JChav report.
- * 
+ *
  * @author $LastChangedBy: dallaway $
  * @version $LastChangedDate: 2006-10-03 19:21:47 +0100 (Tue, 03 Oct 2006) $ $LastChangedRevision: 72 $
  */
@@ -42,17 +41,17 @@ public class ReportSummaryWriter
 
     /** The root folder files are written to. */
     private File rootDir;
-    
+
     /** Timestamp for the report. */
     private final String timestamp;
-    
+
     /**
      * Create a page summary writer.
-     * 
+     *
      * @param writer The writer to write output to.
      * @param rootDir The root folder files are written to.
      * @param reportTitle The title to apply to the report.
-     * 
+     *
      * @throws IOException If there is a problem writing output.
      */
     public ReportSummaryWriter(final Writer writer, final File rootDir, final String reportTitle) throws IOException
@@ -88,12 +87,13 @@ public class ReportSummaryWriter
 
     /**
      * Write out an entry.
-     * 
+     *
      * @param pageId The page id.
-     * 
+	 * @param title the title for the page.
+     *
      * @throws IOException If there is a problem writing the output.
      */
-    public void writeEntry(final String pageId) throws IOException
+    public void writeEntry(final String pageId, final String title) throws IOException
     {
         if (PageDataImpl.SUMMARY_PAGE_ID.equals(pageId))
         {
@@ -112,18 +112,18 @@ public class ReportSummaryWriter
 
         writer.write("<div class=\"page\">\n" +
 
-        "<h2>" + URLDecoder.decode(pageId, "UTF-8") + "</h2>\n" + "<a href=\"" +
+        "<h2>" + title + "</h2>\n" + "<a href=\"" +
 
         URLEncoder.encode(pageId, "UTF-8") + ".html" +
 
-        "\" >\n" + "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + pageId + "\" />\n" + "</a>\n" + "</div>\n"
+        "\" >\n" + "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartThumbnailPath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed View of " + title + "\" />\n" + "</a>\n" + "</div>\n"
 
         );
     }
 
     /**
      * Finish the file.
-     * 
+     *
      * @throws IOException If there is a problem writing the output.
      */
     public void finish() throws IOException

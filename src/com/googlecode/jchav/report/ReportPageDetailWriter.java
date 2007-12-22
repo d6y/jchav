@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -11,25 +11,24 @@
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
- *  limitations under the License. 
- * 
+ *  limitations under the License.
+ *
  */
 package com.googlecode.jchav.report;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.Date;
-import java.util.SortedSet;
 
 import com.googlecode.jchav.chart.ChartNameUtil;
 import com.googlecode.jchav.data.Measurement;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.Writer;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.SortedSet;
+
 /**
- * TODO
- * 
+ * Writes a HTML page showing the detailed results for a single page.
+ *
  * @author $LastChangedBy: dallaway $
  * @version $LastChangedDate: 2006-10-03 19:21:47 +0100 (Tue, 03 Oct 2006) $ $LastChangedRevision: 72 $
  */
@@ -44,11 +43,11 @@ public class ReportPageDetailWriter
 
     /**
      * Create a page detail writer.
-     * 
+     *
      * @param writer The writer to write output to.
      * @param rootDir The root folder files are written to.
      * @param reportTitle Any given report title.
-     * 
+     *
      * @throws IOException If there is a problem writing output.
      */
     public ReportPageDetailWriter(final Writer writer, final File rootDir, final String reportTitle) throws IOException
@@ -78,18 +77,19 @@ public class ReportPageDetailWriter
 
     /**
      * Write the body.
-     * 
+     *
      * @param pageId The page id.
+	 * @param title the page title.
      * @param measurements The measurements to write.
      * @throws IOException If there is a problem writing the output.
      */
-    public void write(final String pageId, final SortedSet<Measurement> measurements) throws IOException
+    public void write(final String pageId, final String title, final SortedSet<Measurement> measurements) throws IOException
     {
         writer.write("<div class=\"detail\">\n" +
 
-        "<h2>" + URLDecoder.decode(pageId, "UTF-8") + "</h2>\n" +
+        "<h2>" + title + "</h2>\n" +
 
-        "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed statistics chart for " + pageId + "\" />\n" + "</div>\n"
+        "<img class=\"centred\" src=\"" + URLEncoder.encode(ChartNameUtil.buildChartImagePath(pageId, rootDir).getName(), "UTF-8") + "\" alt=\"Detailed statistics chart for " + title + "\" />\n" + "</div>\n"
 
         );
 
@@ -131,7 +131,7 @@ public class ReportPageDetailWriter
 
     /**
      * Finish the file.
-     * 
+     *
      * @throws IOException If there is a problem writing the output.
      */
     public void finish() throws IOException
