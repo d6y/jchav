@@ -27,7 +27,7 @@ You will have one data point. Run {{{and -f build-example.xml}}} again, the same
 To build a ZIP release of the project, cd back into the {{{etc}}} folder, pick a release version number (1.2.0 in this example) and run the following:
 
 {{{
-ant -Drelease.name=1.2.0 release
+ant -Drelease=1.2.0 release
 }}}
 
 This will create a zip file in {{{releases/}}}.
