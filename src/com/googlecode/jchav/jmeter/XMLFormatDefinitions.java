@@ -50,6 +50,6 @@ public interface XMLFormatDefinitions
      *
      * @return the attribute name for the return code flag
      */
-    public String getReturnCodeName();
+     String getReturnCodeName();
 
 }

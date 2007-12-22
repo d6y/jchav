@@ -35,6 +35,7 @@ import java.io.Writer;
 public class FileUtil
 {
 
+    /** Provides logging for the class. */
     private static Logger log= Logger.getLogger(FileUtil.class);
 
     /**
