@@ -53,7 +53,10 @@ For details see:
 		
 		<echo>
 This example assumes JChav libraries exist in ${jchav.libs.dir}
-If they don't first run "ant build-jar" from the etc/ folder to create the libs
+If they don't first run "ant build-jar" from the etc/ folder to create the libs.
+
+Additionally it assumes that you have JMeter installed at ${jmeter.install.dir}, if this is not the correct location create a file ${user.name}.properties in this directory overriding the location with the line jmeter.install.dir=your path to JMeter.
+
 		</echo>
 				
 	
