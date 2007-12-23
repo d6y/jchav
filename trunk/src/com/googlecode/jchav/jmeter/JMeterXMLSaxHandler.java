@@ -98,7 +98,8 @@ public class JMeterXMLSaxHandler extends DefaultHandler
     {
 
         // look for our tag
-        if (qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagName()))
+        //if (qualifiedName.equalsIgnoreCase(formatDefinitions.getSampleTagNames()))
+        if (formatDefinitions.getSampleTagNames().contains(qualifiedName))
         {
             String labelName = attributes.getValue(formatDefinitions.getLabelAttributeName());
 
