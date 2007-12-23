@@ -68,7 +68,7 @@ public class JMeter21XMLLabels implements XMLFormatDefinitions
     }
 
     /** {@inheritDoc}*/
-    public List getSampleTagNames()
+    public List<String> getSampleTagNames()
     {
         return SAMPLE_TAG_NAME;
     }
