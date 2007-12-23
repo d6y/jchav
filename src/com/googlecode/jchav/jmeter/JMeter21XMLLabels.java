@@ -16,6 +16,9 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition of the XML names for Jmeter 2.1.
  * Reference is http://jakarta.apache.org/jmeter/usermanual/listeners.html 14.6 XML Log format 2.1.
@@ -31,7 +34,11 @@ public class JMeter21XMLLabels implements XMLFormatDefinitions
 {
 
     /** Sample tag name. */
-    private static  final String SAMPLE_TAG_NAME="httpSample";
+    private static  final List<String> SAMPLE_TAG_NAME=new ArrayList<String>();
+    {
+        SAMPLE_TAG_NAME.add("httpSample");
+        SAMPLE_TAG_NAME.add("sample");
+    }
     
     /** Elapsed time attribute name. */
     private static final String ELAPSED_TIME_ATTRIBUTE_NAME="t";
@@ -61,7 +68,7 @@ public class JMeter21XMLLabels implements XMLFormatDefinitions
     }
 
     /** {@inheritDoc}*/
-    public String getSampleTagName()
+    public List getSampleTagNames()
     {
         return SAMPLE_TAG_NAME;
     }

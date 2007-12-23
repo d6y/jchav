@@ -122,6 +122,54 @@ public class ExpandJMeterXMLTest
     }
     
     
+     /**
+     * Test we can handle mixes of sample and httpSample tags.    
+     * @throws IOException on unexpected failure.
+     */
+    @Test public void testMixedSampleFormat() throws IOException
+    {
+    
+        ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
+        
+        InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"MixedSampleData.xml"));
+        jmeterExpander.processXMLFile(new BuildIdImpl("TestBuild",0), source); 
+        
+        // confirm that the defined test "Test Dummy JUnit Request" appears
+        boolean found=false;
+        for(String pageId: jmeterExpander.getPageData().getPageIds())
+        {
+            System.out.println("Title "+jmeterExpander.getPageData().getPageTitle(pageId));
+            
+            if("Test Dumy JUnit Request".equals(jmeterExpander.getPageData().getPageTitle(pageId)))
+            {
+                found=true;
+                break;
+            }
+        }
+        if(!found)
+        {
+            fail("JUnit page not found.");
+        }
+        
+        // check the digg request
+        found=false;
+        for(String pageId: jmeterExpander.getPageData().getPageIds())
+        {
+            System.out.println("Title "+jmeterExpander.getPageData().getPageTitle(pageId));
+            
+            if("Digg root page".equals(jmeterExpander.getPageData().getPageTitle(pageId)))
+            {
+                found=true;
+                break;
+            }
+        }
+        if(!found)
+        {
+            fail("Digg page not found.");
+        }
+                 
+    }
+    
     /** Test that when a directory full of files is generated that the builds are in order.
      */
     @Test public void testBuildOrdering() 

@@ -16,6 +16,8 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.util.List;
+
 
 /**
  * Interface defining the names of tags in the JMeter files.
@@ -27,11 +29,11 @@ package com.googlecode.jchav.jmeter;
 public interface XMLFormatDefinitions
 {
 
-    /** Get the name for the sample tag.
+    /** Get the names for the sample tag.
      * 
-     * @return the root tag name for a sample.
+     * @return the root tag names samples.
      */
-    String getSampleTagName();
+    List<String> getSampleTagNames();
     
     /** Get the name for the elapsed time attribute. 
      * 
