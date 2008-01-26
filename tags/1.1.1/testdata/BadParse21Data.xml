@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="513" lt="0" ts="1159347523496" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <httpSample t="343" lt="0" ts="1159347523493" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-1" dt="text"/>
+  <httpSample t="170" lt="138" ts="1159347523839" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=78656B49FC0723F6F18298D6E4FEE7F4.thtp21" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+</httpSample>
+
+<httpSample t="37" lt="30" ts="1159347524018"  rc="200" rm="OK" tn="Thread Group 1-1" dt="text"
+<httpSample t="386" lt="0" ts="1159347523693" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text">
+  <httpSample t="271" lt="0" ts="1159347523693" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-2" dt="text"/>
+  <httpSample t="115" lt="107" ts="1159347523964" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=814E69EB6730143437A80853943BAD35.thtp21" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+</httpSample>
+<httpSample t="87" lt="87" ts="1159347524080" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="147" lt="111" ts="1159347524056" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="125" lt="117" ts="1159347524168" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="421" lt="0" ts="1159347523903" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text">
+  <httpSample t="293" lt="0" ts="1159347523902" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-3" dt="text"/>
+  <httpSample t="128" lt="121" ts="1159347524196" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=A7328493F10E80D245796AAE808E9691.thtp21" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+</httpSample>
+<httpSample t="42" lt="41" ts="1159347524326" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="177" lt="169" ts="1159347524368" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="557" lt="0" ts="1159347524110" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text">
+  <httpSample t="365" lt="0" ts="1159347524109" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-4" dt="text"/>
+  <httpSample t="192" lt="181" ts="1159347524475" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=597891E325ED2246CAA3F9FD9CC82672.thtp21" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+</httpSample>
+<httpSample t="39" lt="33" ts="1159347524669" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="99" lt="85" ts="1159347524709" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="551" lt="542" ts="1159347524300" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="545" lt="0" ts="1159347524321" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text">
+  <httpSample t="456" lt="0" ts="1159347524321" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-5" dt="text"/>
+  <httpSample t="89" lt="81" ts="1159347524777" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=73D43D90900F22BF8A0D3DFB4E17E978.thtp21" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+</httpSample>
+<httpSample t="724" lt="716" ts="1159347524204" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="66" lt="41" ts="1159347524867" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="434" lt="426" ts="1159347524546" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="87" lt="78" ts="1159347524933" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="375" lt="368" ts="1159347525020" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="590" lt="570" ts="1159347524809" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="4400" lt="4236" ts="1159347524982" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="113" lt="101" ts="1159347529383" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="64" lt="64" ts="1159347529497" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="4212" lt="4050" ts="1159347525400" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="268" lt="151" ts="1159347529561" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="4493" lt="4266" ts="1159347525396" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="280" lt="280" ts="1159347529613" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="64" lt="64" ts="1159347529894" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="147" lt="147" ts="1159347529894" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="5167" lt="4895" ts="1159347524929" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="55" lt="55" ts="1159347530095" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="5353" lt="4977" ts="1159347524852" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="372" lt="318" ts="1159347529833" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="251" lt="251" ts="1159347529959" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="70" lt="62" ts="1159347530150" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="152" lt="114" ts="1159347530097" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="46" lt="38" ts="1159347530250" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="179" lt="170" ts="1159347530212" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="100" lt="91" ts="1159347530393" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="213" lt="206" ts="1159347530297" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="132" lt="122" ts="1159347530493" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="428" lt="422" ts="1159347530210" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="618" lt="601" ts="1159347530221" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="673" lt="665" ts="1159347530510" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="615" lt="607" ts="1159347530626" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2435" lt="2400" ts="1159347530206" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2508" lt="2424" ts="1159347530639" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2010" lt="1974" ts="1159347531242" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2540" lt="2500" ts="1159347530840" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2223" lt="2185" ts="1159347531184" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+
+<httpSample t="2587" lt="0" ts="1159347562019" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text">
+  <httpSample t="2420" lt="0" ts="1159347562016" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-1" dt="text"/>
+  <httpSample t="167" lt="133" ts="1159347564439" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=D225CAE041180E646494D75D3F4AD485.thtp21" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+</httpSample>
+<httpSample t="44" lt="38" ts="1159347564643" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2586" lt="0" ts="1159347562226" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text">
+  <httpSample t="2380" lt="0" ts="1159347562226" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-2" dt="text"/>
+  <httpSample t="206" lt="106" ts="1159347564606" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=A5FB67132509481B133AF960B3DCED3E.thtp21" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+</httpSample>
+<httpSample t="126" lt="73" ts="1159347564688" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2396" lt="0" ts="1159347562431" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text">
+  <httpSample t="2261" lt="0" ts="1159347562431" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-3" dt="text"/>
+  <httpSample t="135" lt="127" ts="1159347564692" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=1908E2D89AD3B8638EF546DE74A1E3E6.thtp21" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+</httpSample>
+<httpSample t="48" lt="37" ts="1159347564833" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="69" lt="40" ts="1159347564814" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2140" lt="0" ts="1159347562849" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text">
+  <httpSample t="1964" lt="0" ts="1159347562848" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-5" dt="text"/>
+  <httpSample t="176" lt="167" ts="1159347564813" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=034FE3B80123014B82A9B2718879C2E0.thtp21" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+</httpSample>
+<httpSample t="143" lt="135" ts="1159347564884" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="2402" lt="0" ts="1159347562639" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text">
+  <httpSample t="2271" lt="0" ts="1159347562639" s="true" lb="http://thtp21.trafford.ford.com/" rc="302" rm="Moved Temporarily" tn="Thread Group 1-4" dt="text"/>
+  <httpSample t="131" lt="123" ts="1159347564910" s="true" lb="http://thtp21.trafford.ford.com/home/welcome.do;jsessionid=6823BB7F0C3493A20AFD0ABA5A957F08.thtp21" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+</httpSample>
+<httpSample t="52" lt="39" ts="1159347564991" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="203" lt="195" ts="1159347564882" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="92" lt="83" ts="1159347565042" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="166" lt="157" ts="1159347565043" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="123" lt="115" ts="1159347565135" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="318" lt="308" ts="1159347565209" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="495" lt="489" ts="1159347565085" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="662" lt="654" ts="1159347565028" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="970" lt="963" ts="1159347564815" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="542" lt="534" ts="1159347565258" s="true" lb="Select Vehicle (Reg)" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="4289" lt="4081" ts="1159347565786" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="4501" lt="3979" ts="1159347565800" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="4675" lt="4329" ts="1159347565691" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="351" lt="288" ts="1159347570076" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="128" lt="128" ts="1159347570302" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="4908" lt="4675" ts="1159347565528" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="51" lt="32" ts="1159347570431" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="72" lt="65" ts="1159347570428" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="5003" lt="4784" ts="1159347565582" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="234" lt="226" ts="1159347570367" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="141" lt="132" ts="1159347570483" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="56" lt="49" ts="1159347570602" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="170" lt="161" ts="1159347570500" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="277" lt="268" ts="1159347570437" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="96" lt="87" ts="1159347570659" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="96" lt="87" ts="1159347570715" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="242" lt="232" ts="1159347570586" s="true" lb="Home Page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="90" lt="82" ts="1159347570812" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="73" lt="61" ts="1159347570829" s="true" lb="Look at about" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="99" lt="91" ts="1159347570902" s="true" lb="Select Vehicle Form" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="457" lt="448" ts="1159347570756" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+<httpSample t="628" lt="617" ts="1159347570671" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="303" lt="276" ts="1159347571002" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="707" lt="698" ts="1159347570638" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="556" lt="547" ts="1159347570902" s="true" lb="Select Vehicle (VIN)" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2252" lt="2217" ts="1159347571459" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-5" dt="text"/>
+<httpSample t="2537" lt="2497" ts="1159347571306" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-3" dt="text"/>
+<httpSample t="2712" lt="2615" ts="1159347571347" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-4" dt="text"/>
+<httpSample t="2789" lt="2726" ts="1159347571299" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-1" dt="text"/>
+<httpSample t="2878" lt="2807" ts="1159347571214" s="true" lb="Select WSM" rc="200" rm="OK" tn="Thread Group 1-2" dt="text"/>
+
+</testResults>

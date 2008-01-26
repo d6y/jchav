@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.googlecode.jchav.examples</groupId>
+	<artifactId>jchav-maven-plugin-example</artifactId>
+	<name>Running JChav From Maven</name>
+	<version>1.0-SNAPSHOT</version>
+	<description>
+		An example of running JChav from Maven.		
+		Run with:
+		mvn -f pom-example.xml jchav:jchav
+	</description>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.googlecode.jchav</groupId>
+				<artifactId>maven-jchav-plugin</artifactId>
+				<configuration>
+          			<reportTitle>Hello</reportTitle>
+          			<srcDir>digjmeterresults</srcDir>
+          			<destDir>digjchavresults</destDir>
+        		</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+</project>

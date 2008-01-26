@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<sample t="100" lt="0" ts="1198414636023" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414636217" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414636418" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="101" lt="0" ts="1198414636621" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414636824" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1950" lt="476" ts="1198414636142" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="52087"/>
+<sample t="100" lt="0" ts="1198414638093" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1911" lt="469" ts="1198414636319" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="51987"/>
+<sample t="101" lt="0" ts="1198414638231" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1949" lt="456" ts="1198414636723" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text" by="51987"/>
+<httpSample t="2239" lt="435" ts="1198414636520" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text" by="51992"/>
+<sample t="100" lt="0" ts="1198414638673" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414638761" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="2300" lt="469" ts="1198414636926" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text" by="51992"/>
+<sample t="100" lt="0" ts="1198414639228" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1719" lt="331" ts="1198414638194" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="51987"/>
+<httpSample t="1590" lt="278" ts="1198414638339" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414639916" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414639931" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1195" lt="260" ts="1198414639330" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text" by="51987"/>
+<httpSample t="1765" lt="278" ts="1198414638775" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414640526" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414640542" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1884" lt="278" ts="1198414638861" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text" by="52082"/>
+<sample t="100" lt="0" ts="1198414640748" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1191" lt="275" ts="1198414640017" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="51992"/>
+<sample t="100" lt="0" ts="1198414641210" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1390" lt="287" ts="1198414640033" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414641424" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1020" lt="272" ts="1198414640643" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414641664" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1573" lt="260" ts="1198414640627" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414642201" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1045" lt="281" ts="1198414641312" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="51987"/>
+<httpSample t="1554" lt="267" ts="1198414640849" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414642358" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="100" lt="0" ts="1198414642404" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1213" lt="277" ts="1198414641764" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text" by="51992"/>
+<sample t="100" lt="0" ts="1198414642977" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1632" lt="282" ts="1198414641525" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414643158" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1173" lt="262" ts="1198414642302" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text" by="52082"/>
+<sample t="101" lt="0" ts="1198414643476" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1095" lt="333" ts="1198414642506" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text" by="51987"/>
+<sample t="100" lt="0" ts="1198414643603" s="true" lb="Test Dumy JUnit Request" rc="1000" rm="Test successful" tn="Thread Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1547" lt="271" ts="1198414642459" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-1" dt="text" by="51992"/>
+<httpSample t="1055" lt="307" ts="1198414643079" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-4" dt="text" by="52087"/>
+<httpSample t="1224" lt="296" ts="1198414643261" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-2" dt="text" by="52082"/>
+<httpSample t="1190" lt="271" ts="1198414643704" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-3" dt="text" by="51987"/>
+<httpSample t="1360" lt="250" ts="1198414643578" s="true" lb="Digg root page" rc="200" rm="OK" tn="Thread Group 1-5" dt="text" by="51987"/>
+
+</testResults>

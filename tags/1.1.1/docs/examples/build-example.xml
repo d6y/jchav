@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+This is an example of JChav, which runs a JMeter test suite against
+the digg.com web site.
+
+For details see:
+   
+   http://jchav.blogspot.com/2006/10/example-diggcom.html
+
+-->
+<project name="jchav-example" default="default" basedir=".">
+
+	<target name="default" depends="run-jmeter,run-jchav"
+		description="Run Jmeter test plan and generate JChav reports" />
+
+	<target name="init">
+
+
+		
+		<!-- Allow properties to be overided by a username.properties file -->
+		<echo>Loading properties from ${user.name}.properties</echo>
+		<property file="${user.name}.properties" />
+		
+		<echo>Loading properties from build.properties</echo>
+		<property file="build.properties" />
+		
+		
+		
+		<tstamp description="Produce a build id. If using a continuous build process inherit the build. id from that">
+			<format property="build.id" pattern="dMMhhmmss" locale="en"/>
+		</tstamp>
+
+		<property description="The location of the install of JMeter" 
+			name="jmeter.install.dir" value="/Users/goul/java/jakarta-jmeter-2.2" />
+
+		<property description="The directory containing the jchav jars" 
+			name="jchav.libs.dir" value="/Users/goul/Documents/workspace/jchav/dist" />
+	
+		<property description="The JMeter test plan script we want to run" 
+			name="jmeter.testplan" value="digwalk.jmx" />
+
+		<property description="The location to store the per run files" 
+			name="jmeter.result.dir" value="./digjmeterresults" />
+
+		<property description="The resulting file location, make sure this is unique for each build" 
+			name="jmeter.result.file" value="${jmeter.result.dir}/digresult${build.id}.xml" />
+
+		<property description="The location to generate the html and charts to. " 
+			name="jchav.result.dir" value="./digjchavresults" />
+		
+		
+		<echo>
+This example assumes JChav libraries exist in ${jchav.libs.dir}
+If they don't first run "ant build-jar" from the etc/ folder to create the libs.
+
+Additionally it assumes that you have JMeter installed at ${jmeter.install.dir}, if this is not the correct location create a file ${user.name}.properties in this directory overriding the location with the line jmeter.install.dir=your path to JMeter.
+
+		</echo>
+				
+	
+	</target>
+			
+	<target name="run-jmeter" depends="init"
+			description="Execute the JMeter test plan, recording the results to a file.">		
+
+		<taskdef
+                name="jmeter"
+                classpath="${jmeter.install.dir}/extras/ant-jmeter.jar"
+                classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+
+		<jmeter			
+			jmeterhome="${jmeter.install.dir}"
+			testplan="${jmeter.testplan}"
+			resultlog="${jmeter.result.file}">
+			<property name="jmeter.save.saveservice.output_format" value="xml"/>
+		</jmeter>
+	</target>
+			
+	
+	<target name="run-jchav" depends="init"
+			description="Produce JChav report from the JMeter results">
+		
+		<mkdir dir="${jchav.libs.dir}/"/>
+		
+		 <taskdef name="jchav" classname="com.googlecode.jchav.ant.JChavTask">
+			<classpath>
+				<fileset dir="${jchav.libs.dir}/">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+		 </taskdef>
+		
+		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" 
+			reporttitle="Digg Example Walk"
+			uniformyaxis="true"  />
+		
+		<echo>Now open digjchavresults/index.html</echo>
+	
+	</target>
+	
+</project>
+

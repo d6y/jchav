@@ -1,0 +1,34 @@
+RELEASE HISTORY
+
+* Release 1.1.1, 2007-12-22
+  MD5 (jchav-1.1.1.zip) = 574a6a091b13bb324bcd6d451fc33e89
+
+  - Documentation updates.
+  - Suplied User-Agent in the example JMeter tests so the Digg example runs.
+  - We can now read the HTTP status code from JMeter results -- although how we use this value
+    to show error status codes is up for discussion.
+  - Fix for issue 18: the length of the filenames created by JChav could cause a problem
+    for some operating systems.  The filesnames are now MD5 hashes, which should resolve
+    this issue.
+  - Tested against JMeter 2.2 and 2.3.1 (both JDK 1.5)
+
+
+* Release 1.1.0, 2006-10-20
+  MD5 (jchav-1.1.0.zip) = b942e914942623ace4d5fd2c01cb9e0a
+
+  - charts now default to all having the same scale, configurable
+    via the uniformYAxis="true|false" in Ant and Maven
+  - maven plugin for jchav task (thank you Tim McCune)
+  - bug fix for min or max values that were not set when
+    the first value was both the min and the max.  Behaviour
+    was that some values in the results were very large.
+  - minor chart tweeks: removal of x-axis labels from thumbnail;
+    switch of colours of min,max,mean points.
+
+
+
+* Release 1.0.0, 2006-10-10
+  MD5 (jchav-1_0_0.zip) = 95c293c10ec5334eae3daa6030bdcf0d
+
+  - first release.
+

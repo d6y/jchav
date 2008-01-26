@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ANT Build for JChav project.   IMPORTANT: Run from the etc/ folder.
+-->
+<project name="jchav" default="default" basedir=".">
+
+	<target name="default" depends="run-checkstyle,clean,compile-junit,run-junit,build-jar,dist,maven-dist"/>
+
+	<target name="cruise-target" depends="default" />
+
+	<target name="init">
+		<echo>Loading properties from ${user.name}.properties</echo>
+		<property file="${user.name}.properties" />
+
+
+		<property name="build.src.dir" value="../src" />
+		<property name="contrib.src.dir" value="../contrib" />
+		<property name="build.docs.dir" value="../docs" />
+		<property name="build.dist.dir" value="../dist" />
+		<property name="build.libs.dir" value="../libs"/>
+		<property name="release.dir" value="../releases" />
+		<property name="etc.dir" value="." />
+
+		<property name="build.classes.dir" value="../classes"/>
+		<property name="debug.flag" value="true" />
+
+		<property name="test.dir" value="../junit" />
+		<property name="junit.log.location" value="${test.dir}/logs" />
+		<property name="test.src.dir" value="${test.dir}" />
+
+		<property name="test.classes.dir" value="${test.dir}/classes" />
+
+		<property name="target.jarfile" value="../jchav.jar" />
+
+		<mkdir dir="${build.classes.dir}" />
+		<mkdir dir="${test.classes.dir}" />
+
+
+		<path id="fullclasspath">
+			<fileset dir="${build.libs.dir}/">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+
+		<path id="test.classpath">
+			<fileset dir="./thirdparty/junit/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="../libs/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<pathelement location="${build.classes.dir}" />
+			<pathelement location="${test.classes.dir}" />
+		</path>
+
+		<path id="javadoc.classpath">
+			<fileset dir="./thirdparty/junit/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="../libs/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<fileset dir="./thirdparty/maven/">
+				<include name="**/*.jar"/>
+			</fileset>
+			<pathelement location="${build.classes.dir}" />
+			<pathelement location="${test.classes.dir}" />
+		</path>
+
+
+
+	</target>
+
+	<!-- produce a binary distribution directory. -->
+	<target name="dist" depends="init">
+
+		<mkdir dir="${build.dist.dir}"/>
+		<copy todir="${build.dist.dir}" file="${build.docs.dir}/libraries.txt"/>
+		<copy todir="${build.dist.dir}" file="${build.docs.dir}/LICENSE"/>
+		<copy todir="${build.dist.dir}" file="${target.jarfile}"/>
+
+		<copy todir="${build.dist.dir}">
+			<fileset dir="${build.libs.dir}">
+				<include name="**/*.jar"/>
+				<exclude name="**/ant.jar"/>
+			</fileset>
+		</copy>
+
+    </target>
+
+
+    <target name="maven-dist"
+            description="Include maven-style packaging in the dist"
+            if="release"
+            >
+        <property name="maven.dist.dir" value="${build.dist.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+		<mkdir dir="${maven.dist.dir}"/>
+		<copy file="${target.jarfile}" tofile="${maven.dist.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.dist.dir}/jchav-${release}.jar" fileext=".sha1" />
+    </target>
+
+    <target name="release" depends="dist,generate-javadoc"
+			if="release"
+			description="Create a release given a release label, such as -Drelease=1.0.0">
+
+		<property name="release.name" value="jchav-${release}" />
+
+		<echo>This is release ${release.name}</echo>
+		<echo>Look ok? No? Did you do ant -Drelease.name=1.0.0 (or whatever number you want)?</echo>
+
+		<zip destfile="${release.dir}/${release.name}.zip" >
+			<zipfileset dir="${build.dist.dir}" prefix="${release.name}"/>
+			<zipfileset dir="${build.docs.dir}" prefix="${release.name}/docs"/>
+			<zipfileset dir="${contrib.src.dir}" prefix="${release.name}/contrib"/>
+			<zipfileset dir="${etc.dir}" prefix="${release.name}/etc">
+				<include name="build.xml" />
+				<include name="*pom*" />
+			</zipfileset>
+		</zip>
+
+		<checksum algorithm="MD5" file="${release.dir}/${release.name}.zip" fileext=".md5"/>
+
+		<property name="maven.release.dir" value="${release.dir}/maven/org/googlecode/jchav/jchav/${release}"/>
+		<mkdir dir="${maven.release.dir}"/>
+
+		<!-- Publish the JChav JAR into the directory it's expected to be in for Maven -->
+		<copy file="${target.jarfile}" tofile="${maven.release.dir}/jchav-${release}.jar" />
+		<checksum algorithm="SHA" file="${maven.release.dir}/jchav-${release}.jar" fileext=".sha1" />
+
+	</target>
+
+	<target name="compile" depends="init">
+		<!--  create the dirs for output -->
+		<javac debug="${debug.flag}" srcdir="${build.src.dir}" classpathref="fullclasspath" includes="**" destdir="${build.classes.dir}" />
+
+		<!-- copy current resources into classpath -->
+		<copy  todir="${build.classes.dir}/com/googlecode/jchav/report/resources/">
+			<fileset dir="${build.src.dir}/com/googlecode/jchav/report/resources/"/>
+		</copy>
+	</target>
+
+
+	<target name="compile-junit" depends="init,compile">
+		<!--  create the dirs for output -->
+		<javac debug="${debug.flag}" srcdir="${test.src.dir}" classpathref="fullclasspath" classpath="${build.classes.dir}:./thirdparty/junit/junit-4.1.jar" includes="**" destdir="${test.classes.dir}" />
+
+	</target>
+
+	<target name="run-junit" depends="compile-junit">
+		<mkdir dir="${junit.log.location}"/>
+
+        <echo>Unit test output: ${junit.log.location}</echo>
+
+        <junit fork="yes" printsummary="on"  haltonfailure="yes" >
+			<jvmarg value="-Djchav.test.data.dir=../testdata"/>
+
+			<classpath location="${test.classes.dir}"/>
+			<classpath location="${build.classes.dir}" />
+			<classpath refid="test.classpath"/>
+
+			<formatter type="xml" />
+			<batchtest  todir="${junit.log.location}" haltonfailure="yes">
+				<fileset dir="${test.classes.dir}">
+
+                    <!-- This is our main pattern... -->
+					<include name="**/*Test.class" />
+
+                    <!-- This is not a unit test, but a main() to help produce a chart for visual inspection: -->
+					<exclude name="**/MinMeanMaxChartTest.class"/>
+
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+
+
+	<target name="build-jar" depends="compile">
+		<delete file="${target.jarfile}" />
+		<jar destfile="${target.jarfile}" >
+			<fileset dir="${build.classes.dir}" />
+		</jar>
+	</target>
+
+	<target name="clean" depends="init">
+
+		<delete>
+			<fileset dir="${build.classes.dir}" />
+			<fileset dir="${test.classes.dir}" />
+		</delete>
+
+	</target>
+
+	<target name="run-checkstyle" depends="init">
+
+		<taskdef name="checkstyle" classname="com.puppycrawl.tools.checkstyle.CheckStyleTask">
+			<classpath>
+		    	<pathelement location="./thirdparty/checkstyle/checkstyle-all-4.1.jar" />
+		    </classpath>
+		</taskdef>
+
+		<checkstyle config="./checkstyle.xml" failonviolation="true" classpathref="fullclasspath">
+			<formatter type="xml" toFile="checkstyle_results.xml"/>
+			<fileset dir="${build.src.dir}" />
+			<fileset dir="${contrib.src.dir}" />
+		</checkstyle>
+	</target>
+
+
+	<target name="generate-javadoc" depends="init">
+			<mkdir dir="${build.docs.dir}/javadoc" />
+			<javadoc
+				additionalparam="-J-Djava.awt.headless=true"
+				classpathref="javadoc.classpath"
+				packagenames="com.*"
+				destdir="${build.docs.dir}/javadoc"
+				maxmemory="256M"
+				author="true"
+				version="true"
+				>
+				<sourcepath>
+					<pathelement path="${build.src.dir}" />
+					<pathelement path="${contrib.src.dir}" />
+				</sourcepath>
+		</javadoc>
+	</target>
+
+</project>
+
