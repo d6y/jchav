@@ -16,10 +16,11 @@
  */
 package com.googlecode.jchav.ant;
 
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
+
+import org.junit.Test;
 
 
 /**
@@ -38,8 +39,10 @@ public class ControllerTest
      */
     @Test public void testFullDirectoryController() throws IOException
     {
+        final Set<File> files = FileChooser.corraleSrcFiles(System.getProperty("jchav.test.data.dir"));
+        
         Controller controller=new Controller(); 
-        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir"),System.getProperty("jchav.test.data.dir")+File.separator+"results");
+        LaunchParams params=new LaunchParams(files, System.getProperty("jchav.test.data.dir") + File.separator+"results");
         controller.go(params);       
     }
     
@@ -50,8 +53,10 @@ public class ControllerTest
      */
     @Test public void testTSAData() throws IOException
     {
+        final Set<File> files = FileChooser.corraleSrcFiles(System.getProperty("jchav.test.data.dir") + File.separator + "tsaea");
+        
         Controller controller=new Controller();
-        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir")+File.separator+"tsaea",System.getProperty("jchav.test.data.dir")+File.separator+"tsaea"+File.separator+"results","TSAEA report");
+        LaunchParams params=new LaunchParams(files, System.getProperty("jchav.test.data.dir") + File.separator + "tsaea" + File.separator + "results","TSAEA report");
         controller.go(params);       
     }
     
@@ -62,11 +67,13 @@ public class ControllerTest
      */
     @Test public void testDiggData() throws IOException
     {
+        final Set<File> files = FileChooser.corraleSrcFiles(System.getProperty("jchav.test.data.dir") + File.separator + "digwalk");
+        
         Controller controller=new Controller();
-        LaunchParams params=new LaunchParams(System.getProperty("jchav.test.data.dir")+File.separator+"digwalk",
-                        System.getProperty("jchav.test.data.dir")+File.separator+"digwalk"+File.separator+"results","Dig walk");
+        LaunchParams params=new LaunchParams(files, System.getProperty("jchav.test.data.dir")+File.separator+"digwalk"+File.separator+"results","Dig walk");
         controller.go(params);                
     }
+    
     
     /**
      * For v4 junit tests to run through ant we currently need the adapter.
@@ -76,6 +83,5 @@ public class ControllerTest
     {
         return new junit.framework.JUnit4TestAdapter(ControllerTest.class);
     }
-    
-    
+        
 }

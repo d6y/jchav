@@ -17,9 +17,12 @@
 package com.googlecode.jchav.ant;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.Project;
 import org.apache.tools.ant.Task;
+import org.apache.tools.ant.types.FileSet;
 
 /**
  * Provides the control and co-ordination of the JChav process to
@@ -30,8 +33,14 @@ import org.apache.tools.ant.Task;
  */
 public class JChavTask extends Task
 {
+	
+	/**   */
+	private final ArrayList<FileSet> fileSets = new ArrayList<FileSet>();
+	
+	
     /** Source dir for files to process. 
-     * NB all lowercase because of ANT conventions. */
+     * NB all lowercase because of ANT conventions. 
+     * @deprecated Will be removed in the next version */
     private String srcdir;
     
     /** Target directory for resulting html/images. 
@@ -52,16 +61,28 @@ public class JChavTask extends Task
      */
     public void execute() 
     {
-        LaunchParams taskParams=new LaunchParams();
+        LaunchParams taskParams = new LaunchParams();
         
-        if(getSrcdir()==null)
+        if(getSrcdir() != null)
         {
-            throw new BuildException("srcdir not set.");
+            // If the source location is a directory, expand that to get files.
+            taskParams.setSrcFiles(FileChooser.corraleSrcFiles(getSrcdir()));
+            
+            log("Use of srcdir is DEPRECATED, please change to using ant filesets.", Project.MSG_WARN);
+        }
+        else if (fileSets.size() > 0)
+        {
+            // If the source location is specified by filesets, then, expand those.
+            taskParams.setSrcFiles(FileChooser.corraleSrcFiles(fileSets, getProject()));
         }
         else
         {
-            taskParams.setSrcdir(getSrcdir());
+            // If there is no source location, do not continue.
+            throw new BuildException("Source location not specified, unable to continue.");
         }
+        
+        
+        
         if(getDestdir()==null)
         {
             throw new BuildException("desdir not set.");
@@ -169,6 +190,16 @@ public class JChavTask extends Task
         this.uniformyaxis = uniformyaxis;
     }
 
-
-
+    
+    /**
+     * Add an An <code>FileSet</code> for consideration.
+     * This is done during ant task expansion.
+     * 
+     * @param fileSet The (already expanded) <code>FileSet</code> instance.
+     */
+    public void addFileSet(final FileSet fileSet)
+    {
+    	fileSets.add(fileSet);
+    }
+  
 }

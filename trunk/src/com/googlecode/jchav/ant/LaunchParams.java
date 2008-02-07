@@ -16,6 +16,9 @@
  */
 package com.googlecode.jchav.ant;
 
+import java.io.File;
+import java.util.Set;
+
 
 /**
  * Holder for the JChav arguments passed to the controller.
@@ -25,8 +28,8 @@ package com.googlecode.jchav.ant;
  */
 public class LaunchParams 
 {
-    /** Source dir for files to process. */
-    private String srcdir;
+    /** Source files to process. */
+    private Set<File> srcFiles;
     
     /** Target directory for resulting html/images. */
     private String destdir;
@@ -43,28 +46,29 @@ public class LaunchParams
     {
     }
     
-    /** Simple constuctor for directories.
+    /** 
+     * Simple constructor for directories.
      * 
-     * @param srcdir src location.
+     * @param srcdir The set of source files.
      * @param destdir destination location.
      */
-    public LaunchParams(String srcdir, String destdir)
+    public LaunchParams(Set<File> srcFiles, String destdir)
     {
-        this.srcdir=srcdir;
-        this.destdir=destdir;
+        this.srcFiles = srcFiles;
+        this.destdir = destdir;
     }
     
     /** Simple constuctor for directories and title.
      * 
-     * @param srcdir src location.
+     * @param srcdir The set of source files.
      * @param destdir destination location.
      * @param reportTitle title for the report.
      */
-    public LaunchParams(String srcdir, String destdir,String reportTitle)
+    public LaunchParams(Set<File> srcFiles, String destdir,String reportTitle)
     {
-        this.srcdir=srcdir;
-        this.destdir=destdir;
-        this.reportTitle=reportTitle;
+        this.srcFiles = srcFiles;
+        this.destdir = destdir;
+        this.reportTitle = reportTitle;
     }
     
     /**
@@ -100,19 +104,19 @@ public class LaunchParams
     }
 
     /**
-     * @return Returns the srcdir.
+     * @return Returns the set of source files.
      */
-    public final String getSrcdir()
+    public final Set<File> getSrcFiles()
     {
-        return srcdir;
+        return srcFiles;
     }
 
     /**
-     * @param srcdir The srcdir to set.
+     * @param srcdir The set of source files.
      */
-    public final void setSrcdir(String srcdir)
+    public final void setSrcFiles(Set<File> srcFiles)
     {
-        this.srcdir = srcdir;
+        this.srcFiles = srcFiles;
     }
 
     /**
@@ -131,7 +135,4 @@ public class LaunchParams
         this.uniformYAxis = uniformYAxis;
     }
      
- 
-   
-
 }
