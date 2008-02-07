@@ -16,28 +16,28 @@
  */
 package com.googlecode.jchav.jmeter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.apache.log4j.Logger;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
 import com.googlecode.jchav.data.BuildId;
 import com.googlecode.jchav.data.BuildIdImpl;
 import com.googlecode.jchav.data.Measurement;
 import com.googlecode.jchav.data.MeasurementImpl;
 import com.googlecode.jchav.data.PageData;
 import com.googlecode.jchav.data.PageDataImpl;
-import org.apache.log4j.Logger;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Iterator;
 
 /**
  * Process an XML file to generate the set of averages for a given request file.
@@ -57,86 +57,35 @@ public class ExpandJMeterXML
      * For each file call processXMLFile to calculate its averages and add them to the build.
      * @param dir Directory used to store all the jmeter files.
      */
-    public void processAllfiles(File dir)
+    public void processAllfiles(Set<File> files)
     {
-        // for each file
-        if (!dir.isDirectory())
+        // Make sure that there are files to process.
+        if (files == null || files.isEmpty())
         {
-            logger.error("Passed file is not a directory.....ignoring.");
+            logger.error("Unexpected empty file processing list ..... ignoring.");
             return;
         }
 
-        File[] files = getOrderedFiles(dir);
-
-        for (int l = 0; l < files.length; l++)
+        int counter = 0;
+        for (final File toProcess : files)
         {
-            File toProcess = files[l];
-            if (toProcess.isFile())
+            try
             {
-                //process the file
-                try
-                {
-                    InputSource source = new InputSource(new FileReader(toProcess));
-                    processXMLFile(new BuildIdImpl(toProcess.getName(), l), source);
-                }
-                catch (FileNotFoundException e)
-                {
-                    logger.error("File " + toProcess.getName() + " could not be processed " + e.getMessage());
-                }
+                InputSource source = new InputSource(new FileReader(toProcess));
+                processXMLFile(new BuildIdImpl(toProcess.getName(), counter++), source);
 
+                // Wouldn't this be better (but not the int cast) i.e. use modified as natual order  .....
+                //processXMLFile(new BuildIdImpl(toProcess.getName(), (int)toProcess.lastModified()), source);
+
+            }
+            catch (FileNotFoundException e)
+            {
+                logger.error("File " + toProcess.getName() + " could not be processed " + e.getMessage());
             }
         }
 
     }
 
-    /** Get all the files (not dirs) in a directory.
-     *
-     * @param dir dir to list.
-     * @return array of files in modification date order.
-     */
-    private File[] getOrderedFiles(File dir)
-    {
-
-        //Build a simple comparitor as inner class
-        Comparator<File> byModificationDate = new Comparator<File>()
-        {
-            public int compare(File f1, File f2)
-            {
-                long diff = f1.lastModified() - f2.lastModified();
-                int returnValue;
-                if (diff < 0L)
-                {
-                    returnValue = -1;
-                }
-                else if (diff > 0L)
-                {
-                    returnValue = +1;
-                }
-                else
-                {
-                    assert diff == 0L;
-                    returnValue = 0;
-                }
-                return returnValue;
-            }
-        };
-
-        // file filter to reject dirs
-        FileFilter noDirFilter = new FileFilter()
-        {
-            public boolean accept(File f)
-            {
-				return !f.isDirectory();
-            }
-        };
-
-        // Filter out the dirs.
-        File[] nonDirs = dir.listFiles(noDirFilter);
-
-        //return them sorted
-        Arrays.sort(nonDirs, byModificationDate);
-        return nonDirs;
-    }
 
     /** Process a single xml file.
      * Operation as follows :

@@ -16,18 +16,23 @@
  */
 package com.googlecode.jchav.jmeter;
 
-import com.googlecode.jchav.data.BuildIdImpl;
-import com.googlecode.jchav.data.Measurement;
-import com.googlecode.jchav.data.PageData;
 import static org.junit.Assert.fail;
-import org.junit.Before;
-import org.junit.Test;
-import org.xml.sax.InputSource;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.SortedSet;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.xml.sax.InputSource;
+
+import com.googlecode.jchav.ant.FileChooser;
+import com.googlecode.jchav.data.BuildIdImpl;
+import com.googlecode.jchav.data.Measurement;
+import com.googlecode.jchav.data.PageData;
 
 
 
@@ -46,7 +51,11 @@ public class ExpandJMeterXMLTest
      */
     @Before public void setUp()
     {
-        testDataDir=System.getProperty("jchav.test.data.dir");
+        testDataDir = System.getProperty("jchav.test.data.dir");
+        if (testDataDir == null)
+        {
+            testDataDir = "testdata";
+        }
     }
     
     
@@ -64,9 +73,10 @@ public class ExpandJMeterXMLTest
      */
     @Test public void testProcessFullDirectory() 
     {
+        final Set<File> files = FileChooser.corraleSrcFiles(testDataDir);
     
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
-        jmeterExpander.processAllfiles(new File(testDataDir));
+        jmeterExpander.processAllfiles(files);
     }
     
     /**
@@ -74,9 +84,11 @@ public class ExpandJMeterXMLTest
      */
     @Test public void testProcessFileAsDirectory() 
     {
+        final Set<File> files = new HashSet<File>();
+        files.add(new File(testDataDir + File.separator + "Good21Data.xml"));
     
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
-        jmeterExpander.processAllfiles(new File(testDataDir+File.separator+"Good21Data.xml"));
+        jmeterExpander.processAllfiles(files);
     }
     
     /**
@@ -85,7 +97,6 @@ public class ExpandJMeterXMLTest
      */
     @Test public void testGoodXML21Format() throws IOException
     {
-    
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
         
         InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"Good21Data.xml"));
@@ -100,7 +111,6 @@ public class ExpandJMeterXMLTest
      */
     @Test public void testNoParseXML21Format() throws IOException
     {
-    
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
         
         InputSource source=new InputSource(new FileReader(testDataDir+File.separator+"BadParse21Data.xml"));
@@ -174,9 +184,10 @@ public class ExpandJMeterXMLTest
      */
     @Test public void testBuildOrdering() 
     {
+        final Set<File> files = FileChooser.corraleSrcFiles(testDataDir);
     
         ExpandJMeterXML jmeterExpander=new ExpandJMeterXML();
-        jmeterExpander.processAllfiles(new File(testDataDir));
+        jmeterExpander.processAllfiles(files);
         
         PageData pageData=jmeterExpander.getPageData();
         

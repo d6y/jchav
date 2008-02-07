@@ -18,11 +18,13 @@ package com.googlecode.jchav.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 
 import com.googlecode.jchav.ant.Controller;
+import com.googlecode.jchav.ant.FileChooser;
 import com.googlecode.jchav.ant.LaunchParams;
 
 /**
@@ -71,7 +73,13 @@ public class JChavMojo extends AbstractMojo
     public void execute() throws MojoExecutionException
     {
         LaunchParams params = new LaunchParams();
-        params.setSrcdir(srcDir.toString());
+       
+        // The source dir is now effectively deprecated in the ant task, can we do
+        // an equivalent for Maven ??
+        
+        final Set<File> srcFiles = FileChooser.corraleSrcFiles(srcDir);
+        params.setSrcFiles(srcFiles);
+        
         params.setDestdir(destDir.toString());
         params.setReportTitle(reportTitle);
         params.setUniformYAxis(uniformYAxis);

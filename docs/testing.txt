@@ -4,7 +4,7 @@ When running tests you must have the System property set to the test data area, 
 
     -Djchav.test.data.dir=path/to/jchav/testdata -ea
 
-The Ant build in the etc fiolder will set this automatically.
+The Ant build in the etc folder will set this automatically.
 
 
 

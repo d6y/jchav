@@ -65,12 +65,9 @@ public class Controller
      *
      * @throws IOException if there was a problem creating the charts.
      */
-    public void go(LaunchParams launchParams)
-        throws IOException
+    public void go(LaunchParams launchParams) throws IOException
     {
-        File xmlDir=new File(launchParams.getSrcdir());
         File outDir=new File(launchParams.getDestdir());
-
         if (outDir.exists() == false)
         {
             if (false == outDir.mkdirs())
@@ -82,7 +79,7 @@ public class Controller
 
         // Read the data:
         ExpandJMeterXML expander = new ExpandJMeterXML();
-        expander.processAllfiles(xmlDir);
+        expander.processAllfiles(launchParams.getSrcFiles());
 
         final PageData data = expander.getPageData();
 
