@@ -99,17 +99,26 @@ whether or not to manage axes.
 	</tr>
 </table>
 
+<h2>Nested Elements</h2>
+
+<p>
+</p>
+
+
+<h3>fileset</h3>
+
+<p>
+One or more fileset elements are allowed within the jchav task element.
+</p>
+<p>
+Specifying file or pattern sets gives the user more control over the files that are deemed applicable for
+processing by the jchav task.
+</p>
+
+
 <h2>Examples</h2>
 
-<pre>
-&lt;!-- Run the charting task over the jmeter results in srcdir. -->
-&lt;jchav srcdir="${jmeter.result.dir}" 
-       destdir="${jchav.result.dir}"  
-       reporttitle="Digg Example Walk"
-       uniformyaxis="true"  />
-</pre>
 
-<p>TODO ? - use filesets instead of srcdir</p>
 <pre>
 &lt;!-- Run the charting task over the jmeter results in srcdir. -->
 &lt;jchav destdir="${jchav.result.dir}"  
@@ -117,6 +126,18 @@ whether or not to manage axes.
        uniformyaxis="true">
      &lt;fileset dir="${jmeter.result.dir}" includes="**/*" />
 &lt;/jchav>       
+</pre>
+
+<p>
+<b>The example below is valid, up until version 1.1.1. srcdir is now DEPRECATED, and the above example, with fileset tags should be used.</b>
+</p>
+
+<pre>
+&lt;!-- Run the charting task over the jmeter results in srcdir. -->
+&lt;jchav srcdir="${jmeter.result.dir}" 
+       destdir="${jchav.result.dir}"  
+       reporttitle="Digg Example Walk"
+       uniformyaxis="true"  />
 </pre>
 
 </body>

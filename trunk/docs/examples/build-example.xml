@@ -92,9 +92,12 @@ Additionally it assumes that you have JMeter installed at ${jmeter.install.dir},
 			</classpath>
 		 </taskdef>
 		
-		<jchav srcdir="${jmeter.result.dir}" destdir="${jchav.result.dir}" 
+		<jchav destdir="${jchav.result.dir}" 
 			reporttitle="Digg Example Walk"
-			uniformyaxis="true"  />
+			uniformyaxis="true">
+			
+			<fileset dir="${jmeter.result.dir}" includes="**/*.xml" />
+		</jchav>
 		
 		<echo>Now open digjchavresults/index.html</echo>
 	
