@@ -65,9 +65,13 @@ Additionally it assumes that you have JMeter installed at ${jmeter.install.dir},
 	<target name="run-jmeter" depends="init"
 			description="Execute the JMeter test plan, recording the results to a file.">		
 
+		<path id="jmeter.ant.path">
+			<fileset dir="${jmeter.install.dir}/extras/" includes="ant-jmeter*.jar" />
+		</path>
+
 		<taskdef
                 name="jmeter"
-                classpath="${jmeter.install.dir}/extras/ant-jmeter.jar"
+                classpathref="jmeter.ant.path"
                 classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
 
 		<jmeter			
