@@ -49,7 +49,7 @@ public class LaunchParams
     /** 
      * Simple constructor for directories.
      * 
-     * @param srcdir The set of source files.
+     * @param srcFiles The set of source files.
      * @param destdir destination location.
      */
     public LaunchParams(Set<File> srcFiles, String destdir)
@@ -60,11 +60,11 @@ public class LaunchParams
     
     /** Simple constuctor for directories and title.
      * 
-     * @param srcdir The set of source files.
+     * @param srcFiles The set of source files.
      * @param destdir destination location.
      * @param reportTitle title for the report.
      */
-    public LaunchParams(Set<File> srcFiles, String destdir,String reportTitle)
+    public LaunchParams(Set<File> srcFiles, String destdir, String reportTitle)
     {
         this.srcFiles = srcFiles;
         this.destdir = destdir;
@@ -112,7 +112,7 @@ public class LaunchParams
     }
 
     /**
-     * @param srcdir The set of source files.
+     * @param srcFiles The set of source files.
      */
     public final void setSrcFiles(Set<File> srcFiles)
     {
