@@ -178,6 +178,9 @@ ANT Build for JChav project.   IMPORTANT: Run from the etc/ folder.
 
 	<target name="build-jar" depends="compile">
 		<delete file="${target.jarfile}" />
+		
+		<copy file="log4j.xml" todir="${build.classes.dir}"/>
+		
 		<jar destfile="${target.jarfile}" >
 			<fileset dir="${build.classes.dir}" />
 		</jar>
