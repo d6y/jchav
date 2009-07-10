@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2009 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 package com.googlecode.jchav.data;
 
 /**
- * Concrete implementation of the build id class.
+ * Concrete immutable implementation of the build id class.
  * @author $LastChangedBy$
  * @version $LastChangedDate$ $LastChangedRevision$
  */
@@ -36,7 +36,7 @@ public class BuildIdImpl implements BuildId
      * @param buildName name.
      * @param buildOrder order.
      */
-    public BuildIdImpl(String buildName, int buildOrder)
+    public BuildIdImpl(final String buildName, final int buildOrder)
     {
         this.buildName=buildName;
         this.buildOrder=buildOrder;
@@ -59,4 +59,30 @@ public class BuildIdImpl implements BuildId
     {
         return buildOrder;
     }
+
+    @Override
+    public int hashCode()
+    {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((buildName == null) ? 0 : buildName.hashCode());
+        result = prime * result + buildOrder;
+        return result;
+    }
+
+    @Override
+    public boolean equals(final Object obj)
+    {
+        if (!(obj instanceof BuildIdImpl))
+        {
+            return false;
+        }
+        
+        BuildIdImpl that = (BuildIdImpl)obj;
+        return that != null && this.buildName.equals(that.buildName) && this.buildOrder == that.buildOrder;
+       
+    }
+    
+    
+    
 }

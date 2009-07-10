@@ -129,7 +129,7 @@ public class JMeterXMLSaxHandler extends DefaultHandler
                 }
                 else
                 {
-                    logger.error("Error on reading return code flag "+returnCode);
+                    logger.error("Error on reading return code flag");
                 }
             }
             catch(NumberFormatException ne)
