@@ -1,5 +1,24 @@
 RELEASE HISTORY
 
+* Release 1.1.2, 2009-07-10
+  MD5 (jchav-1.1.2.zip.md5) = 98294a06d8b78d5061949547aa40604f
+ 
+  - Issue 23: support for <fileset> in the Ant task
+    http://code.google.com/p/jchav/issues/detail?id=23
+  - consequential deprecation of srcdir in the Ant task. Migrate by replacing
+    <jchav srcdir="SOME_DIR" ... /> with 
+    <jchav ... >
+	  <fileset dir="SOME_DIR" includes="**/*.xml" />
+    </jchav>
+  - Issue 20: support for sample and httpSample output from JMeter
+    http://code.google.com/p/jchav/issues/detail?id=20
+  - Issue 24: improved CSS to avoid image cropping (thank you paul.blizzard).
+    http://code.google.com/p/jchav/issues/detail?id=24
+  - FindBugs warnings fixed
+  - Tested with JMeter 2.3.4
+  - Included a log4j configuration in the distribution
+  
+
 * Release 1.1.1, 2007-12-22
   MD5 (jchav-1.1.1.zip) = 574a6a091b13bb324bcd6d451fc33e89
 
