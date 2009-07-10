@@ -1,5 +1,5 @@
 /**
- * Copyright 2006-2007 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2009 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -58,7 +58,7 @@ public class MinMax
     {
     
         // TODO: does the summary page always give us the largest max and the 
-        // smalest min?  If so... we can just look there...
+        // smallest min?  If so... we can just look there...
         
         long min = Long.MAX_VALUE;
         long max = Long.MIN_VALUE;

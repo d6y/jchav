@@ -1,5 +1,5 @@
 /**
- * Copyright 2006 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
+ * Copyright 2006-2009 Paul Goulbourn, Richard Dallaway, Gareth Floodgate
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -108,9 +108,43 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
     }
 
     /**{@inheritDoc}*/
+    public void setPageOK(boolean pageOK)
+    {
+        this.pageOK = pageOK;
+    }
+
+    /**{@inheritDoc}*/
     public int compareTo(Measurement o)
     {
         return buildId.getBuildOrder()-o.getBuildId().getBuildOrder();
+    }
+    
+    @Override
+    public boolean equals(final Object obj)
+    {
+        if (!(obj instanceof MeasurementImpl))
+        {
+            return false;
+        }
+        
+        MeasurementImpl that = (MeasurementImpl)obj;
+        
+        /*
+         * We don't have a strong position on what qualifies as two
+         * MeasurementImpl classes being equal (ditto for hashcode). 
+         * However, for the sake of clarity we define equals here as being consistent
+         * with the comapreTo definition above.  This is in line
+         * with Effective Java, 2nd Ed, Item 12 (p. 63, 4th bullet point).
+         */
+        
+        return this.buildId.equals(that.buildId);
+        
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return buildId.hashCode();
     }
 
     /**{@inheritDoc}*/
@@ -119,10 +153,8 @@ public class MeasurementImpl implements Measurement,Comparable<Measurement>
         return pageOK;
     }
 
-    /**{@inheritDoc}*/
-    public void setPageOK(boolean pageOK)
-    {
-        this.pageOK = pageOK;
-    }
+   
+ 
+    
     
 }
