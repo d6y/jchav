@@ -53,16 +53,16 @@ public class ExpandJMeterXML
     private PageData pageData = new PageDataImpl();
 
     /**
-     * Read each resulting xml file in turn.
+     * Read each resulting XML file in turn.
      * For each file call processXMLFile to calculate its averages and add them to the build.
-     * @param dir Directory used to store all the jmeter files.
+     * @param files the JMeter files to process.
      */
     public void processAllfiles(Set<File> files)
     {
         // Make sure that there are files to process.
         if (files == null || files.isEmpty())
         {
-            logger.error("Unexpected empty file processing list ..... ignoring.");
+            logger.error("Unexpected empty file processing list...ignoring.");
             return;
         }
 
